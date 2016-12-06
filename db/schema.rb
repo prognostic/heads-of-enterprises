@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20161206080731) do
+ActiveRecord::Schema.define(version: 20161206095537) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -80,12 +80,10 @@ ActiveRecord::Schema.define(version: 20161206080731) do
     t.text     "comment"
     t.datetime "created_at",            null: false
     t.datetime "updated_at",            null: false
-    t.integer  "company_id"
     t.string   "passport_file_name"
     t.string   "passport_content_type"
     t.integer  "passport_file_size"
     t.datetime "passport_updated_at"
-    t.index ["company_id"], name: "index_faces_on_company_id", using: :btree
   end
 
   create_table "users", force: :cascade do |t|
@@ -111,5 +109,4 @@ ActiveRecord::Schema.define(version: 20161206080731) do
   add_foreign_key "bank_accounts", "companies"
   add_foreign_key "banks", "cities"
   add_foreign_key "branches", "banks"
-  add_foreign_key "faces", "companies"
 end
