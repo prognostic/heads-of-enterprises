@@ -10,10 +10,21 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20161206053025) do
+ActiveRecord::Schema.define(version: 20161206062905) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
+
+  create_table "assignments", force: :cascade do |t|
+    t.date     "date"
+    t.integer  "postion"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.integer  "face_id"
+    t.integer  "company_id"
+    t.index ["company_id"], name: "index_assignments_on_company_id", using: :btree
+    t.index ["face_id"], name: "index_assignments_on_face_id", using: :btree
+  end
 
   create_table "bank_accounts", force: :cascade do |t|
     t.date     "opening_date"
@@ -86,6 +97,8 @@ ActiveRecord::Schema.define(version: 20161206053025) do
     t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true, using: :btree
   end
 
+  add_foreign_key "assignments", "companies"
+  add_foreign_key "assignments", "faces"
   add_foreign_key "bank_accounts", "branches"
   add_foreign_key "bank_accounts", "companies"
   add_foreign_key "faces", "companies"
