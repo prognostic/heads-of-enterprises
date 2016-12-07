@@ -17,7 +17,8 @@ gem 'coffee-rails', '~> 4.2'
 # gem 'therubyracer', platforms: :ruby
 gem 'rails_admin', '~> 1.0'
 gem 'devise'
-gem "paperclip", "~> 5.0.0"
+gem 'paperclip', '~> 5.0.0'
+gem 'slim'
 
 # Use react as the JavaScript library
 #gem 'react-rails'
