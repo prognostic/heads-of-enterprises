@@ -18,7 +18,7 @@ gem 'coffee-rails', '~> 4.2'
 gem 'rails_admin', '~> 1.0'
 gem 'devise'
 gem 'paperclip', '~> 5.0.0'
-gem 'slim'
+gem 'slim-rails'
 
 # Use react as the JavaScript library
 #gem 'react-rails'
