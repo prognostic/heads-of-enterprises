@@ -1,3 +1,3 @@
 class City < ApplicationRecord
-  has_many :banks
+  has_many :banks,  dependent: :destroy
 end

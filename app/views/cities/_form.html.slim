@@ -8,4 +8,6 @@
         - city.errors.full_messages.each do |message|
           li= message
   .actions
+    = f.label 'Название'
+    = f.text_field :name
     = f.submit
