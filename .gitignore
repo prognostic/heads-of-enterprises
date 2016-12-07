@@ -17,3 +17,4 @@
 .byebug_history
 /.idea/
 /public/system/
+/vendor/assets/bower_components/
