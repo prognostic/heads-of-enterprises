@@ -1,0 +1,19 @@
+= simple_form_for @assignment, defaults: { input_html: { class: 'form-horizontal' } } do |f|
+  = f.error_notification
+
+  fieldset
+    .form_group
+      label class="col-sm-2 control-label" Должность
+      = f.text_field :postion, class: 'col-sm-4 form-control-rounded'
+    .form_group
+      label class="col-sm-2 control-label" Персона
+      = f.text_field :face_id, class: 'col-sm-4 form-control-rounded'
+    .form_group
+      label class="col-sm-2 control-label" Компания
+      = f.text_field :company_id, class: 'col-sm-4 form-control-rounded'
+    .form_group
+      label class="col-sm-2 control-label" Дата назначения
+      / TODO fix momentum
+      = f.text_field :date, class: 'col-sm-4 form-control-rounded', id: 'datetimepicker', as: :datepicker
+    .form_group
+      = f.submit

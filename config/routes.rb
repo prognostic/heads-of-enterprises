@@ -2,7 +2,7 @@ Rails.application.routes.draw do
   #root 'pages#main'
 
   scope 'control' do
-    resources :cities, :banks, :branches, :companies, :faces, :bank_accounts
+    resources :cities, :banks, :branches, :companies, :faces, :bank_accounts, :assignments
   end
 
   devise_for :users

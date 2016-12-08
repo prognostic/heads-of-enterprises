@@ -1,0 +1,12 @@
+p#notice= notice
+h3 Редактировать назначение
+
+.row
+  .panel
+    == render 'form'
+
+  div class="panel-footer clearfix"
+    = link_to 'Просмотр', @assignment
+    '|
+    = link_to 'Назад', assignments_path
+

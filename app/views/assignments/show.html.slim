@@ -1,0 +1,30 @@
+p#notice= notice
+h3= "Назначение"
+
+.row
+  .panel
+    div class="col-sm-2 control-label"
+      = "Дожность"
+    div class="col-sm-2 control-label"
+      = @assignment.postion
+    br
+    div class="col-sm-2 control-label"
+      = "Персона"
+    div class="col-sm-2 control-label"
+      = @assignment.face_id
+    br
+    div class="col-sm-2 control-label"
+      = "Компания"
+    div class="col-sm-2 control-label"
+      = @assignment.company_id
+    br
+    div class="col-sm-2 control-label"
+      = "Дата назначения"
+    div class="col-sm-2 control-label"
+      = @assignment.date
+    br
+
+  div class="panel-footer clearfix"
+    = link_to 'Редактировать', edit_assignment_path(@assignment)
+    '|
+    = link_to 'Назад', assignments_path
