@@ -12,7 +12,6 @@ h3 Города
           - @cities.each do |city|
             tr
               td= city.name
-              td= link_to 'Просмотр', city
               td= link_to 'Редактировать', edit_city_path(city)
               td= link_to 'Удалить', city, method: :delete, data: { confirm: 'Are you sure?' }
   div class="panel-footer clearfix"
