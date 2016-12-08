@@ -1,0 +1,13 @@
+p#notice= notice
+h3 Редактировать счет
+
+.row
+  .panel
+
+    == render 'form'
+
+  div class="panel-footer clearfix"
+    = link_to 'Просмотр', @bank_account
+    '|
+    = link_to 'Назад', bank_accounts_path
+

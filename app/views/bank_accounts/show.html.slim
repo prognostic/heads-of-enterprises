@@ -1,0 +1,40 @@
+p#notice= notice
+h3= "Счет"
+
+.row
+  .panel
+    div class="col-sm-2 control-label"
+      = "Статус"
+    div class="col-sm-2 control-label"
+      = @bank_account.status
+    br
+    div class="col-sm-2 control-label"
+      = "Сумма на счету"
+    div class="col-sm-2 control-label"
+      = @bank_account.amount_of_money
+    br
+    div class="col-sm-2 control-label"
+      = "Дата открытия"
+    div class="col-sm-2 control-label"
+      = @bank_account.opening_date
+    br
+    div class="col-sm-2 control-label"
+      = "Отделение"
+    div class="col-sm-2 control-label"
+      = @bank_account.branch_id
+    br
+    div class="col-sm-2 control-label"
+      = "Компания"
+    div class="col-sm-2 control-label"
+      = @bank_account.company_id
+    br
+    div class="col-sm-2 control-label"
+      = "Комментарий"
+    div class="col-sm-2 control-label"
+      = @bank_account.comment
+    br
+
+  div class="panel-footer clearfix"
+    = link_to 'Редактировать', edit_bank_account_path(@bank_account)
+    '|
+    = link_to 'Назад', bank_accounts_path
