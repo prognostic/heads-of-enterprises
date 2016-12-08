@@ -1,0 +1,12 @@
+p#notice= notice
+h3= "Отделение #{@branch.address}"
+
+.row
+  .panel
+    = @branch.address
+    br
+    = @branch.bank.name
+    br
+    = link_to 'Редактировать', edit_branch_path(@branch)
+    '|
+    = link_to 'Назад', branches_path

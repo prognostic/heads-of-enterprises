@@ -1,0 +1,11 @@
+p#notice= notice
+h3 Редактировать отделение банка
+
+.row
+  .panel
+
+    == render 'form'
+
+    = link_to 'Просмотр', @branch
+    '|
+    = link_to 'Назад', branches_path

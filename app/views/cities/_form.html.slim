@@ -1,4 +1,4 @@
-= form_for(city) do |f|
+= simple_form_for(city) do |f|
   - if city.errors.any?
     #error_explanation
       h2
@@ -7,7 +7,9 @@
       ul
         - city.errors.full_messages.each do |message|
           li= message
-  .actions
-    = f.label 'Название'
-    = f.text_field :name
-    = f.submit
+  fieldset
+    .form_group
+      label class="col-sm-2 control-label" Название
+      = f.text_field :name, class: 'col-sm-4 form-control-rounded'
+    .form_group
+      = f.submit

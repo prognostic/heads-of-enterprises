@@ -1,0 +1,13 @@
+= simple_form_for @branch, defaults: { input_html: { class: 'form-horizontal' } } do |f|
+  = f.error_notification
+
+
+  fieldset
+    .form_group
+      label class="col-sm-2 control-label" Адрес отделения банка
+      = f.text_field :address, class: 'col-sm-4 form-control-rounded'
+    .form_group
+      label class="col-sm-2 control-label" Банк
+      = f.association :banks, label: false, value_method: :id, include_blank: false, class: 'col-sm-4 form-control-rounded', as: :select,  input_html: { multiple: false }
+    .form_group
+      = f.submit

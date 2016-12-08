@@ -1,0 +1,21 @@
+p#notice= notice
+h3 Отделения
+
+.row
+  .panel
+    .table-responsive
+      table class="table table-striped table-bordered table-hover"
+        thead
+          tr
+            th colspan="3"
+        tbody
+          - @branches.each do |branch|
+            tr
+              td= branch.address
+              / TODO добавить вывод банка со ссылкой на него
+              td = link_to 'Просмотр', branch
+              td = link_to 'Редактировать', edit_branch_path(branch)
+              td = link_to 'Удалить', branch, data: { confirm: 'Вы уверены?' }, method: :delete
+
+  div class="panel-footer clearfix"
+    = link_to 'Добавить отделение', new_branch_path
