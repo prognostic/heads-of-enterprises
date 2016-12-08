@@ -1,0 +1,40 @@
+p#notice= notice
+h3= "Компания #{@company.title}"
+
+.row
+  .panel
+    div class="col-sm-2 control-label"
+      = "Название"
+    div class="col-sm-2 control-label"
+      = @company.title
+    br
+    div class="col-sm-2 control-label"
+      = "ИНН"
+    div class="col-sm-2 control-label"
+      = @company.inn
+    br
+    div class="col-sm-2 control-label"
+      = "Адрес"
+    div class="col-sm-2 control-label"
+      = @company.address
+    br
+    div class="col-sm-2 control-label"
+      = "Дата регистрации"
+    div class="col-sm-2 control-label"
+      = @company.registration_date
+    br
+    div class="col-sm-2 control-label"
+      = "ОКВЭДы"
+    div class="col-sm-2 control-label"
+      = @company.okved
+    br
+    div class="col-sm-2 control-label"
+      = "Комментарий"
+    div class="col-sm-2 control-label"
+      = @company.comment
+    br
+
+  div class="panel-footer clearfix"
+    = link_to 'Редактировать', edit_company_path(@company)
+    '|
+    = link_to 'Назад', companies_path

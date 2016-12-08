@@ -1,0 +1,12 @@
+p#notice= notice
+h3 Редактировать компанию
+
+.row
+  .panel
+
+    == render 'form'
+
+  div class="panel-footer clearfix"
+    = link_to 'Просмотр', @company
+    '|
+    = link_to 'Назад', companies_path

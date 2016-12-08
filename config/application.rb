@@ -34,7 +34,7 @@ module CompaniesDirectory
     # Controller assets
     config.assets.precompile += [
         # Scripts
-        'singleview.js',
+        'companies.js',
         # Stylesheets
         'singleview.css'
     ]

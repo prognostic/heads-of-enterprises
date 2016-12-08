@@ -15,4 +15,6 @@
 //= require jquery
 //= require jquery_ujs
 //= require turbolinks
+//= require moment
+//= require moment/src/locale/ru.js
 //= require_tree .

@@ -1,0 +1,1 @@
+$('#datetimepicker').datetimepicker({locale: 'ru', format: 'DD.MM.YYYY', defaultDate: selected_date });

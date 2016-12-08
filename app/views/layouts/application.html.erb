@@ -8,9 +8,9 @@
   <meta name="keywords" content="">
   <title></title>
   <!-- =============== VENDOR STYLES ===============-->
-  <%#= stylesheet_link_tag 'base' %>
+  <%= stylesheet_link_tag 'base' %>
   <!-- =============== VIEW VENDOR STYLES ===============-->
-  <%= stylesheet_link_tag params[:controller] %>
+  <% stylesheet_link_tag params[:controller] %>
   <!-- =============== APP STYLES ===============-->
   <%= stylesheet_link_tag 'application', media: 'all', id: "maincss" %>
   <%= csrf_meta_tags %>
@@ -43,7 +43,7 @@
   </footer>
 </div>
 <!-- =============== VENDOR SCRIPTS ===============-->
-<%#= javascript_include_tag 'base' %>
+<%= javascript_include_tag 'base' %>
 <!-- =============== VIEW VENDOR SCRIPTS ===============-->
 <%= javascript_include_tag params[:controller] %>
 <!-- =============== APP SCRIPTS ===============-->
