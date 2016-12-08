@@ -1,0 +1,31 @@
+= simple_form_for @face, defaults: { input_html: { class: 'form-horizontal' } } do |f|
+  = f.error_notification
+
+  fieldset
+    .form_group
+      label class="col-sm-10 control-label" ФИО
+      = f.text_field :full_name, class: 'col-sm-4 form-control-rounded'
+      br
+    .form_group
+      label class="col-sm-10 control-label" Личный номер
+      = f.text_field :personal_phone, class: 'col-sm-4 form-control-rounded'
+      br
+    .form_group
+      label class="col-sm-10 control-label" Рабочий номер
+      = f.text_field :work_phone, class: 'col-sm-4 form-control-rounded'
+    br
+    .form_group
+      label class="col-sm-10 control-label" Роль
+      = f.text_field :role, class: 'col-sm-4 form-control-rounded'
+    br
+    .form_group
+      label class="col-sm-10 control-label" Комментарий
+      = f.text_area :comment, class: 'col-sm-4 form-control-rounded'
+    br
+    .form_group
+      label class="col-sm-10 control-label" Паспорт
+      = image_tag @face.passport.url(:medium), size: "150"
+      = f.file_field :passport, class: 'col-sm-4 form-control-rounded'
+    br
+    .form_group
+      = f.submit
