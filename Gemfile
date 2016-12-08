@@ -19,6 +19,7 @@ gem 'rails_admin', '~> 1.0'
 gem 'devise'
 gem 'paperclip', '~> 5.0.0'
 gem 'slim-rails'
+gem 'simple_form'
 
 # Use react as the JavaScript library
 #gem 'react-rails'

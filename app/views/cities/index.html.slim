@@ -13,6 +13,6 @@ h3 Города
             tr
               td= city.name
               td= link_to 'Редактировать', edit_city_path(city)
-              td= link_to 'Удалить', city, method: :delete, data: { confirm: 'Are you sure?' }
+              td= link_to 'Удалить', city, method: :delete, data: { confirm: 'Вы уверены?' }
   div class="panel-footer clearfix"
     = link_to 'Добавить город', new_city_path

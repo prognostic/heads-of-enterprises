@@ -1,0 +1,17 @@
+= simple_form_for @bank, defaults: { input_html: { class: 'form-horizontal' } } do |f|
+  - if @bank.errors.any?
+    #error_explanation
+      h2 = "#{pluralize(@bank.errors.count, "error")} prohibited this bank from being saved:"
+      ul
+        - @bank.errors.full_messages.each do |message|
+          li = message
+
+  fieldset
+    .form_group
+      label class="col-sm-2 control-label" Название банка
+      = f.text_field :name
+    .form_group
+      label class="col-sm-2 control-label" Город
+      = f.association :city, label: false, value_method: :id, include_blank: false
+    .form_group
+      = f.submit

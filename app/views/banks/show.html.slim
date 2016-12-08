@@ -1,0 +1,12 @@
+p#notice= notice
+h3= "Банк #{@bank.name}"
+
+.row
+  .panel
+    = @bank.name
+    br
+    = @bank.city.name
+    br
+    = link_to 'Редактировать', edit_bank_path(@bank)
+    '|
+    = link_to 'Назад', banks_path
