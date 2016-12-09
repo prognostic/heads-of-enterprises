@@ -3,5 +3,6 @@ h3 Добавить город
 
 .row
   .panel
-    = render 'form', city: @city
+    == render 'form', city: @city
+  div class="panel-footer clearfix"
     = link_to 'Назад', cities_path
