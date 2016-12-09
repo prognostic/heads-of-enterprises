@@ -1,0 +1,32 @@
+.wrapper
+  .block-center.mt-xl.wd-xl
+    /! START panel
+    .panel.panel-dark.panel-flat
+      .panel-heading.text-center
+        a href="#"
+        /TODO add logo and other details
+      /img.block-center.img-rounded alt="Image" src="/assets/angle/logo-5a16ef7a67ed87823c16e33b7bd7f24cd24e6c33c0dafed488aab7dcf465338f.png" /
+      .panel-body
+        p.text-center.pv Войдите для продолжения.
+        = simple_form_for(resource, as: resource_name, url: session_path(resource_name), defaults: { input_html: { class: 'mb-lg' } }) do |f|
+          .form-group.has-feedback
+            = f.input :email, required: true, autofocus: true, autocomplete: false, label: false, placeholder: 'Введите email', input_html: { class: 'form-control', id: 'exampleInputEmail1' }
+            span.fa.fa-envelope.form-control-feedback.text-muted
+          .form-group.has-feedback
+            = f.input :password, required: true, label: false, placeholder: 'Введите пароль', input_html: { class: 'form-control', id: 'exampleInputPassword1' }
+            span.fa.fa-lock.form-control-feedback.text-muted
+          /.clearfix
+             .checkbox.c-checkbox.pull-left.mt0
+               label
+                 input name="remember" type="checkbox" value="" /
+                 = succeed "Remember" do
+                   span.fa.fa-check
+                     .pull-right
+                       a.text-muted href="/pages/recover"  Forgot your password?
+                    button.btn.btn-block.btn-primary.mt-lg type="submit"  Войти
+            /= f.input :remember_me, as: :boolean if devise_mapping.rememberable?
+          = f.button :submit, "Войти", class: 'btn btn-block btn-primary mt-lg'
+        /= render "devise/shared/links"
+        /p.pt-lg.text-center Незарегистрированы в системе?
+        /a.btn.btn-block.btn-default href="/pages/register"  Зарегистрироваться
+        /! END panel

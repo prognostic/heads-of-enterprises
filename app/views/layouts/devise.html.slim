@@ -1,0 +1,36 @@
+doctype html
+html lang="en"
+  head
+    title
+    /=============== VENDOR STYLES ===============
+    = stylesheet_link_tag 'base'
+    /=============== VIEW VENDOR STYLES ===============
+    /= stylesheet_link_tag params[:controller]
+    /=============== APP STYLES ===============
+    = stylesheet_link_tag 'application', media: 'all', 'data-turbolinks-track' => true
+    = csrf_meta_tags
+  body
+    #page-wrapper
+      .row
+        .col-sm-4.col-md-offset-4
+          - if notice
+            .alert.alert-info
+              p = notice
+          - if alert
+            .alert.alert-warning
+              p = alert
+          = yield
+
+    .p-lg.text-center
+      span ©
+      span 2016
+      span -
+      span Title
+      br/
+      span Company
+    /=============== VENDOR SCRIPTS ===============
+    = javascript_include_tag 'base'
+    /=============== VIEW VENDOR SCRIPTS ===============
+    /= javascript_include_tag params[:controller]
+    /=============== APP SCRIPTS ===============
+    = javascript_include_tag 'application', 'data-turbolinks-track' => true

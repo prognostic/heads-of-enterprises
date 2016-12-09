@@ -1,10 +1,13 @@
 Rails.application.routes.draw do
-  #root 'pages#main'
+  root 'bank_accounts#index'
 
   scope 'control' do
     resources :cities, :banks, :branches, :companies, :faces, :bank_accounts, :assignments
   end
 
-  devise_for :users
+  devise_for :users, path_names: {
+      sign_up: ''
+  }
+
   mount RailsAdmin::Engine => '/admin', as: 'rails_admin'
 end
