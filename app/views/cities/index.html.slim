@@ -2,20 +2,22 @@ p#notice= notice
 h3 Города
 
 .row
-  .panel
-    .table-responsive
-      table class="table table-striped table-bordered table-hover"
-        thead
-          tr
-            th colspan="3"
-        tbody
-          - @cities.each do |city|
-            tr
-              td= city.name
-              td
-                .col-md-1
-                  = link_to '', edit_city_path(city), class: 'fa fa-edit'
-                .col-md-1
-                  = link_to '', city, method: :delete, data: { confirm: 'Вы уверены?' }, class: 'fa fa-remove'
+  .col-lg-12
+    .panel.panel-default
+      .panel-body
+        .table-responsive
+          table class="table table-striped table-bordered table-hover"
+            thead
+              tr
+                th colspan="3"
+            tbody
+              - @cities.each do |city|
+                tr
+                  td= city.name
+                  td
+                    .col-md-1
+                      = link_to '', edit_city_path(city), class: 'fa fa-edit'
+                    .col-md-1
+                      = link_to '', city, method: :delete, data: { confirm: 'Вы уверены?' }, class: 'fa fa-remove'
   div class="panel-footer clearfix"
     = link_to 'Добавить город', new_city_path

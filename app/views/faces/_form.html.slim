@@ -3,29 +3,29 @@
 
   fieldset
     .form_group
-      label class="col-sm-10 control-label" ФИО
-      = f.text_field :full_name, class: 'col-sm-4 form-control-rounded'
-      br
+      label class="col-sm-2 control-label" ФИО
+      .col-lg-10
+        = f.text_field :full_name, class: 'form-control'
     .form_group
-      label class="col-sm-10 control-label" Личный номер
-      = f.text_field :personal_phone, class: 'col-sm-4 form-control-rounded'
-      br
+      label class="col-sm-2 control-label" Личный номер
+      .col-lg-10
+        = f.text_field :personal_phone, class: 'form-control'
     .form_group
-      label class="col-sm-10 control-label" Рабочий номер
-      = f.text_field :work_phone, class: 'col-sm-4 form-control-rounded'
-    br
+      label class="col-sm-2 control-label" Рабочий номер
+      .col-lg-10
+        = f.text_field :work_phone, class: 'form-control'
     .form_group
-      label class="col-sm-10 control-label" Роль
-      = f.text_field :role, class: 'col-sm-4 form-control-rounded'
-    br
+      label class="col-sm-2 control-label" Комментарий
+      .col-lg-10
+        = f.text_area :comment, class: 'form-control'
     .form_group
-      label class="col-sm-10 control-label" Комментарий
-      = f.text_area :comment, class: 'col-sm-4 form-control-rounded'
-    br
+      label class="col-sm-2 control-label" Паспорт
+      .col-lg-10
+        = image_tag @face.passport.url(:medium), size: "150"
+        = f.file_field :passport, class: 'form-control'
     .form_group
-      label class="col-sm-10 control-label" Паспорт
-      = image_tag @face.passport.url(:medium), size: "150"
-      = f.file_field :passport, class: 'col-sm-4 form-control-rounded'
-    br
+      label class="col-sm-2 control-label" Роль
+      .col-lg-10
+        = f.select :role, collection: Face.roles.keys, class: 'form-control m-b'
     .form_group
       = f.submit
