@@ -1,3 +1,21 @@
+# == Schema Information
+#
+# Table name: faces
+#
+#  id                    :integer          not null, primary key
+#  full_name             :string
+#  personal_phone        :string
+#  work_phone            :string
+#  role                  :integer
+#  comment               :text
+#  created_at            :datetime         not null
+#  updated_at            :datetime         not null
+#  passport_file_name    :string
+#  passport_content_type :string
+#  passport_file_size    :integer
+#  passport_updated_at   :datetime
+#
+
 class Face < ApplicationRecord
   has_many :assignments
 

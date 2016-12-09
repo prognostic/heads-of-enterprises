@@ -20,6 +20,7 @@ gem 'devise'
 gem 'paperclip', '~> 5.0.0'
 gem 'slim-rails'
 gem 'simple_form'
+gem 'annotate'
 
 # Use react as the JavaScript library
 gem 'react-rails'
