@@ -2,13 +2,15 @@
   fieldset
     /.form_group
     /  label class="col-sm-2 control-label" Дата назначения
-    /  = f.input :date, required: false, class: 'col-sm-4 form-control-rounded'
+    /  = f.text_field :date, :placeholder => 'Введите дату', class: "datepicker form-control-rounded", label: false
     .form_group
       label class="col-sm-2 control-label" Дата назначения
-      = f.text_field :date, :placeholder => 'Введите дату', class: 'col-sm-4 form-control-rounded'
+      = f.input :date, :placeholder => 'Введите дату', class: 'col-sm-4 form-control-rounded', label: false
+      br
     .form_group
-      label class="col-sm-2 control-label" Персона
+      label class="col-sm-2 control-label" ФИО
       = f.input :face_id, collection: Face.pluck(:full_name, :id), class: 'col-sm-4 form-control-rounded', as: :select, label: false, include_blank: false
+      br
     .form_group
       - if @company.assignments.detect { |a| a.position == 0 }
         label class="col-sm-2 control-label" Должность

@@ -13,8 +13,9 @@
       = f.text_field :address, class: 'col-sm-4 form-control-rounded'
     .form_group
       label class="col-sm-2 control-label" Дата регистрации
-      / TODO fix momentum
-      = f.text_field :registration_date, class: 'col-sm-4 form-control-rounded', id: 'datetimepicker', as: :datepicker
+      / TODO some time fix momentum
+      = f.input :registration_date, :placeholder => 'Введите дату', class: 'col-sm-4 form-control-rounded', label: false
+      br
     .form_group
       label class="col-sm-2 control-label" ОКВЭД(ы)
       = f.text_field :okved, class: 'col-sm-4 form-control-rounded'

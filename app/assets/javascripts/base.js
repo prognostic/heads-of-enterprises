@@ -1,1 +1,1 @@
-$('input#date_field').datepicker();
+//$('.datepicker').datepicker();

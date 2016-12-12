@@ -43,6 +43,7 @@ h3= "Компания #{@company.title}"
             b Директор:
             br
             = link_to assignment.face_id, face_path(assignment.face_id)
+            br
           - if assignment.position == 1
             b Учредитель:
             br
@@ -51,6 +52,9 @@ h3= "Компания #{@company.title}"
             b Сотрудник:
             br
             = link_to assignment.face_id, face_path(assignment.face_id)
+          br
+          | Дата назначения -
+          = assignment.date
       .panel-footer
 
   div class="panel-footer clearfix"
