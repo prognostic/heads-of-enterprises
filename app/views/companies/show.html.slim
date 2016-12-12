@@ -35,6 +35,13 @@ h3= "Компания #{@company.title}"
         div class="col-sm-2 control-label"
           = @company.comment
         br
+        div class="col-sm-2"
+          = "Персоны:"
+        - @assignments.each do |assignment|
+          br
+          = link_to assignment.face_id, face_path(assignment.face_id)
+          = "Роль: #{assignment.position}"
+          br
       .panel-footer
 
   div class="panel-footer clearfix"

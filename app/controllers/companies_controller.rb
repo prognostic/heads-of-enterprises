@@ -10,6 +10,7 @@ class CompaniesController < ApplicationController
   # GET /companies/1
   # GET /companies/1.json
   def show
+   @assignments = Assignment.where(company_id: params[:id])
   end
 
   # GET /companies/new
@@ -69,6 +70,6 @@ class CompaniesController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def company_params
-      params.fetch(:company, {}).permit(:title, :inn, :address, :registration_date, :okved, :comment, assignments_attributes: [:date, :postion, :face_id, :company_id, :_destroy])
+      params.fetch(:company, {}).permit(:title, :inn, :address, :registration_date, :okved, :comment, assignments_attributes: [:id, :date, :position, :face_id, :company_id, :_destroy])
     end
 end

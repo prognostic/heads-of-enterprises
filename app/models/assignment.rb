@@ -4,7 +4,7 @@
 #
 #  id         :integer          not null, primary key
 #  date       :date
-#  postion    :integer
+#  position   :integer
 #  created_at :datetime         not null
 #  updated_at :datetime         not null
 #  face_id    :integer
