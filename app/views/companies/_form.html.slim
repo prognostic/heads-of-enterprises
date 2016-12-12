@@ -22,4 +22,11 @@
       label class="col-sm-2 control-label" Комментарий
       = f.text_field :comment, class: 'col-sm-4 form-control-rounded'
     .form_group
+      b Персоны
+      #faces
+        = f.simple_fields_for :assignments do |assignment|
+          = render 'companies/assignment_fields', f: assignment
+        .links
+          = link_to_add_association 'Добавить персону', f, :assignments
+    .form_group
       = f.submit

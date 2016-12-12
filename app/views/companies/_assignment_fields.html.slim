@@ -1,0 +1,17 @@
+.nested-fields
+  fieldset
+    /.form_group
+    /  label class="col-sm-2 control-label" Дата назначения
+    /  = f.input :date, required: false, class: 'col-sm-4 form-control-rounded'
+    .form_group
+      label class="col-sm-2 control-label" Дата назначения
+      = f.text_field :date, :placeholder => 'Select Expiration Date', class: 'col-sm-4 form-control-rounded'
+    .form_group
+      label class="col-sm-2 control-label" Должность
+      = f.select :postion, collection: Face.roles.keys, class: 'col-sm-4 form-control m-b'
+    .form_group
+      label class="col-sm-2 control-label" Персона
+      = f.text_field :face_id, class: 'col-sm-4 form-control-rounded'
+    .form_group
+      = f.hidden_field :company_id
+      = link_to_remove_association "Удалить персону", f

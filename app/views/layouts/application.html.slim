@@ -32,9 +32,9 @@ html lang="en"
       /! Page footer
       footer
         = render partial: "layouts/partials/footer"
-    /! =============== VENDOR SCRIPTS ===============
-    = javascript_include_tag 'base'
     /! =============== VIEW VENDOR SCRIPTS ===============
     /! =============== APP SCRIPTS ===============
     = javascript_include_tag 'application'
+    /! =============== VENDOR SCRIPTS ===============
+    = javascript_include_tag 'base'
     = yield :body_area

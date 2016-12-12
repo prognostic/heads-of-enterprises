@@ -9,13 +9,14 @@
 //
 // Read Sprockets README (https://github.com/rails/sprockets#sprockets-directives) for details
 // about supported directives.
-//
+//= require jquery
+//= require jquery_ujs
 //= require react
 //= require components
 //= require react_ujs
-//= require jquery
-//= require jquery_ujs
 //= require turbolinks
+//= require cocoon
+//= require bootstrap.js
 //= require moment
 //= require moment/src/locale/ru.js
 //= require_tree .

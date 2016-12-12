@@ -16,4 +16,5 @@
 class Company < ApplicationRecord
   has_many :bank_accounts
   has_many :assignments
+  accepts_nested_attributes_for :assignments, reject_if: :all_blank, allow_destroy: true
 end
