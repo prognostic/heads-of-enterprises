@@ -8,15 +8,14 @@
       = f.text_field :date, :placeholder => 'Введите дату', class: 'col-sm-4 form-control-rounded'
     .form_group
       label class="col-sm-2 control-label" Персона
-      = f.text_field :face_id, class: 'col-sm-4 form-control-rounded'
+      = f.input :face_id, collection: Face.pluck(:full_name, :id), class: 'col-sm-4 form-control-rounded', as: :select, label: false, include_blank: false
     .form_group
       - if @company.assignments.detect { |a| a.position == 0 }
         label class="col-sm-2 control-label" Должность
-        = f.input :position, collection: Face.roles.drop(1), class: 'col-sm-4 form-control m-b', as: :select, label_method: false, include_blank: false
+        = f.input :position, collection: Face.roles.drop(1), class: 'col-sm-4 form-control m-b', as: :select, label: false, include_blank: false
       - else
-        / У нас нет директора
         label class="col-sm-2 control-label" Должность
-        = f.input :position, collection: Face.roles, class: 'col-sm-4 form-control m-b', as: :select, label_method: false, include_blank: false
+        = f.input :position, collection: Face.roles, class: 'col-sm-4 form-control m-b', as: :select, label: false, include_blank: false
     .form_group
       = f.hidden_field :company_id
       = link_to_remove_association "Удалить персону", f

@@ -44,11 +44,11 @@ h3= "Компания #{@company.title}"
             br
             = link_to assignment.face_id, face_path(assignment.face_id)
           - if assignment.position == 1
-            b Учредитель(и):
+            b Учредитель:
             br
             = link_to assignment.face_id, face_path(assignment.face_id)
           - if assignment.position == 2 && assignment.position == 3
-            b Сотрудники:
+            b Сотрудник:
             br
             = link_to assignment.face_id, face_path(assignment.face_id)
       .panel-footer
