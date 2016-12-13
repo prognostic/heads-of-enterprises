@@ -13,8 +13,7 @@
       = f.text_field :address, class: 'col-sm-4 form-control-rounded'
     .form_group
       label class="col-sm-2 control-label" Дата регистрации
-      / TODO some time fix momentum
-      = f.input :registration_date, :placeholder => 'Введите дату', class: 'col-sm-4 form-control-rounded', label: false
+      = f.text_field :registration_date, {class: 'datepicker col-sm-4 form-control-rounded'}
       br
     .form_group
       label class="col-sm-2 control-label" ОКВЭД(ы)
