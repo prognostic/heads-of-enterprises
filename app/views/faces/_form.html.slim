@@ -24,8 +24,4 @@
         = image_tag @face.passport.url(:medium), size: "150"
         = f.file_field :passport, class: 'form-control'
     .form_group
-      label class="col-sm-2 control-label" Роль
-      .col-lg-10
-        = f.select :role, collection: Face.roles.keys, class: 'form-control m-b'
-    .form_group
       = f.submit

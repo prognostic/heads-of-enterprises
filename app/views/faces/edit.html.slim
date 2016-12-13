@@ -6,9 +6,8 @@ h3 Редактировать персону
     .panel.panel-default
       .panel-body
         == render 'form'
-
-  div class="panel-footer clearfix"
-    = link_to 'Просмотр', @face
-    '|
-    = link_to 'Назад', faces_path
+      .panel-footer
+        = link_to 'Просмотр ', @face
+        '|
+        = link_to 'Назад', faces_path
 

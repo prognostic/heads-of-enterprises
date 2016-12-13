@@ -56,8 +56,6 @@ h3= "Компания #{@company.title}"
           | Дата назначения -
           = assignment.date
       .panel-footer
-
-  div class="panel-footer clearfix"
-    = link_to 'Редактировать', edit_company_path(@company)
-    '|
-    = link_to 'Назад', companies_path
+        = link_to 'Редактировать ', edit_company_path(@company)
+        '|
+        = link_to 'Назад', companies_path

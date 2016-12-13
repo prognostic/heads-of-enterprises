@@ -2,7 +2,9 @@ p#notice= notice
 h3 Добавить компанию
 
 .row
-  .panel
-    == render 'form'
-  div class="panel-footer clearfix"
-    = link_to 'Назад', companies_path
+  .col-lg-12
+    .panel.panel-default
+      .panel-body
+        == render 'form'
+      .panel-footer
+        = link_to 'Назад', companies_path

@@ -12,6 +12,6 @@
       = f.text_field :name, class: 'col-sm-4 form-control-rounded'
     .form_group
       label class="col-sm-2 control-label" Город
-      = f.association :city, label: false, value_method: :id, include_blank: false, class: 'col-sm-4 form-control-rounded'
+      = f.select :city_id, options_from_collection_for_select(City.all, "id", "name"), {}, {class: "select"}
     .form_group
       = f.submit

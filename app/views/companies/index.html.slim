@@ -2,24 +2,35 @@ p#notice= notice
 h3 Компании
 
 .row
-  .panel
-    .table-responsive
-      table class="table table-striped table-bordered table-hover"
-        thead
-          tr
-            th colspan="9"
-        tbody
-          - @companies.each do |company|
-            tr
-              td= company.title
-              td= company.inn
-              td= company.address
-              td= company.registration_date
-              td= company.okved
-              td= company.comment
-              td = link_to 'Просмотр', company
-              td = link_to 'Редактировать', edit_company_path(company)
-              td = link_to 'Удалить', company, data: { confirm: 'Вы уверены?' }, method: :delete
-
-  div class="panel-footer clearfix"
-    = link_to 'Добавить компанию', new_company_path
+  .col-lg-12
+    .panel.panel-default
+      .panel-body
+        .table-responsive
+          table class="table table-striped table-bordered table-hover"
+            thead
+              tr
+                th Название
+                th ИНН
+                th Адрес
+                th Дата регистрации
+                th ОКВЭД
+                th Комментарий
+            tbody
+              - @companies.each do |company|
+                tr
+                  td= company.title
+                  td= company.inn
+                  td= company.address
+                  td= company.registration_date
+                  td= company.okved
+                  td= company.comment
+                  td
+                    td
+                      .col-md-1
+                        = link_to '', company, class: 'fa fa-eye text-success'
+                      .col-md-1
+                        = link_to '', edit_company_path(company), class: 'fa fa-edit text-warning'
+                      .col-md-1
+                        = link_to '', company, method: :delete, data: {confirm: 'Вы уверены?'}, class: 'fa fa-remove text-danger'
+      .panel-footer
+        = link_to 'Добавить компанию', new_company_path

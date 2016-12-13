@@ -8,6 +8,7 @@
       = f.text_field :address, class: 'col-sm-4 form-control-rounded'
     .form_group
       label class="col-sm-2 control-label" Банк
-      = f.association :bank, label: false, value_method: :id, include_blank: false, class: 'col-sm-4 form-control-rounded', as: :select,  input_html: { multiple: false }
+      = f.select :bank, options_from_collection_for_select(Bank.all, "id", "name"), {}, {class: "select"}
+      br
     .form_group
       = f.submit

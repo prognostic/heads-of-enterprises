@@ -6,8 +6,7 @@ h3 Редактировать компанию
     .panel.panel-default
       .panel-body
         == render 'form'
-
-  div class="panel-footer clearfix"
-    = link_to 'Просмотр', @company
-    '|
-    = link_to 'Назад', companies_path
+      .panel-footer
+        = link_to 'Просмотр ', @company
+        '|
+        = link_to 'Назад', companies_path

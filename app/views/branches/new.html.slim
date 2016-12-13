@@ -2,8 +2,9 @@ p#notice= notice
 h3 Добавить отделение
 
 .row
-  .panel
-
-    == render 'form'
-
-    = link_to 'Back', branches_path
+  .col-lg-12
+    .panel.panel-default
+      .panel-body
+        == render 'form'
+      .panel-footer
+        = link_to 'Back', branches_path

@@ -2,7 +2,9 @@ p#notice= notice
 h3 Добавить город
 
 .row
-  .panel
-    == render 'form', city: @city
-  div class="panel-footer clearfix"
-    = link_to 'Назад', cities_path
+  .col-lg-12
+    .panel.panel-default
+      .panel-body
+        == render 'form', city: @city
+      .panel-footer
+        = link_to 'Назад', cities_path

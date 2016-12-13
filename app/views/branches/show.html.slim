@@ -2,11 +2,18 @@ p#notice= notice
 h3= "Отделение #{@branch.address}"
 
 .row
-  .panel
-    = @branch.address
-    br
-    = @branch.bank.name
-    br
-    = link_to 'Редактировать', edit_branch_path(@branch)
-    '|
-    = link_to 'Назад', branches_path
+  .col-lg-12
+    .panel.panel-default
+      .panel-body
+        div class="col-sm-2 control-label"
+          = "Адрес"
+        = @branch.address
+        br
+        div class="col-sm-2 control-label"
+          = "Название"
+        = @branch.bank.name
+        br
+      .panel-footer
+        = link_to 'Редактировать ', edit_branch_path(@branch)
+        '|
+        = link_to 'Назад', branches_path

@@ -2,19 +2,26 @@ p#notice= notice
 h3 Банки
 
 .row
-  .panel
-    .table-responsive
-      table class="table table-striped table-bordered table-hover"
-        thead
-          tr
-            th colspan="3"
-        tbody
-          - @banks.each do |bank|
-            tr
-              td= bank.name
-              td= bank.city.name
-              td = link_to 'Просмотр', bank
-              td = link_to 'Редактировать', edit_bank_path(bank)
-              td = link_to 'Удалить', bank, data: { confirm: 'Вы уверены?' }, method: :delete
-  div class="panel-footer clearfix"
-    = link_to 'Добавить банк', new_bank_path
+  .col-lg-12
+    .panel.panel-default
+      .panel-body
+        .table-responsive
+          table class="table table-striped table-bordered table-hover"
+            thead
+              tr
+                th Название
+                th Город
+            tbody
+              - @banks.each do |bank|
+                tr
+                  td= bank.name
+                  td= bank.city.name
+                  td
+                    .col-md-1
+                      = link_to '', bank, class: 'fa fa-eye text-success'
+                    .col-md-1
+                      = link_to '', edit_bank_path(bank), class: 'fa fa-edit text-warning'
+                    .col-md-1
+                      = link_to '', bank, method: :delete, data: {confirm: 'Вы уверены?'}, class: 'fa fa-remove text-danger'
+      .panel-footer
+        = link_to 'Добавить банк', new_bank_path

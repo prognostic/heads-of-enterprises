@@ -2,11 +2,12 @@ p#notice= notice
 h3 Редактировать банк
 
 .row
-  .panel
-
-    = render 'form'
-
-    = link_to 'Show', @bank
-    '|
-    = link_to 'Back', banks_path
+  .col-lg-12
+    .panel.panel-default
+      .panel-body
+        = render 'form'
+      .panel-footer
+        = link_to 'Просмотр ', @bank
+        '|
+        = link_to 'Назад', banks_path
 

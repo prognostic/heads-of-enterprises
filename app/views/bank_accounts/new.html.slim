@@ -2,7 +2,9 @@ p#notice= notice
 h3 Добавить счет
 
 .row
-  .panel
-    == render 'form'
-  div class="panel-footer clearfix"
-    = link_to 'Back', bank_accounts_path
+  .col-lg-12
+    .panel.panel-default
+      .panel-body
+        == render 'form'
+      .panel-footer
+        = link_to 'Назад', bank_accounts_path

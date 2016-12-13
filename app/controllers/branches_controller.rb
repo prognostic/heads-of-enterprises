@@ -28,7 +28,7 @@ class BranchesController < ApplicationController
 
     respond_to do |format|
       if @branch.save
-        format.html { redirect_to @branch, notice: 'Branch was successfully created.' }
+        format.html { redirect_to @branch, notice: 'Отделение успешно создано.' }
         format.json { render :show, status: :created, location: @branch }
       else
         format.html { render :new }
@@ -42,7 +42,7 @@ class BranchesController < ApplicationController
   def update
     respond_to do |format|
       if @branch.update(branch_params)
-        format.html { redirect_to @branch, notice: 'Branch was successfully updated.' }
+        format.html { redirect_to @branch, notice: 'Отделение успешно обновлено.' }
         format.json { render :show, status: :ok, location: @branch }
       else
         format.html { render :edit }
@@ -56,7 +56,7 @@ class BranchesController < ApplicationController
   def destroy
     @branch.destroy
     respond_to do |format|
-      format.html { redirect_to branches_url, notice: 'Branch was successfully destroyed.' }
+      format.html { redirect_to branches_url, notice: 'Отделение успешно удалено.' }
       format.json { head :no_content }
     end
   end

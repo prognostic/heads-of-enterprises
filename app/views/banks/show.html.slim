@@ -2,11 +2,17 @@ p#notice= notice
 h3= "Банк #{@bank.name}"
 
 .row
-  .panel
-    = @bank.name
-    br
-    = @bank.city.name
-    br
-    = link_to 'Редактировать', edit_bank_path(@bank)
-    '|
-    = link_to 'Назад', banks_path
+  .col-lg-12
+    .panel.panel-default
+      .panel-body
+        div class="col-sm-2 control-label"
+          = "Название"
+        = @bank.name
+        br
+        div class="col-sm-2 control-label"
+          = "Город"
+        = @bank.city.name
+      .panel-footer
+        = link_to 'Редактировать ', edit_bank_path(@bank)
+        '|
+        = link_to 'Назад', banks_path
