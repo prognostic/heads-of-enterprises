@@ -31,6 +31,7 @@
     "whirl": "1.0.0",
     "jquery-localize-i18n": "*",
     "simple-line-icons": "2.3.2",
-    "moment": "2.17.1"
+    "moment": "2.17.1",
+    "select2": "4.0.3"
   }
 }

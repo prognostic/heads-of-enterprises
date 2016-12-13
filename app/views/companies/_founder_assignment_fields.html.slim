@@ -1,12 +1,7 @@
 .nested-fields
   fieldset
     .form_group
-      = f.input :face_id, label: false,
-              collection: Face.pluck(:full_name, :id),
-              class: 'select_field col-sm-4 form-control-rounded',
-              as: :select,
-              include_blank: false,
-              multiple: 'multiple'
+      = f.select :face_id, options_from_collection_for_select(Face.all, "id", "full_name"), {}, {class: "select"}
       br
       = f.hidden_field :date, value: Date.today
       = f.hidden_field :position, value: 1

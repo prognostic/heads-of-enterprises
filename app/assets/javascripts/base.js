@@ -1,3 +1,14 @@
 //$('.datepicker').datepicker();
 
-//$(".select").select2();
+function init_select2(selector){
+    $(selector).select2({
+        width: 300
+    })
+};
+
+init_select2(".select")
+
+$("form").on("cocoon:after-insert", function(_, row){
+    field = $(row).find(".select")
+    init_select2(field);
+});
