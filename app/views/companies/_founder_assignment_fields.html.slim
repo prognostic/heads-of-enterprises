@@ -1,0 +1,15 @@
+.nested-fields
+  fieldset
+    .form_group
+      = f.input :face_id, label: false,
+              collection: Face.pluck(:full_name, :id),
+              class: 'select_field col-sm-4 form-control-rounded',
+              as: :select,
+              include_blank: false,
+              multiple: 'multiple'
+      br
+      = f.hidden_field :date, value: Date.today
+      = f.hidden_field :position, value: 1
+      = f.hidden_field :company_id
+    .form_group
+      = link_to_remove_association "Удалить учредителя", f

@@ -3,10 +3,7 @@
     /.form_group
     /  label class="col-sm-2 control-label" Дата назначения
     /  = f.text_field :date, :placeholder => 'Введите дату', class: "datepicker form-control-rounded", label: false
-    .form_group
-      label class="col-sm-2 control-label" Дата назначения
-      = f.input :date, :placeholder => 'Введите дату', class: 'col-sm-4 form-control-rounded', label: false
-      br
+    = f.hidden_field :date, value: Date.today
     .form_group
       label class="col-sm-2 control-label" ФИО
       = f.input :face_id, collection: Face.pluck(:full_name, :id), class: 'col-sm-4 form-control-rounded', as: :select, label: false, include_blank: false
@@ -14,7 +11,7 @@
     .form_group
       - if @company.assignments.detect { |a| a.position == 0 }
         label class="col-sm-2 control-label" Должность
-        = f.input :position, collection: Face.roles.drop(1), class: 'col-sm-4 form-control m-b', as: :select, label: false, include_blank: false
+        = f.input :position, collection: Face.roles.drop(1), class: 'select_field col-sm-4 form-control m-b', as: :select, label: false, include_blank: false
       - else
         label class="col-sm-2 control-label" Должность
         = f.input :position, collection: Face.roles, class: 'col-sm-4 form-control m-b', as: :select, label: false, include_blank: false

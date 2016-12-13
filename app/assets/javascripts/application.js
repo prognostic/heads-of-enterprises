@@ -11,12 +11,13 @@
 // about supported directives.
 //= require jquery
 //= require jquery_ujs
-//= require react
-//= require components
-//= require react_ujs
-//= require turbolinks
-//= require cocoon
+// require react
+// require components
+// require react_ujs
+// require turbolinks
 //= require bootstrap.js
-//= require moment
-//= require moment/src/locale/ru.js
+//= require select2
+// require moment
+// require moment/src/locale/ru.js
+//= require cocoon
 //= require_tree .

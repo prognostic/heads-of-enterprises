@@ -39,6 +39,7 @@ module CompaniesDirectory
         'singleview.css'
     ]
 
+    #I18n.default_locale = :ru
 
   end
 end

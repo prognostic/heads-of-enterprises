@@ -26,8 +26,17 @@
       b Персоны:
       #faces
         = f.simple_fields_for :assignments do |assignment|
-          = render 'companies/assignment_fields', f: assignment
-        .links
-          = link_to_add_association 'Добавить персону', f, :assignments
+          - if assignment.object.position == 0
+            = render 'companies/director_assignment_fields', f: assignment
+          - if assignment.object.position == 1
+            = render 'companies/founder_assignment_fields', f: assignment
+    - if @company.assignments.detect { |a| a.position == 0 }
+      .links
+        = link_to_add_association 'Добавить учредителя', f, :assignments, partial: 'companies/founder_assignment_fields'
+    - else
+      .links
+        = link_to_add_association 'Добавить директора', f, :assignments, partial: 'companies/director_assignment_fields'
+        br
+        = link_to_add_association 'Добавить учредителя', f, :assignments, partial: 'companies/founder_assignment_fields'
     .form_group
       = f.submit
