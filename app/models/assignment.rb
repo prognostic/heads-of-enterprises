@@ -27,5 +27,6 @@ class Assignment < ApplicationRecord
   belongs_to :company
   belongs_to :face
 
-  #validates :company, length: { minimum: 1 }, allow_nil: true
+  validates :company, length: { minimum: 1 }, allow_nil: true
+  validates :face, length: { minimum: 1 }, allow_nil: true
 end

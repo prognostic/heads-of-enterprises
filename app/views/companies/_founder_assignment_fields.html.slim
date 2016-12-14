@@ -1,6 +1,7 @@
 .nested-fields
   fieldset
     .form_group
+      /= f.association :face, collection: Face.all, label: false, class: "select", multiple: "multiple"
       = f.select :face_id, options_from_collection_for_select(Face.all, "id", "full_name"), {}, {class: "select"}
       br
       = f.hidden_field :date, value: Date.current
