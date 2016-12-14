@@ -3,7 +3,7 @@
     .form_group
       = f.select :face_id, options_from_collection_for_select(Face.all, "id", "full_name"), {}, {class: "select"}
       br
-      = f.hidden_field :date, value: Date.today
+      = f.hidden_field :date, value: Date.current
       = f.hidden_field :position, value: 1
       = f.hidden_field :company_id
     .form_group

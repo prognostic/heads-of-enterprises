@@ -1,6 +1,6 @@
 .nested-fields
   fieldset
-    = f.hidden_field :date, value: Date.today
+    = f.hidden_field :date, value: Date.current
     .form_group
       = f.select :face_id, options_from_collection_for_select(Face.all, "id", "full_name"), {}, {class: "select"}
       br

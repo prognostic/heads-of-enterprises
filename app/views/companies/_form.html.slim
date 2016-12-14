@@ -1,5 +1,6 @@
 = simple_form_for @company, defaults: { input_html: { class: 'form-horizontal' } } do |f|
   = f.error_notification
+  = @company.errors.full_messages.first if @company.errors.any?
 
   fieldset
     .form_group
