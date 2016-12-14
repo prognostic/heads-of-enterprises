@@ -17,8 +17,10 @@
 #
 
 class Face < ApplicationRecord
+  paginates_per 25
   has_many :assignments
 
+  # TODO delete enum everywhere
   enum role: [:director, :founder, :restructuring, :working]
 
   has_attached_file :passport, styles: {medium: "600x600>", thumb: "300x300>", small: "100x100>"}, default_url: "missing_avatar.png"

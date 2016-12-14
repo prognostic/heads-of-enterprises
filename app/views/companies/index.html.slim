@@ -32,5 +32,6 @@ h3 Компании
                         = link_to '', edit_company_path(company), class: 'fa fa-edit text-warning'
                       .col-md-1
                         = link_to '', company, method: :delete, data: {confirm: 'Вы уверены?'}, class: 'fa fa-remove text-danger'
+        = paginate @companies
       .panel-footer
         = link_to 'Добавить компанию', new_company_path

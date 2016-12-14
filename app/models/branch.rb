@@ -18,6 +18,8 @@
 #
 
 class Branch < ApplicationRecord
+  paginates_per 25
+
   belongs_to :bank
   has_many :bank_accounts
 end

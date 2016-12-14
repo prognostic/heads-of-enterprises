@@ -24,6 +24,8 @@
 #
 
 class BankAccount < ApplicationRecord
+  paginates_per 25
+
   belongs_to :branch
   belongs_to :company
 end

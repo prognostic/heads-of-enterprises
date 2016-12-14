@@ -19,5 +19,6 @@ h3 Города
                       = link_to '', edit_city_path(city), class: 'fa fa-edit text-warning'
                     .col-md-1
                       = link_to '', city, method: :delete, data: { confirm: 'Вы уверены?' }, class: 'fa fa-remove text-danger'
+        = paginate @cities
       .panel-footer
         = link_to 'Добавить город', new_city_path

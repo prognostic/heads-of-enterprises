@@ -9,5 +9,7 @@
 #
 
 class City < ApplicationRecord
+  paginates_per 25
+
   has_many :banks,  dependent: :destroy
 end

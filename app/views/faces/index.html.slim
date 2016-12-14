@@ -32,5 +32,6 @@ h3 Персоны
                       = link_to '', edit_face_path(face), class: 'fa fa-edit text-warning'
                     .col-md-1
                       = link_to '', face, data: { confirm: 'Вы уверены?' }, method: :delete, class: 'fa fa-remove text-danger'
+        = paginate @faces
       .panel-footer
         = link_to 'Добавить персону', new_face_path

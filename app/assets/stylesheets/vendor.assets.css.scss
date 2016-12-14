@@ -53,3 +53,10 @@ table.dataTable thead .sorting_asc_disabled {
 table.dataTable thead .sorting_desc_disabled {
   background: image-url("datatable-bootstrap/images/sort_desc_disabled.png") no-repeat center right;
 }
+
+/* Paginator */
+.dataTables_paginate {
+  margin: 0;
+  white-space: nowrap;
+  text-align: right
+}

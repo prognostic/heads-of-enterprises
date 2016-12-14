@@ -23,5 +23,6 @@ h3 Банки
                       = link_to '', edit_bank_path(bank), class: 'fa fa-edit text-warning'
                     .col-md-1
                       = link_to '', bank, method: :delete, data: {confirm: 'Вы уверены?'}, class: 'fa fa-remove text-danger'
+        = paginate @banks
       .panel-footer
         = link_to 'Добавить банк', new_bank_path

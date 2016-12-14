@@ -22,6 +22,8 @@
 #
 
 class Assignment < ApplicationRecord
+  paginates_per 25
+
   belongs_to :company
   belongs_to :face
 end

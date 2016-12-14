@@ -31,5 +31,6 @@ h3 Счета
                       = link_to '', edit_bank_account_path(bank_account), class: 'fa fa-edit text-warning'
                     .col-md-1
                       = link_to '', bank_account, method: :delete, data: {confirm: 'Вы уверены?'}, class: 'fa fa-remove text-danger'
+        = paginate @bank_accounts
       .panel-footer
         = link_to 'Добавить счет', new_bank_account_path

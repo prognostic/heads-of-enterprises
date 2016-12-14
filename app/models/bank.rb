@@ -18,6 +18,8 @@
 #
 
 class Bank < ApplicationRecord
+  paginates_per 25
+
   belongs_to :city
   has_many :branches
 end

@@ -23,5 +23,6 @@ h3 Отделения
                       = link_to '', edit_branch_path(branch), class: 'fa fa-edit text-warning'
                     .col-md-1
                       = link_to '', branch, method: :delete, data: {confirm: 'Вы уверены?'}, class: 'fa fa-remove text-danger'
+        = paginate @branches
       .panel-footer
         = link_to 'Добавить отделение', new_branch_path
