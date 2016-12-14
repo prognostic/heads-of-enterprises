@@ -10,11 +10,12 @@ h3 Отделения
             thead
               tr
                 th Адрес
+                th Банк
             tbody
               - @branches.each do |branch|
                 tr
                   td= branch.address
-                  / TODO добавить вывод банка со ссылкой на него
+                  td= link_to branch.bank.name, branch_path(branch)
                   td
                     .col-md-1
                       = link_to '', branch, class: 'fa fa-eye text-success'
