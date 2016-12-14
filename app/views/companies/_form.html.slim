@@ -2,41 +2,54 @@
   = f.error_notification
   = @company.errors.full_messages.first if @company.errors.any?
 
-  fieldset
-    .form_group
-      label class="col-sm-2 control-label" Название
-      = f.text_field :title, class: 'col-sm-4 form-control-rounded'
-    .form_group
-      label class="col-sm-2 control-label" ИНН
-      = f.text_field :inn, class: 'col-sm-4 form-control-rounded'
-    .form_group
-      label class="col-sm-2 control-label" Адрес
-      = f.text_field :address, class: 'col-sm-4 form-control-rounded'
-    .form_group
-      label class="col-sm-2 control-label" Дата регистрации
-      = f.text_field :registration_date, {class: 'datepicker col-sm-4 form-control-rounded'}
-      br
-    .form_group
-      label class="col-sm-2 control-label" ОКВЭД(ы)
-      = f.text_field :okved, class: 'col-sm-4 form-control-rounded'
-    .form_group
-      label class="col-sm-2 control-label" Комментарий
-      = f.text_field :comment, class: 'col-sm-4 form-control-rounded'
-    .form_group
-      b Персоны:
-      #faces
-        = f.simple_fields_for :assignments do |assignment|
-          - if assignment.object.position == 0
-            = render 'companies/director_assignment_fields', f: assignment
-          - if assignment.object.position == 1
-            = render 'companies/founder_assignment_fields', f: assignment
-    - if @company.assignments.detect { |a| a.position == 0 }
-      .links
-        = link_to_add_association 'Добавить учредителя', f, :assignments, partial: 'companies/founder_assignment_fields'
-    - else
-      .links
-        = link_to_add_association 'Добавить директора', f, :assignments, partial: 'companies/director_assignment_fields'
-        br
-        = link_to_add_association 'Добавить учредителя', f, :assignments, partial: 'companies/founder_assignment_fields'
-    .form_group
-      = f.submit
+  .h4.text-center Информация о компании
+  .row.pv-lg
+    .col-lg-2
+    .col-lg-8
+      form.form-horizontal
+        .form-group
+          label.col-sm-3.control-label  Название
+          .col-sm-9
+            = f.text_field :title, class: 'form-control'
+        .form-group
+          label.col-sm-3.control-label  ИНН
+          .col-sm-9
+            = f.text_field :inn, class: 'form-control'
+        .form-group
+          label.col-sm-3.control-label  Адрес
+          .col-sm-9
+            = f.text_field :address, class: 'form-control'
+        .form-group
+          label.col-sm-3.control-label  ОКВЭД(ы)
+          .col-sm-9
+            = f.text_field :okved, class: 'form-control'
+        .form-group
+          label.col-sm-3.control-label  Комментарий
+          .col-sm-9
+            = f.text_field :comment, class: 'form-control'
+        .form-group
+          label.col-sm-3.control-label  Дата регистрации
+          .col-sm-9
+            = f.text_field :registration_date, class: 'datepicker form-control'
+        .form-group
+          b Персоны:
+          #faces
+            = f.simple_fields_for :assignments do |assignment|
+              - if assignment.object.position == 0
+                = render 'companies/director_assignment_fields', f: assignment
+              - if assignment.object.position == 1
+                = render 'companies/founder_assignment_fields', f: assignment
+          - if @company.assignments.detect { |a| a.position == 0 }
+            .links
+              = link_to_add_association 'Добавить учредителя', f, :assignments, partial: 'companies/founder_assignment_fields'
+          - else
+            .links
+              = link_to_add_association 'Добавить директора', f, :assignments, partial: 'companies/director_assignment_fields'
+              br
+              = link_to_add_association 'Добавить учредителя', f, :assignments, partial: 'companies/founder_assignment_fields'
+        .form-group
+          .col-sm-offset-3.col-sm-9
+            / TODO fix classes
+            = f.submit class: 'button.btn.btn-info'
+      .text-right
+        = link_to 'Удалить компанию?', @company, method: :delete, data: {confirm: 'Вы уверены?'}, class: 'text-muted'

@@ -2,7 +2,10 @@
   fieldset
     = f.hidden_field :date, value: Date.current
     .form_group
-      = f.select :face_id, options_from_collection_for_select(Face.all, "id", "full_name"), {}, {class: "select"}
+      - if f.object.face_id.present?
+        = f.select :face_id, options_from_collection_for_select(Face.all, "id", "full_name", f.object.face_id), {}, {class: "select"}
+      - else
+        = f.select :face_id, options_from_collection_for_select(Face.all, "id", "full_name"), {}, {class: "select"}
       br
       = f.hidden_field :position, value: 0
       = f.hidden_field :company_id
