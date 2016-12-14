@@ -1,0 +1,52 @@
+p#notice= notice
+h3 Панель управления
+
+.row
+
+  .col-lg-12
+    .panel.panel-default
+      .panel-body
+        .col-lg-3.col-sm-6
+          /! START widget
+          .panel.widget.bg-primary
+            .row.row-table
+              .col-xs-4.text-center.bg-primary-dark.pv-lg
+                em.icon-cloud-upload.fa-3x
+              .col-xs-8.pv-lg
+                .h2.mt0 1700
+                .text-uppercase Uploads
+        .col-lg-3.col-sm-6
+          /! START widget
+          .panel.widget.bg-purple
+            .row.row-table
+              .col-xs-4.text-center.bg-purple-dark.pv-lg
+                em.icon-globe.fa-3x
+              .col-xs-8.pv-lg
+                .h2.mt0
+                  | 700
+                  small GB
+                .text-uppercase Quota
+        .col-lg-3.col-md-6.col-sm-12
+          /! START widget
+          .panel.widget.bg-green
+            .row.row-table
+              .col-xs-4.text-center.bg-green-dark.pv-lg
+                em.icon-bubbles.fa-3x
+              .col-xs-8.pv-lg
+                .h2.mt0 500
+                .text-uppercase Reviews
+        .col-lg-3.col-md-6.col-sm-12
+          /! START date widget
+          .panel.widget
+            .row.row-table
+              .col-xs-4.text-center.bg-green.pv-lg
+                /! See formats: https://docs.angularjs.org/api/ng/filter/date
+                .text-sm data-format="MMMM" data-now=""  December
+                br/
+                .h2.mt0 data-format="D" data-now=""  14
+              .col-xs-8.pv-lg
+                .text-uppercase data-format="dddd" data-now=""  Wednesday
+                br/
+                .h2.mt0 data-format="h:mm" data-now=""  5:43
+                .text-muted.text-sm data-format="a" data-now=""  pm
+                  /! END date widget
