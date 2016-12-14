@@ -15,7 +15,7 @@ h3 Отделения
               - @branches.each do |branch|
                 tr
                   td= branch.address
-                  td= link_to branch.bank.name, branch_path(branch)
+                  td= link_to branch.bank.name, bank_path(branch.bank.id)
                   td
                     .col-md-1
                       = link_to '', branch, class: 'fa fa-eye text-success'
