@@ -39,18 +39,18 @@ h3= "Компания #{@company.title}"
             .panel-body
               .row
                 .col-sm-1
-                  .pull-right
-                    = image_tag assignment.face.passport.url(:medium), class: "img-responsive img-circle thumb64"
-                .col-sm-11
                   - if assignment.director?
-                    em.icon-user
-                      b= " Директор: "
-                      = link_to assignment.face.full_name, face_path(assignment.face_id)
+                    span.label.label-info= "Директор"
+                  - if assignment.founder?
+                    span.label.label-info= "Учредитель"
+                .col-sm-1
+                  = image_tag assignment.face.passport.url(:medium), class: "img-responsive img-circle thumb64"
+                .col-sm-10
+                  - if assignment.director?
+                    = link_to " #{assignment.face.full_name}", face_path(assignment.face_id)
                     br
                   - if assignment.founder?
-                    em.icon-user
-                      b= " Учредитель: "
-                      = link_to assignment.face.full_name, face_path(assignment.face_id)
+                    = link_to assignment.face.full_name, face_path(assignment.face_id)
                     br
                   em.icon-calendar
                     = " Дата назначения: #{assignment.date}"
