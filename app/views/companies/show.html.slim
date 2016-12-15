@@ -39,22 +39,18 @@ h3= "Компания #{@company.title}"
           = "Персоны:"
         - @assignments.each do |assignment|
           br
-          - if assignment.position == 0
+          - if assignment.director?
             b Директор:
             br
             = link_to assignment.face_id, face_path(assignment.face_id)
             br
-          - if assignment.position == 1
+          - if assignment.founder?
             b Учредитель:
             br
             = link_to assignment.face_id, face_path(assignment.face_id)
-          - if assignment.position == 2 && assignment.position == 3
-            b Сотрудник:
             br
-            = link_to assignment.face_id, face_path(assignment.face_id)
+          = "Дата назначения - #{assignment.date}"
           br
-          | Дата назначения -
-          = assignment.date
       .panel-footer
         = link_to 'Редактировать ', edit_company_path(@company)
         '|

@@ -7,6 +7,6 @@
       - else
         = f.select :face_id, options_from_collection_for_select(Face.all, "id", "full_name"), {}, {class: "select"}
       br
-      = f.hidden_field :position, value: 0
+      = f.hidden_field :position, value: Assignment.positions.keys[0]
       = f.hidden_field :company_id
       = link_to_remove_association "Удалить директора", f, class: 'text-danger'

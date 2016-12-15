@@ -24,6 +24,8 @@
 class Assignment < ApplicationRecord
   paginates_per 25
 
+  enum position: [:director, :founder]
+
   belongs_to :company
   belongs_to :face
 
