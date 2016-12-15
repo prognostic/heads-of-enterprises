@@ -23,12 +23,12 @@ h3= "Счет"
         div class="col-sm-2 control-label"
           = "Отделение"
         div
-          = @bank_account.branch_id
+          = link_to @bank_account.branch.address, branch_path(@bank_account.branch.id) if @bank_account.branch
         br
         div class="col-sm-2 control-label"
           = "Компания"
         div
-          = @bank_account.company_id
+          = link_to @bank_account.company.title, company_path(@bank_account.company.id) if @bank_account.company
         br
         div class="col-sm-2 control-label"
           = "Комментарий"
