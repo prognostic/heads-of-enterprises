@@ -3,13 +3,11 @@ h3= "Компания #{@company.title}"
 
 .row
   .col-lg-12
-    .panel.panel-default
+    .panel.b
+      .panel-heading
+        h4.mv.text-muted
+          span= @company.title
       .panel-body
-        div class="col-sm-2 control-label"
-          = "Название"
-        div class="col-sm-2 control-label"
-          = @company.title
-        br
         div class="col-sm-2 control-label"
           = "ИНН"
         div class="col-sm-2 control-label"
@@ -30,24 +28,21 @@ h3= "Компания #{@company.title}"
         div class="col-sm-2 control-label"
           = @company.okved
         br
-        div class="col-sm-2 control-label"
-          = "Комментарий"
-        div class="col-sm-2 control-label"
-          = @company.comment
+      .panel-body.bb.bt
+        h4.text-muted Комментарий
+        p= @company.comment
         br
-        div class="col-sm-2"
-          = "Персоны:"
+      .panel-body
+        h4.text-muted= "Персоны:"
         - @assignments.each do |assignment|
           br
           - if assignment.director?
-            b Директор:
-            br
-            = link_to assignment.face_id, face_path(assignment.face_id)
+            b= "Директор: "
+            = link_to assignment.face.full_name, face_path(assignment.face_id)
             br
           - if assignment.founder?
-            b Учредитель:
-            br
-            = link_to assignment.face_id, face_path(assignment.face_id)
+            b= "Учредитель: "
+            = link_to assignment.face.full_name, face_path(assignment.face_id)
             br
           = "Дата назначения - #{assignment.date}"
           br
