@@ -14,13 +14,13 @@
           = f.text_field :opening_date, class: 'datepicker form-control'
         .form_group
           label Отделение
-          = f.text_field :branch_id, class: 'form-control'
+          = f.select :branch_id, options_from_collection_for_select(Branch.all, 'id', 'address'), {}, {class: 'select form-control'}
         .form_group
           label Компания
-          = f.text_field :company_id, class: 'form-control'
+          = f.select :company_id, options_from_collection_for_select(Company.all, 'id', 'title'), {}, {class: 'select form-control'}
         .form_group
           label Комментарий
-          = f.text_field :comment, class: 'form-control'
+          = f.input :comment, input_html: {class: 'form-control', rows: 3}
         .form_group
           br
           = f.submit class: 'button btn btn-info'
