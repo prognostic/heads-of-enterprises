@@ -35,17 +35,29 @@ h3= "Компания #{@company.title}"
       .panel-body
         h4.text-muted= "Персоны:"
         - @assignments.each do |assignment|
-          br
-          - if assignment.director?
-            b= "Директор: "
-            = link_to assignment.face.full_name, face_path(assignment.face_id)
-            br
-          - if assignment.founder?
-            b= "Учредитель: "
-            = link_to assignment.face.full_name, face_path(assignment.face_id)
-            br
-          = "Дата назначения - #{assignment.date}"
-          br
+          .panel.panel-default
+            .panel-body
+              .row
+                .col-sm-1
+                  .pull-right
+                    = image_tag assignment.face.passport.url(:medium), class: "img-responsive img-circle thumb64"
+                .col-sm-11
+                  - if assignment.director?
+                    em.icon-user
+                      b= " Директор: "
+                      = link_to assignment.face.full_name, face_path(assignment.face_id)
+                    br
+                  - if assignment.founder?
+                    em.icon-user
+                      b= " Учредитель: "
+                      = link_to assignment.face.full_name, face_path(assignment.face_id)
+                    br
+                  em.icon-calendar
+                    = " Дата назначения: #{assignment.date}"
+                  br
+                  -if assignment.face.work_phone
+                    em.icon-phone
+                      = " Рабочий номер: #{assignment.face.work_phone}"
       .panel-footer
         = link_to 'Редактировать ', edit_company_path(@company)
         '|

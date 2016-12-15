@@ -24,14 +24,14 @@
           .col-sm-9
             = f.text_field :okved, class: 'form-control'
         .form-group
-          label.col-sm-3.control-label  Комментарий
-          .col-sm-9
-            = f.text_field :comment, class: 'form-control'
-        .form-group
           label.col-sm-3.control-label  Дата регистрации
           .col-sm-9
             = f.text_field :registration_date, class: 'datepicker form-control'
         .form-group
+          label.col-sm-3.control-label  Комментарий
+          .col-sm-9
+            = f.input :comment, label: false, input_html: {class: 'form-control', rows: 3}
+        .form-group.text-center
           b Персоны:
           #faces
             = f.simple_fields_for :assignments do |assignment|
