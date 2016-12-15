@@ -1,5 +1,26 @@
 ru:
+  helpers:
+    submit:
+      city:
+        create: "Добавить город"
+        update: "Обновить город"
+      bank:
+        create: "Добавить банк"
+        update: "Обновить банк"
+      branch:
+        create: "Добавить отделение"
+        update: "Обновить отделение"
+      company:
+        create: "Добавить компанию"
+        update: "Обновить компанию"
+      face:
+        create: "Добавить персону"
+        update: "Обновить персону"
+      bank_account:
+        create: "Добавить счет"
+        update: "Обновить счет"
   activerecord:
     models:
-      company: Компания
+      company: компания
     attributes:
+      name: Название

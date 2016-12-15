@@ -1,6 +1,5 @@
 function init_select2(selector){
     $(selector).select2({
-        width: 300
     })
 };
 

@@ -1,12 +1,12 @@
 .nested-fields
   fieldset
-    = f.hidden_field :date, value: Date.current
     .form_group
       - if f.object.face_id.present?
-        = f.select :face_id, options_from_collection_for_select(Face.all, "id", "full_name", f.object.face_id), {}, {class: "select"}
+        = f.select :face_id, options_from_collection_for_select(Face.all, 'id', 'full_name', f.object.face_id), {}, {class: 'select form-control'}
       - else
-        = f.select :face_id, options_from_collection_for_select(Face.all, "id", "full_name"), {}, {class: "select"}
-      br
+        = f.select :face_id, options_from_collection_for_select(Face.all, 'id', 'full_name'), {}, {class: 'select form-control'}
+      = f.hidden_field :date, value: Date.current
       = f.hidden_field :position, value: Assignment.positions.keys[0]
       = f.hidden_field :company_id
-      = link_to_remove_association "Удалить директора", f, class: 'text-danger'
+    .form_group
+      = link_to_remove_association 'Удалить директора', f, class: 'text-danger'

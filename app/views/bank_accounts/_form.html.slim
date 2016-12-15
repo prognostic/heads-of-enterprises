@@ -1,25 +1,26 @@
 = simple_form_for @bank_account, defaults: { input_html: { class: 'form-horizontal' } } do |f|
   = f.error_notification
 
-  fieldset
-    .form_group
-      label class="col-sm-2 control-label" Статус
-      = f.text_field :status, class: 'col-sm-4 form-control-rounded'
-    .form_group
-      label class="col-sm-2 control-label" Сумма на счету
-      = f.text_field :amount_of_money, class: 'col-sm-4 form-control-rounded'
-    .form_group
-      label class="col-sm-2 control-label" Дата регистрации
-      / TODO fix momentum
-      = f.text_field :opening_date, class: 'col-sm-4 form-control-rounded', id: 'datetimepicker', as: :datepicker
-    .form_group
-      label class="col-sm-2 control-label" Отделение
-      = f.text_field :branch_id, class: 'col-sm-4 form-control-rounded'
-    .form_group
-      label class="col-sm-2 control-label" Компания
-      = f.text_field :company_id, class: 'col-sm-4 form-control-rounded'
-    .form_group
-      label class="col-sm-2 control-label" Комментарий
-      = f.text_field :comment, class: 'col-sm-4 form-control-rounded'
-    .form_group
-      = f.submit
+  .panel-body
+    form role='form'
+      .form_group
+        label Статус
+        = f.text_field :status, class: 'form-control'
+        .form_group
+          label Сумма на счету
+          = f.text_field :amount_of_money, class: 'form-control'
+        .form_group
+          label Дата регистрации
+          = f.text_field :opening_date, class: 'datepicker form-control'
+        .form_group
+          label Отделение
+          = f.text_field :branch_id, class: 'form-control'
+        .form_group
+          label Компания
+          = f.text_field :company_id, class: 'form-control'
+        .form_group
+          label Комментарий
+          = f.text_field :comment, class: 'form-control'
+        .form_group
+          br
+          = f.submit class: 'button btn btn-info'

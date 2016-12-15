@@ -3,53 +3,44 @@
   = @company.errors.full_messages.first if @company.errors.any?
 
   .h4.text-center Информация о компании
-  .row.pv-lg
-    .col-lg-2
-    .col-lg-8
-      form.form-horizontal
-        .form-group
-          label.col-sm-3.control-label  Название
-          .col-sm-9
-            = f.text_field :title, class: 'form-control'
-        .form-group
-          label.col-sm-3.control-label  ИНН
-          .col-sm-9
-            = f.text_field :inn, class: 'form-control'
-        .form-group
-          label.col-sm-3.control-label  Адрес
-          .col-sm-9
-            = f.text_field :address, class: 'form-control'
-        .form-group
-          label.col-sm-3.control-label  ОКВЭД(ы)
-          .col-sm-9
-            = f.text_field :okved, class: 'form-control'
-        .form-group
-          label.col-sm-3.control-label  Дата регистрации
-          .col-sm-9
-            = f.text_field :registration_date, class: 'datepicker form-control'
-        .form-group
-          label.col-sm-3.control-label  Комментарий
-          .col-sm-9
-            = f.input :comment, label: false, input_html: {class: 'form-control', rows: 3}
-        .form-group.text-center
-          b Персоны:
-          #faces
-            = f.simple_fields_for :assignments do |assignment|
-              - if assignment.object.director?
-                = render 'companies/director_assignment_fields', f: assignment
-              - if assignment.object.founder?
-                = render 'companies/founder_assignment_fields', f: assignment
-          - if @company.assignments.detect { |a| a.director? }
-            .links
-              = link_to_add_association 'Добавить учредителя', f, :assignments, partial: 'companies/founder_assignment_fields'
-          - else
-            .links
-              = link_to_add_association 'Добавить директора', f, :assignments, partial: 'companies/director_assignment_fields'
-              br
-              = link_to_add_association 'Добавить учредителя', f, :assignments, partial: 'companies/founder_assignment_fields'
-        .form-group
-          .col-sm-offset-3.col-sm-9
-            / TODO fix classes
-            = f.submit class: 'button.btn.btn-info'
-      .text-right
-        = link_to 'Удалить компанию?', @company, method: :delete, data: {confirm: 'Вы уверены?'}, class: 'text-muted'
+  .panel-body
+    form role='form'
+      .form-group
+        label Название
+        = f.text_field :title, class: 'form-control'
+      .form-group
+        label ИНН
+        = f.text_field :inn, class: 'form-control'
+      .form-group
+        label Адрес
+        = f.text_field :address, class: 'form-control'
+      .form-group
+        label ОКВЭД(ы)
+        = f.text_field :okved, class: 'form-control'
+      .form-group
+        label Дата регистрации
+        = f.text_field :registration_date, class: 'datepicker form-control'
+      .form-group
+        label Комментарий
+        = f.input :comment, input_html: {class: 'form-control', rows: 3}
+      .form-group
+        b Персоны:
+        #faces
+          = f.simple_fields_for :assignments do |assignment|
+            - if assignment.object.director?
+              = render 'companies/director_assignment_fields', f: assignment
+            - if assignment.object.founder?
+              = render 'companies/founder_assignment_fields', f: assignment
+        - if @company.assignments.detect { |a| a.director? }
+          .links
+            = link_to_add_association 'Добавить учредителя', f, :assignments, partial: 'companies/founder_assignment_fields'
+        - else
+          .links
+            = link_to_add_association 'Добавить директора', f, :assignments, partial: 'companies/director_assignment_fields'
+            br
+            = link_to_add_association 'Добавить учредителя', f, :assignments, partial: 'companies/founder_assignment_fields'
+      .form-group
+        br
+        = f.submit class: 'button btn btn-info'
+    .text-right
+      = link_to 'Удалить компанию?', @company, method: :delete, data: {confirm: 'Вы уверены?'}, class: 'text-muted' unless current_page? "/control/companies/new"

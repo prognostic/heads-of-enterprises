@@ -2,11 +2,11 @@
   fieldset
     .form_group
       - if f.object.face_id.present?
-        = f.select :face_id, options_from_collection_for_select(Face.all, "id", "full_name", f.object.face_id), {}, {class: "select"}
+        = f.select :face_id, options_from_collection_for_select(Face.all, 'id', 'full_name', f.object.face_id), {}, {class: 'select form-control'}
       - else
-        = f.select :face_id, options_from_collection_for_select(Face.all, "id", "full_name"), {}, {class: "select"}
+        = f.select :face_id, options_from_collection_for_select(Face.all, 'id', 'full_name'), {}, {class: 'select form-control'}
       = f.hidden_field :date, value: Date.current
       = f.hidden_field :position, value: Assignment.positions.keys[1]
       = f.hidden_field :company_id
     .form_group
-      = link_to_remove_association "Удалить учредителя", f, class: 'text-danger'
+      = link_to_remove_association 'Удалить учредителя', f, class: 'text-danger'

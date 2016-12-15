@@ -7,9 +7,12 @@
       ul
         - city.errors.full_messages.each do |message|
           li= message
-  fieldset
-    .form_group
-      label class="col-sm-2 control-label" Название
-      = f.text_field :name, class: 'col-sm-4 form-control-rounded'
-    .form_group
-      = f.submit
+
+  .panel-body
+    form role="form"
+      .form-group
+        label Название
+        = f.text_field :name, class: 'form-control'
+      .form_group
+        br
+        = f.submit class: 'button btn btn-info'
