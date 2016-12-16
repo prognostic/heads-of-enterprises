@@ -9,11 +9,11 @@ h3= "Персона #{@face.full_name}"
           .panel-body.bg-info= image_tag @face.passport.url(:medium), class: 'img-circle thumb128'
         h3.m0.text-bold= @face.full_name
         br
-        label
+        .label.bg-gray-lighter.ph-lg.mr.text-sm.visible-lg-inline
           em.icon-phone
           |  Личный номер
         div= @face.personal_phone
-        label
+        .label.bg-gray-lighter.ph-lg.mr.text-sm.visible-lg-inline
           em.icon-phone
           |  Рабочий номер
         div= @face.work_phone
