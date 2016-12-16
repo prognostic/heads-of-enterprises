@@ -18,8 +18,8 @@ h3= "Персона #{@face.full_name}"
           |  Рабочий номер
         div= @face.work_phone
 
-        label Назначения
-        -if @face.assignments
+        - if @face.assignments.exists?
+          label Назначения
           div
             - @face.assignments.each do |assignment|
               div

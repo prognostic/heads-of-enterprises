@@ -29,8 +29,8 @@ h3 Персоны
                       .media-right.pt-sm
                         = face.full_name
                         br
-                        label Назначения
-                        - if face.assignments
+                        - if face.assignments.exists?
+                          label Назначения
                           div
                             - face.assignments.each do |assignment|
                               div
