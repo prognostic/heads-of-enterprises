@@ -8,26 +8,18 @@ h3= "Компания #{@company.title}"
         h4.mv.text-muted
           span= @company.title
       .panel-body
-        div class="col-sm-2 control-label"
-          = "ИНН"
-        div class="col-sm-2 control-label"
+        strong.col-sm-2 ИНН
+        .col-sm-10
           = @company.inn
-        br
-        div class="col-sm-2 control-label"
-          = "Адрес"
-        div class="col-sm-2 control-label"
+        strong.col-sm-2.control-label Адрес
+        .col-sm-10
           = @company.address
-        br
-        div class="col-sm-2 control-label"
-          = "Дата регистрации"
-        div class="col-sm-2 control-label"
+        strong.col-sm-2.control-label Дата регистрации
+        .col-sm-10
           = @company.registration_date
-        br
-        div class="col-sm-2 control-label"
-          = "ОКВЭДы"
-        div class="col-sm-2 control-label"
+        strong.col-sm-2.control-label ОКВЭДы
+        .col-sm-10
           = @company.okved
-        br
       .panel-body.bb.bt
         h4.text-muted Комментарий
         p= @company.comment
