@@ -10,10 +10,8 @@ h3 Счет
         div
           span.label.label-info= @bank_account.status
         br
-        div.col-sm-2.control-label
-          em.fa.fa-rub
-          |  Сумма на счету
-        div= @bank_account.amount_of_money
+        div.col-sm-2.control-label Сумма на счету
+        div= number_to_currency(@bank_account.amount_of_money, unit: '₽', separator: ".", delimiter: " ", format: "%n %u")
         br
         div.col-sm-2.control-label
           em.icon-calendar
