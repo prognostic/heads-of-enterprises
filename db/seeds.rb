@@ -88,7 +88,7 @@ end
 end
 
 50.times do |i|
-  Assignment.create(date: DateTime.new(2015, 6, rand(1...30)), postion: rand(0...1), face_id: rand(1...45), company_id: (1...30))
+  Assignment.create(date: DateTime.new(2015, 6, rand(1...30)), position: rand(0...1), face_id: rand(1...45), company_id: (1...30))
 end
 
 User.create(email: 'admin@example.com', password: '123123123')
