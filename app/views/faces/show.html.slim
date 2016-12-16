@@ -4,35 +4,22 @@ h3= "Персона #{@face.full_name}"
 .row
   .col-lg-12
     .panel.panel-default
-      .panel-body
-        div class="col-sm-2 control-label"
-          = "ФИО"
-        div class="col-sm-4 control-label"
-          = @face.full_name
+      .panel-body.text-center
+        .panel.widget
+          .panel-body.bg-info= image_tag @face.passport.url(:medium), class: 'img-circle thumb128'
+        h3.m0.text-bold= @face.full_name
         br
-        div class="col-sm-2 control-label"
-          = "Личный номер"
-        div class="col-sm-4 control-label"
-          = @face.personal_phone
-        br
-        div class="col-sm-2 control-label"
-          = "Рабочий номер"
-        div class="col-sm-4 control-label"
-          = @face.work_phone
-        br
-        div class="col-sm-2 control-label"
-          = "Роль"
-        div class="col-sm-4 control-label"
-          = @face.role
-        br
-        div class="col-sm-2 control-label"
-          = "Комментарий"
-        div class="col-sm-4 control-label"
-          = @face.comment
-        br
-        div class="col-sm-4 control-label"
-          = image_tag @face.passport.url(:medium), size: "150"
-        br
+        label
+          em.icon-phone
+          |  Личный номер
+        div= @face.personal_phone
+        label
+          em.icon-phone
+          |  Рабочий номер
+        div= @face.work_phone
+        label= 'Комментарий'
+        div
+          p.text-muted= @face.comment
       .panel-footer
         = link_to 'Редактировать ', edit_face_path(@face)
         '|

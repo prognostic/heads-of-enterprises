@@ -18,7 +18,7 @@
       .form_group
         label Паспорт
         br
-        = image_tag @face.passport.url(:medium), size: '100'
+        = image_tag @face.passport.url(:medium), class: 'img-responsive img-circle thumb64'
         = f.file_field :passport, class: 'form-control'
       .form_group
         br

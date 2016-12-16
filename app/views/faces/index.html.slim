@@ -16,7 +16,6 @@ h3 Персоны
                 th
                   em.icon-phone
                   |  Личный номер
-                th Роль
                 th
                   em.icon-bubble
                   |  Комментарий
@@ -28,9 +27,8 @@ h3 Персоны
                   td= face.full_name
                   td= face.work_phone
                   td= face.personal_phone
-                  td= face.role
                   td= face.comment
-                  td= image_tag face.passport.url(:small), size: '30'
+                  td= image_tag face.passport.url(:small), class: 'img-responsive img-circle thumb32'
                   td
                     .col-md-1
                       = link_to '', face, class: 'fa fa-eye text-success'
