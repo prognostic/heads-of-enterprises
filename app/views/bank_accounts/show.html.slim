@@ -1,39 +1,36 @@
 p#notice= notice
-h3= "Счет"
+h3 Счет
 
 .row
   .col-lg-12
     .panel.panel-default
+      .panel-heading Информация о счете
       .panel-body
-        div class="col-sm-2 control-label"
-          = "Статус"
+        div.col-sm-2.control-label Статус
         div
-          = @bank_account.status
+          span.label.label-info= @bank_account.status
         br
-        div class="col-sm-2 control-label"
-          = "Сумма на счету"
-        div
-          = @bank_account.amount_of_money
+        div.col-sm-2.control-label
+          em.fa.fa-rub
+          |  Сумма на счету
+        div= @bank_account.amount_of_money
         br
-        div class="col-sm-2 control-label"
-          = "Дата открытия"
-        div
-          = @bank_account.opening_date
+        div.col-sm-2.control-label
+          em.icon-calendar
+          |  Дата открытия
+        div= @bank_account.opening_date
         br
-        div class="col-sm-2 control-label"
-          = "Отделение"
-        div
-          = link_to @bank_account.branch.address, branch_path(@bank_account.branch.id) if @bank_account.branch
+        div.col-sm-2.control-label Отделение
+        div= link_to @bank_account.branch.address, branch_path(@bank_account.branch.id) if @bank_account.branch
         br
-        div class="col-sm-2 control-label"
-          = "Компания"
-        div
-          = link_to @bank_account.company.title, company_path(@bank_account.company.id) if @bank_account.company
+        div.col-sm-2.control-label Компания
+        div= link_to @bank_account.company.title, company_path(@bank_account.company.id) if @bank_account.company
         br
-        div class="col-sm-2 control-label"
-          = "Комментарий"
+        div.col-sm-2.control-label
+          em.icon-bubble
+          |  Комментарий
         div
-          = @bank_account.comment
+          p= @bank_account.comment
         br
       .panel-footer
         = link_to 'Редактировать ', edit_bank_account_path(@bank_account)

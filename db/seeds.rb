@@ -20,7 +20,7 @@ cities_list.each do |name|
 end
 
 10.times do |i|
-  Bank.create(name: "Bank N#{i}", city_id: rand(1...6))
+  Bank.create(name: "Банк N#{i}", city_id: rand(1...6))
 end
 
 20.times do |i|
@@ -28,7 +28,7 @@ end
 end
 
 30.times do |i|
-  Company.create(title: "ТОО СпецСтрой #{i}", inn: "#{i}", address: "ул Строительная #{i}", registration_date: DateTime.new(2015, 6, rand(1...30)), okved: "#{i}", comment: "comment ##{i}")
+  Company.create(title: "ТОО СпецСтрой #{i}", inn: "#{i}", address: "ул Строительная #{i}", registration_date: DateTime.new(2015, 6, rand(1...30)), okved: "#{i}", comment: "Комментарий ##{i}")
 end
 
 faces_list = [
@@ -80,13 +80,15 @@ faces_list = [
 ]
 
 faces_list.each do |name|
-  Face.create(full_name: name, personal_phone: "9876543#{rand(10...99)}", work_phone: "9876#{rand(10...99)}543", role: rand(0...1), comment: "Comment")
+  Face.create(full_name: name, personal_phone: "9876543#{rand(10...99)}", work_phone: "9876#{rand(10...99)}543", role: rand(0...1), comment: "Комментарий")
 end
 
 50.times do |i|
-  BankAccount.create(opening_date: DateTime.new(2015, 6, rand(1...30)), status: rand(1...7), amount_of_money: rand(0...10000000), comment: "comment ##{i}", branch_id: rand(1...20), company_id: (1...30))
+  BankAccount.create(opening_date: DateTime.new(2015, 6, rand(1...30)), status: rand(1...7), amount_of_money: rand(0...10000000), comment: "Комментарий ##{i}", branch_id: rand(1...20), company_id: (1...30))
 end
 
 50.times do |i|
   Assignment.create(date: DateTime.new(2015, 6, rand(1...30)), postion: rand(0...1), face_id: rand(1...45), company_id: (1...30))
 end
+
+User.create(email: 'admin@example.com', password: '123123123')
