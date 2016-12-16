@@ -40,9 +40,9 @@ h3= "Компания #{@company.title}"
               .row
                 .col-sm-1
                   - if assignment.director?
-                    span.label.label-info= "Директор"
+                    span.label.label-info Директор
                   - if assignment.founder?
-                    span.label.label-info= "Учредитель"
+                    span.label.label-info Учредитель
                 .col-sm-1
                   = image_tag assignment.face.passport.url(:medium), class: "img-responsive img-circle thumb64"
                 .col-sm-10

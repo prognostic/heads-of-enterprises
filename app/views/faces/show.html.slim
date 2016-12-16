@@ -17,7 +17,19 @@ h3= "Персона #{@face.full_name}"
           em.icon-phone
           |  Рабочий номер
         div= @face.work_phone
-        label= 'Комментарий'
+
+        label Назначения
+        -if @face.assignments
+          div
+            - @face.assignments.each do |assignment|
+              div
+                div
+                  - if assignment.director?
+                    span.label.label-info Директор в:
+                  - if assignment.founder?
+                    span.label.label-info Учредитель в:
+                  = link_to " #{assignment.company.title}", company_path(assignment.company_id) if assignment.company_id && assignment.company.title
+        label Комментарий
         div
           p.text-muted= @face.comment
       .panel-footer

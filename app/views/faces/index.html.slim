@@ -28,6 +28,17 @@ h3 Персоны
                         = image_tag face.passport.url(:small), class: 'img-responsive img-circle thumb32'
                       .media-right.pt-sm
                         = face.full_name
+                        label Назначения
+                        - if face.assignments
+                          div
+                            - face.assignments.each do |assignment|
+                              div
+                                div
+                                  - if assignment.director?
+                                    span.label.label-info Директор в:
+                                  - if assignment.founder?
+                                    span.label.label-info Учредитель в:
+                                  = link_to " #{assignment.company.title}", company_path(assignment.company_id) if assignment.company_id && assignment.company.title
                   td
                     .label.bg-gray-lighter.ph-lg.mr.text-sm.visible-lg-inline Рабочий
                     = " #{face.work_phone}"
