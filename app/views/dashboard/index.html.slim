@@ -2,51 +2,77 @@ p#notice= notice
 h3 Панель управления
 
 .row
-
-  .col-lg-12
-    .panel.panel-default
+  .col-lg-4
+    /! START widget
+    .panel.widget
       .panel-body
-        .col-lg-3.col-sm-6
-          /! START widget
-          .panel.widget.bg-primary
-            .row.row-table
-              .col-xs-4.text-center.bg-primary-dark.pv-lg
-                em.icon-cloud-upload.fa-3x
-              .col-xs-8.pv-lg
-                .h2.mt0 1700
-                .text-uppercase Uploads
-        .col-lg-3.col-sm-6
-          /! START widget
-          .panel.widget.bg-purple
-            .row.row-table
-              .col-xs-4.text-center.bg-purple-dark.pv-lg
-                em.icon-globe.fa-3x
-              .col-xs-8.pv-lg
-                .h2.mt0
-                  | 700
-                  small GB
-                .text-uppercase Quota
-        .col-lg-3.col-md-6.col-sm-12
-          /! START widget
-          .panel.widget.bg-green
-            .row.row-table
-              .col-xs-4.text-center.bg-green-dark.pv-lg
-                em.icon-bubbles.fa-3x
-              .col-xs-8.pv-lg
-                .h2.mt0 500
-                .text-uppercase Reviews
-        .col-lg-3.col-md-6.col-sm-12
-          /! START date widget
-          .panel.widget
-            .row.row-table
-              .col-xs-4.text-center.bg-green.pv-lg
-                /! See formats: https://docs.angularjs.org/api/ng/filter/date
-                .text-sm data-format="MMMM" data-now=""  December
-                br/
-                .h2.mt0 data-format="D" data-now=""  14
-              .col-xs-8.pv-lg
-                .text-uppercase data-format="dddd" data-now=""  Wednesday
-                br/
-                .h2.mt0 data-format="h:mm" data-now=""  5:43
-                .text-muted.text-sm data-format="a" data-now=""  pm
-                  /! END date widget
+        .text-right.text-muted
+          em.fa.fa-money.fa-2x.text-info
+        h3.mt0= BankAccount.count
+        p.text-muted Счетов в базе
+        /.progress.progress-striped.progress-xs
+        /  .progress-bar.progress-bar-warning.progress-60 aria-valuemax="70" aria-valuemin="0" aria-valuenow="60" role="progressbar"
+        /    span.sr-only 60% Complete
+    /! END widget
+  .col-lg-4
+    /! START widget
+    .panel.widget
+      .panel-body
+        .text-right.text-muted
+          em.fa.fa-credit-card.fa-2x.text-info
+        h3.mt0= Branch.count
+        p.text-muted Отделений банков в базе
+        /.progress.progress-striped.progress-xs
+        /  .progress-bar.progress-bar-green.progress-80 aria-valuemax="100" aria-valuemin="0" aria-valuenow="80" role="progressbar"
+        /    span.sr-only 80% Complete
+    /! END widget
+  .col-lg-4
+    /! START widget
+    .panel.widget
+      .panel-body
+        .text-right.text-muted
+          em.fa.fa-bank.fa-2x.text-info
+        h3.mt0= Bank.count
+        p.text-muted Банков в базе
+        /.progress.progress-striped.progress-xs
+        /  .progress-bar.progress-bar-info.progress-40 aria-valuemax="100" aria-valuemin="0" aria-valuenow="40" role="progressbar"
+        /    span.sr-only 40% Complete
+    /! END widget
+
+.row
+  .col-lg-4
+    /! START widget
+    .panel.widget
+      .panel-body
+        .text-right.text-muted
+          em.fa.fa-briefcase.fa-2x.text-info
+        h3.mt0= Company.count
+        p.text-muted Компаний в базе
+        /.progress.progress-striped.progress-xs
+        /  .progress-bar.progress-bar-warning.progress-60 aria-valuemax="70" aria-valuemin="0" aria-valuenow="60" role="progressbar"
+        /    span.sr-only 60% Complete
+  /! END widget
+  .col-lg-4
+    /! START widget
+    .panel.widget
+      .panel-body
+        .text-right.text-muted
+          em.fa.fa-group.fa-2x.text-info
+        h3.mt0= Face.count
+        p.text-muted Персон в в базе
+        /.progress.progress-striped.progress-xs
+        /  .progress-bar.progress-bar-green.progress-80 aria-valuemax="100" aria-valuemin="0" aria-valuenow="80" role="progressbar"
+        /    span.sr-only 80% Complete
+    /! END widget
+  .col-lg-4
+    /! START widget
+    .panel.widget
+      .panel-body
+        .text-right.text-muted
+          em.fa.fa-building.fa-2x.text-info
+        h3.mt0= City.count
+        p.text-muted Городов в базе
+        /.progress.progress-striped.progress-xs
+        /  .progress-bar.progress-bar-info.progress-40 aria-valuemax="100" aria-valuemin="0" aria-valuenow="40" role="progressbar"
+        /    span.sr-only 40% Complete
+    /! END widget
