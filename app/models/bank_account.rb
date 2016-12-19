@@ -26,6 +26,9 @@
 class BankAccount < ApplicationRecord
   paginates_per 25
 
+  include PublicActivity::Model
+  tracked
+
   belongs_to :branch
   belongs_to :company
 

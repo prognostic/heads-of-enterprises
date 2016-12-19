@@ -20,6 +20,9 @@
 class Branch < ApplicationRecord
   paginates_per 25
 
+  include PublicActivity::Model
+  tracked
+
   belongs_to :bank
   has_many :bank_accounts
 end

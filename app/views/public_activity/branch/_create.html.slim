@@ -1,0 +1,13 @@
+.list-group-item
+  .media-box
+    .pull-left
+      span.fa-stack
+        em.fa.icon-plus
+    .media-box-body.clearfix
+      | Создано отделение банка: id
+
+      - if activity.trackable
+        = link_to " #{activity.trackable.id}", activity.trackable
+        = " - #{time_ago_in_words activity.trackable.updated_at} назад"
+      - else
+        | Отделение банка было удалено

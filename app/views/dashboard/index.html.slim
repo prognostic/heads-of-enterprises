@@ -76,3 +76,12 @@ h3 Панель управления
         /  .progress-bar.progress-bar-info.progress-40 aria-valuemax="100" aria-valuemin="0" aria-valuenow="40" role="progressbar"
         /    span.sr-only 40% Complete
     /! END widget
+
+.row
+  .panel
+    .panel-heading
+      .panel-title
+        | Последняя активность
+    .panel-body
+      .list-group
+        = render_activities(@activities, fallback: 'default')

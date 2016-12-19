@@ -18,6 +18,10 @@
 
 class Face < ApplicationRecord
   paginates_per 25
+
+  include PublicActivity::Model
+  tracked
+
   has_many :assignments, inverse_of: :face
 
   # TODO delete enum everywhere

@@ -1,0 +1,11 @@
+.list-group-item
+  .media-box
+    .pull-left
+      span.fa-stack
+        em.icon-trash.fa-circle
+    .media-box-body.clearfix
+
+      - if activity.trackable
+        = link_to " #{activity.trackable.id}", activity.trackable
+      - else
+        | Отделение банка было удалено
