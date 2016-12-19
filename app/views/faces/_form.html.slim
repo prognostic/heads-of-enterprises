@@ -10,7 +10,7 @@
   .panel-body
     form role='form'
       .form_group
-        label ФИО
+        label ФИО *
         = f.text_field :full_name, class: 'form-control'
       .form_group
         label Личный номер
@@ -26,6 +26,7 @@
         br
         = image_tag @face.passport.url(:medium), class: 'img-responsive img-circle thumb64'
         = f.file_field :passport, class: 'form-control'
+      .required * Обязательные поля
       .form_group
         br
         = f.submit class: 'button btn btn-info'

@@ -8,22 +8,26 @@ h3 Компании
     .panel.panel-default
       .panel-body
         .table-responsive
-          table class="table table-striped table-bordered table-hover"
+          table.table.table-striped.table-bordered.table-hover
             thead
               tr
                 th Название
                 th ИНН
                 th Адрес
-                th Дата регистрации
+                th
+                  em.icon-calendar
+                  |  Дата регистрации
                 th ОКВЭД
-                th Комментарий
+                th
+                  em.icon-bubble
+                  |  Комментарий
             tbody
               - @companies.each do |company|
                 tr
                   td= company.title
                   td= company.inn
                   td= company.address
-                  td= company.registration_date.strftime("%d.%m.%Y") if company.registration_date
+                  td= company.registration_date.strftime('%d.%m.%Y') if company.registration_date
                   td= company.okved
                   td= company.comment
                   td

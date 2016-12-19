@@ -10,8 +10,9 @@
   .panel-body
     form role='form'
       .form-group
-        label Название
+        label Название *
         = f.text_field :name, class: 'form-control'
+      .required * Обязательные поля
       .form_group
         br
         = f.submit class: 'button btn btn-info'

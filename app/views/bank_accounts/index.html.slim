@@ -13,10 +13,14 @@ h3 Счета
               tr
                 th Статус
                 th Сумма на счету
-                th Дата открытия
+                th
+                  em.icon-calendar
+                  |  Дата открытия
                 th Отделение
                 th Компания
-                th Комментарий
+                th
+                  em.icon-bubble
+                  |  Комментарий
             tbody
               - @bank_accounts.each do |bank_account|
                 tr

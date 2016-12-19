@@ -59,11 +59,11 @@ h3= "Компания #{@company.title}"
                             = link_to assignment.face.full_name, face_path(assignment.face_id)
                             br
                           em.icon-calendar
-                            = " Дата назначения: #{assignment.date}"
+                          = " Дата назначения: #{assignment.date.strftime('%d.%m.%Y')}" if assignment.date
                           br
                           - if assignment.face.work_phone
                             em.icon-phone
-                              = " Рабочий номер: #{assignment.face.work_phone}"
+                            = " Рабочий номер: #{assignment.face.work_phone}"
             #bank_accounts.tab-pane.active role="tabpanel"
               .panel-body.bb.bt
                 h4.text-muted Счета компании:
