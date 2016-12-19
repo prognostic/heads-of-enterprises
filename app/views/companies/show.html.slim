@@ -1,5 +1,6 @@
-div.bg-success-light.text-center
-  p#notice= notice
+-if notice
+  div.bg-success-light.text-center
+    p#notice= notice
 h3= "Компания #{@company.title}"
 
 .row
@@ -25,32 +26,54 @@ h3= "Компания #{@company.title}"
         h4.text-muted Комментарий
         p= @company.comment
         br
+      /! START panel
       .panel-body
-        h4.text-muted= "Персоны:"
-        - @assignments.each do |assignment|
-          .panel.panel-default
-            .panel-body
-              .row
-                .col-sm-1
-                  - if assignment.director?
-                    span.label.label-info Директор
-                  - if assignment.founder?
-                    span.label.label-info Учредитель
-                .col-sm-1
-                  = image_tag assignment.face.passport.url(:medium), class: "img-responsive img-circle thumb64"
-                .col-sm-10
-                  - if assignment.director?
-                    = link_to " #{assignment.face.full_name}", face_path(assignment.face_id)
-                    br
-                  - if assignment.founder?
-                    = link_to assignment.face.full_name, face_path(assignment.face_id)
-                    br
-                  em.icon-calendar
-                    = " Дата назначения: #{assignment.date}"
-                  br
-                  -if assignment.face.work_phone
-                    em.icon-phone
-                      = " Рабочий номер: #{assignment.face.work_phone}"
+        div role='tabpanel'
+          /! Nav tabs
+          ul.nav.nav-tabs role='tablist'
+            li role='presentation'
+              a aria-controls='faces' aria-expanded='true' data-toggle='tab' href='#faces' role='tab'  Персоны
+            li.active role='presentation'
+              a aria-controls='bank_accounts' aria-expanded='false' data-toggle='tab' href='#bank_accounts' role='tab'  Счета компании
+          /! Tab panes
+          .tab-content
+            #faces.tab-pane role='tabpanel'
+              .panel-body
+                h4.text-muted Персоны:
+                - @assignments.each do |assignment|
+                  .panel.panel-default
+                    .panel-body
+                      .row
+                        .col-sm-1
+                          - if assignment.director?
+                            span.label.label-info Директор
+                          - if assignment.founder?
+                            span.label.label-info Учредитель
+                        .col-sm-1
+                          = image_tag assignment.face.passport.url(:medium), class: 'img-responsive img-circle thumb64'
+                        .col-sm-10
+                          - if assignment.director?
+                            = link_to " #{assignment.face.full_name}", face_path(assignment.face_id)
+                            br
+                          - if assignment.founder?
+                            = link_to assignment.face.full_name, face_path(assignment.face_id)
+                            br
+                          em.icon-calendar
+                            = " Дата назначения: #{assignment.date}"
+                          br
+                          - if assignment.face.work_phone
+                            em.icon-phone
+                              = " Рабочий номер: #{assignment.face.work_phone}"
+            #bank_accounts.tab-pane.active role="tabpanel"
+              .panel-body.bb.bt
+                h4.text-muted Счета компании:
+                - @company.bank_accounts.each do |bank_account|
+                  .col-sm-6
+                    p= link_to "Счет id № #{bank_account.id}", bank_account_path(bank_account)
+                  .col-sm-6
+                    p= link_to "В отделении банка #{bank_account.branch_id}", branch_path(bank_account.branch_id)
+                br
+      /! END panel
       .panel-footer
         = link_to 'Редактировать ', edit_company_path(@company)
         '|
