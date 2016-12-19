@@ -15,6 +15,15 @@ h3= "Отделение #{@branch.address}"
           = "Название"
         = @branch.bank.name
         br
+      .panel-body.bb.bt
+        h4.text-muted Счета отделения:
+        - @branch.bank_accounts.each do |bank_account|
+          .col-sm-6
+            p= link_to "Счет id № #{bank_account.id}", bank_account_path(bank_account)
+          .col-sm-6
+            - if bank_account.company
+              p= link_to "Компания #{bank_account.company.title}", company_path(bank_account.company_id)
+        br
       .panel-footer
         = link_to 'Редактировать ', edit_branch_path(@branch)
         '|

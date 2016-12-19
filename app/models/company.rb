@@ -21,4 +21,5 @@ class Company < ApplicationRecord
   accepts_nested_attributes_for :assignments, reject_if: :all_blank, allow_destroy: true
 
   validates :title, presence: true
+  validates :inn, numericality: true
 end

@@ -34,6 +34,7 @@ ru:
         name: "Название"
       company:
         title: "Название"
+        inn: "ИНН"
       face:
         full_name: "ФИО"
     errors:
@@ -52,6 +53,8 @@ ru:
           attributes:
             title:
               blank: " не может быть пустым"
+            inn:
+              not_a_number: " должен быть числом"
         face:
           attributes:
             full_name:
