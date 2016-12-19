@@ -21,7 +21,7 @@ gem 'slim-rails'
 gem 'simple_form'
 gem 'annotate'
 gem 'cocoon'
-gem 'public_activity'
+
 
 # Use react as the JavaScript library
 gem 'react-rails'
@@ -44,7 +44,7 @@ gem 'kaminari'
 group :development, :test do
   # Call 'byebug' anywhere in the code to stop execution and get a debugger console
   gem 'byebug', platform: :mri
-  gem 'rspec-rails', '~> 3.0.0'
+  gem 'rspec-rails', '~> 3.5.0'
 
 end
 
