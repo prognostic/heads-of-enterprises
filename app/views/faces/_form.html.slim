@@ -1,5 +1,11 @@
 = simple_form_for @face, defaults: { input_html: { class: 'form-horizontal' } } do |f|
-  = f.error_notification
+  - if @face.errors.any?
+    #error_explanation.bg-danger-light.text-center
+      div
+        = t('activerecord.errors.template.header',
+                :model => @face, :count => @face.errors.count)
+        - @face.errors.full_messages.each do |message|
+          div= message
 
   .panel-body
     form role='form'

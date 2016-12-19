@@ -28,4 +28,7 @@ class BankAccount < ApplicationRecord
 
   belongs_to :branch
   belongs_to :company
+
+  validates :branch_id, presence: true
+  validates :company_id, presence: true
 end

@@ -19,4 +19,6 @@ class Company < ApplicationRecord
   has_many :bank_accounts
   has_many :assignments, inverse_of: :company
   accepts_nested_attributes_for :assignments, reject_if: :all_blank, allow_destroy: true
+
+  validates :title, presence: true
 end

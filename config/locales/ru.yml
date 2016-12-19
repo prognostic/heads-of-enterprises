@@ -29,10 +29,33 @@ ru:
         create: "Добавить счет"
         update: "Обновить счет"
   activerecord:
-    models:
-      company: компания
     attributes:
-      name: Название
+      city:
+        name: "Название"
+      company:
+        title: "Название"
+      face:
+        full_name: "ФИО"
+    errors:
+      format: "%{message}"
+      template:
+        header:
+          one:   "Cохранение не удалось из-за %{count} ошибки"
+          other: "Cохранение не удалось из-за %{count} ошибок"
+        body:    "Были проблемы со следующими полями:"
+      models:
+        city:
+          attributes:
+            name:
+              blank: " не может быть пустым"
+        company:
+          attributes:
+            title:
+              blank: " не может быть пустым"
+        face:
+          attributes:
+            full_name:
+              blank: " не может быть пустым"
   views:
     pagination:
       first: "&laquo; Первая"
