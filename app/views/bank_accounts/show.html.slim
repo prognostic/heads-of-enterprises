@@ -18,7 +18,7 @@ h3 Счет
         div.col-sm-2.control-label
           em.icon-calendar
           |  Дата открытия
-        div= @bank_account.opening_date
+        div= @bank_account.opening_date.strftime("%d.%m.%Y") if @bank_account.opening_date
         br
         div.col-sm-2.control-label Отделение
         div= link_to @bank_account.branch.address, branch_path(@bank_account.branch.id) if @bank_account.branch

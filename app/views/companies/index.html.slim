@@ -23,7 +23,7 @@ h3 Компании
                   td= company.title
                   td= company.inn
                   td= company.address
-                  td= company.registration_date
+                  td= company.registration_date.strftime("%d.%m.%Y") if company.registration_date
                   td= company.okved
                   td= company.comment
                   td

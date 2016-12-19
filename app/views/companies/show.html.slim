@@ -18,7 +18,7 @@ h3= "Компания #{@company.title}"
           = @company.address
         strong.col-sm-2.control-label Дата регистрации
         .col-sm-10
-          = @company.registration_date
+          = @company.registration_date.strftime("%d.%m.%Y") if @company.registration_date
         strong.col-sm-2.control-label ОКВЭДы
         .col-sm-10
           = @company.okved
@@ -71,7 +71,7 @@ h3= "Компания #{@company.title}"
                   .col-sm-6
                     p= link_to "Счет id № #{bank_account.id}", bank_account_path(bank_account)
                   .col-sm-6
-                    p= link_to "В отделении банка #{bank_account.branch_id}", branch_path(bank_account.branch_id)
+                    p= link_to "В отделении банка - #{bank_account.branch.address}", branch_path(bank_account.branch_id)
                 br
       /! END panel
       .panel-footer

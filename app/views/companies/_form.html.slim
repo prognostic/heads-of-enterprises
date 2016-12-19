@@ -11,7 +11,7 @@
   .panel-body
     form role='form'
       .form-group
-        label Название
+        label Название *
         = f.text_field :title, class: 'form-control'
       .form-group
         label ИНН
@@ -28,6 +28,8 @@
       .form-group
         label Комментарий
         = f.input :comment, input_html: {class: 'form-control', rows: 3}, label: false
+      .required * Обязательные поля
+      br
       .form-group
         b Персоны:
         #faces
