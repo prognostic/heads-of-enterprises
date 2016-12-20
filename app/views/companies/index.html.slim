@@ -12,12 +12,16 @@ h3 Компании
             thead
               tr
                 th Название
-                th ИНН
+                th
+                  em.icon-phone
+                  |  Телефоны
                 th Адрес
+                th ИНН
                 th
                   em.icon-calendar
-                  |  Дата регистрации
+                  |  Зарегистрирован
                 th ОКВЭД
+                th Сайт
                 th
                   em.icon-bubble
                   |  Комментарий
@@ -25,19 +29,20 @@ h3 Компании
               - @companies.each do |company|
                 tr
                   td= company.title
-                  td= company.inn
+                  td= company.phones
                   td= company.address
+                  td= company.inn
                   td= company.registration_date.strftime('%d.%m.%Y') if company.registration_date
                   td= company.okved
+                  td= link_to company.website, "http://#{company.website}" if company.website
                   td= company.comment
                   td
-                    td
-                      .col-md-1
-                        = link_to '', company, class: 'fa fa-eye text-success'
-                      .col-md-1
-                        = link_to '', edit_company_path(company), class: 'fa fa-edit text-warning'
-                      .col-md-1
-                        = link_to '', company, method: :delete, data: {confirm: 'Вы уверены?'}, class: 'fa fa-remove text-danger'
+                    .col-md-1
+                      = link_to '', company, class: 'fa fa-eye text-success'
+                    .col-md-1
+                      = link_to '', edit_company_path(company), class: 'fa fa-edit text-warning'
+                    .col-md-1
+                      = link_to '', company, method: :delete, data: {confirm: 'Вы уверены?'}, class: 'fa fa-remove text-danger'
         = paginate @companies
       .panel-footer
         = link_to 'Добавить компанию', new_company_path

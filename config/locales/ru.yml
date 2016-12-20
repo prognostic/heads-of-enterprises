@@ -1,4 +1,7 @@
 ru:
+  kinds:
+    individual_entrepreneur: "ИП"
+    ltd: "ТОО"
   helpers:
     page_entries_info:
       more_pages:
@@ -158,6 +161,9 @@ ru:
       company:
         title: "Название"
         inn: "ИНН"
+        kind:
+          individual_entrepreneur: "ИП"
+          ltd: "ТОО"
       face:
         full_name: "ФИО"
     errors:

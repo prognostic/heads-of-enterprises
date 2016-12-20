@@ -1,27 +1,38 @@
 -if notice
   div.bg-success-light.text-center
     p#notice= notice
-h3= "Компания #{@company.title}"
+-if @company.kind
+  h3= "Компания #{I18n.t("kinds.#{@company.kind}")} #{@company.title}"
+-else
+  h3= "Компания #{@company.title}"
 
 .row
   .col-lg-12
     .panel.b
       .panel-heading
         h4.mv.text-muted
-          span= @company.title
+          span= "#{I18n.t("kinds.#{@company.kind}")} #{@company.title}" if @company.kind
       .panel-body
-        strong.col-sm-2 ИНН
+        strong.col-sm-2
+          em.icon-phone
+          |  Телефоны
         .col-sm-10
-          = @company.inn
+          = number_to_phone(@company.phones) if @company.phones
         strong.col-sm-2.control-label Адрес
         .col-sm-10
           = @company.address
-        strong.col-sm-2.control-label Дата регистрации
+        strong.col-sm-2 ИНН
         .col-sm-10
-          = @company.registration_date.strftime("%d.%m.%Y") if @company.registration_date
+          = @company.inn
         strong.col-sm-2.control-label ОКВЭДы
         .col-sm-10
           = @company.okved
+        strong.col-sm-2.control-label Дата регистрации
+        .col-sm-10
+          = @company.registration_date.strftime("%d.%m.%Y") if @company.registration_date
+        strong.col-sm-2.control-label Сайт
+        .col-sm-10
+          = link_to @company.website, "http://#{@company.website}" if @company.website
       .panel-body.bb.bt
         h4.text-muted Комментарий
         p= @company.comment

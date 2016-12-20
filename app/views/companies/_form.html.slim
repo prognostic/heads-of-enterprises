@@ -14,17 +14,27 @@
         label Название *
         = f.text_field :title, class: 'form-control'
       .form-group
-        label ИНН
-        = f.text_field :inn, class: 'form-control'
+        label Тип (ИП, ТОО)
+        = f.select :kind, Company.i18n_kinds, {}, {class: 'select form-control'}
+        /= f.select :kind, Company.kinds.keys, {}, {class: 'select form-control'}
+      .form-group
+        label Телефоны
+        = f.text_field :phones, class: 'form-control'
       .form-group
         label Адрес
         = f.text_field :address, class: 'form-control'
+      .form-group
+        label ИНН
+        = f.text_field :inn, class: 'form-control'
       .form-group
         label ОКВЭД(ы)
         = f.text_field :okved, class: 'form-control'
       .form-group
         label Дата регистрации
         = f.text_field :registration_date, class: 'datepicker form-control'
+      .form-group
+        label Сайт
+        = f.text_field :website, class: 'form-control'
       .form-group
         label Комментарий
         = f.input :comment, input_html: {class: 'form-control', rows: 3}, label: false

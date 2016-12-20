@@ -11,6 +11,9 @@
 #  comment           :text
 #  created_at        :datetime         not null
 #  updated_at        :datetime         not null
+#  phones            :string
+#  website           :string
+#  kind              :integer
 #
 
 class Company < ApplicationRecord
@@ -19,10 +22,17 @@ class Company < ApplicationRecord
   include PublicActivity::Model
   tracked
 
+  enum kind: [:individual_entrepreneur, :ltd]
+
   has_many :bank_accounts
   has_many :assignments, inverse_of: :company
   accepts_nested_attributes_for :assignments, reject_if: :all_blank, allow_destroy: true
 
   validates :title, presence: true
   validates :inn, numericality: true
+
+  def self.i18n_kinds(hash = {})
+    kinds.keys.each { |key| hash[I18n.t("kinds.#{key}")] = key }
+    hash
+  end
 end
