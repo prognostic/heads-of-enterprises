@@ -21,7 +21,7 @@ gem 'slim-rails'
 gem 'simple_form'
 gem 'annotate'
 gem 'cocoon'
-
+gem 'public_activity'
 
 # Use react as the JavaScript library
 gem 'react-rails'

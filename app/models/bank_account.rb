@@ -32,6 +32,8 @@ class BankAccount < ApplicationRecord
   belongs_to :branch
   belongs_to :company
 
+  enum status: [:opened, :closed, :locked]
+
   validates :branch_id, presence: true
   validates :company_id, presence: true
 end
