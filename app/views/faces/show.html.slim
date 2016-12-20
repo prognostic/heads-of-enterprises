@@ -31,6 +31,9 @@ h3= "Персона #{@face.full_name}"
                   - if assignment.founder?
                     span.label.label-info Учредитель в:
                   = link_to " #{assignment.company.title}", company_path(assignment.company_id) if assignment.company_id && assignment.company.title
+        -if @face.from_whom
+          label От кого
+          div= @face.from_whom
         label Комментарий
         div
           p.text-muted= @face.comment

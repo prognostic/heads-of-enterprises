@@ -14,6 +14,7 @@
 #  passport_content_type :string
 #  passport_file_size    :integer
 #  passport_updated_at   :datetime
+#  from_whom             :string
 #
 
 class Face < ApplicationRecord

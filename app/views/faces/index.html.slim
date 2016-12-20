@@ -17,6 +17,7 @@ h3 Персоны
                 th
                   em.icon-phone
                   |  Номера телефонов
+                th От кого
                 th
                   em.icon-bubble
                   |  Комментарий
@@ -48,6 +49,7 @@ h3 Персоны
                     br
                     .label.bg-gray-lighter.ph-lg.mr.text-sm.visible-lg-inline Личный
                     = " #{face.personal_phone}"
+                  td= face.from_whom
                   td= face.comment
                   td
                     .col-md-1
