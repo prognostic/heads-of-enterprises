@@ -16,7 +16,6 @@
       .form-group
         label Тип (ИП, ТОО)
         = f.select :kind, Company.i18n_kinds, {}, {class: 'select form-control'}
-        /= f.select :kind, Company.kinds.keys, {}, {class: 'select form-control'}
       .form-group
         label Телефоны
         = f.text_field :phones, class: 'form-control'

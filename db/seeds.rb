@@ -28,7 +28,7 @@ end
 end
 
 30.times do |i|
-  Company.create(title: "ТОО СпецСтрой #{i}", inn: "#{i}", address: "ул Строительная #{i}", registration_date: DateTime.new(2015, 6, rand(1...30)), okved: "#{i}", comment: "Комментарий ##{i}")
+  Company.create(title: "СпецСтрой #{i}", inn: "141234421#{i}", address: "ул Строительная #{i}", registration_date: DateTime.new(2015, 6, rand(1...30)), okved: "#{i}", comment: "Комментарий ##{i}")
 end
 
 faces_list = [
