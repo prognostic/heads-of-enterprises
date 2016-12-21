@@ -25,6 +25,8 @@ class Face < ApplicationRecord
 
   has_many :assignments, inverse_of: :face
 
+  has_paper_trail
+
   # TODO delete enum everywhere
   enum role: [:director, :founder, :restructuring, :working]
 

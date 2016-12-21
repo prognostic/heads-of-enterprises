@@ -19,5 +19,7 @@
 class BankAccountChangeStatusLog  < ActiveRecord::Base
   belongs_to :bank_account
 
+  has_paper_trail
+
   enum status: [:created, :working, :inactive, :transfer_certificate, :no_money, :locked]
 end

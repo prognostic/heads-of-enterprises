@@ -25,4 +25,6 @@ class Branch < ApplicationRecord
 
   belongs_to :bank
   has_many :bank_accounts
+
+  has_paper_trail
 end

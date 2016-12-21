@@ -22,6 +22,7 @@ gem 'simple_form'
 gem 'annotate'
 gem 'cocoon'
 gem 'public_activity'
+gem 'paper_trail'
 
 # Use react as the JavaScript library
 gem 'react-rails'

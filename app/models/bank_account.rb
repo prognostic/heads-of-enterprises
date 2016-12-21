@@ -37,6 +37,8 @@ class BankAccount < ApplicationRecord
   has_many :bank_account_change_status_logs
   accepts_nested_attributes_for :bank_account_change_status_logs, :reject_if => proc { |att| att[:status].blank? }, allow_destroy: true
 
+  has_paper_trail
+
   enum status: [:created, :working, :inactive, :transfer_certificate, :no_money, :locked]
 
   validates :branch_id, presence: true

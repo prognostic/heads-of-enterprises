@@ -13,5 +13,7 @@ class City < ApplicationRecord
 
   has_many :banks,  dependent: :destroy
 
+  has_paper_trail
+
   validates :name, presence: true
 end
