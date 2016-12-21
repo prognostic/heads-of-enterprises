@@ -19,5 +19,5 @@
 class BankAccountChangeStatusLog  < ActiveRecord::Base
   belongs_to :bank_account
 
-  enum status: [:working, :inactive, :transfer_certificate, :no_money, :locked]
+  enum status: [:created, :working, :inactive, :transfer_certificate, :no_money, :locked]
 end

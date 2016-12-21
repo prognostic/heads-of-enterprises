@@ -1,5 +1,5 @@
 class BankAccountsController < ApplicationController
-  before_action :set_bank_account, only: [:show, :edit, :update, :destroy]
+  before_action :set_bank_account, only: [:show, :edit, :update, :destroy, :change_status]
 
   # GET /bank_accounts
   # GET /bank_accounts.json
@@ -61,6 +61,10 @@ class BankAccountsController < ApplicationController
       format.html { redirect_to bank_accounts_url, notice: 'Счет успешно удален.' }
       format.json { head :no_content }
     end
+  end
+
+  def change_status
+    @bank_account.bank_account_change_status_logs.build
   end
 
   private

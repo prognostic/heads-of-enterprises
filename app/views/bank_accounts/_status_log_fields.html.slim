@@ -1,15 +1,14 @@
 - if f.object.id.nil?
-  br
-  | (Поля ниже заполняются только при изменении статуса счета)
-  .form_group
-    =f.hidden_field :status, id: 'log_status'
-  .form_group
-    label Сообщение при смене статуса
-    = f.input :message, input_html: {class: 'form-control', rows: 3}, label: false
-  .form_group
+  =f.hidden_field :status, id: 'log_status'
+  .col-md-4
     label Дата смены статуса *
     = f.text_field :change_date, class: 'datepicker form-control'
-  .form_group
+  .col-md-4
     label Сумма на счету на момент смены статуса
     = f.input :amount_in_account, input_html: {class: 'form-control', value: @bank_account.amount_of_money}, label: false
-  .required * Обязательные поля при смене статуса
+  .clearfix
+    .panel
+      .panel-body
+        .form_group
+          label Сообщение
+          = f.input :message, input_html: {class: 'form-control', rows: 3}, label: false

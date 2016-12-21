@@ -4,8 +4,8 @@
   .panel-bodybank_accou
     form role='form'
       .form_group
-        label Статус счета
-        = f.select :status, BankAccount.i18n_statuses, {}, {class: 'select form-control'}
+        /label Статус счета
+        /= f.select :status, BankAccount.i18n_statuses, {}, {class: 'select form-control'}
       .form_group
         label Сумма на счету
         = f.text_field :amount_of_money, class: 'form-control'
@@ -28,9 +28,6 @@
         label Комментарий к счету
         = f.input :comment, input_html: {class: 'form-control', rows: 3}, label: false
       .required * Обязательные поля
-      hr.featurette-divider
-      = f.simple_fields_for :bank_account_change_status_logs do |status_log|
-        = render 'status_log_fields', :f => status_log
       .form_group
         br
         = f.submit class: 'button btn btn-info'

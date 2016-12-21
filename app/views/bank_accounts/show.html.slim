@@ -11,6 +11,7 @@ h3 Счет
         div.col-sm-3.control-label Текущий статус
         div
           span.label.label-info= I18n.t("statuses.#{@bank_account.status}") if @bank_account.status
+          span= link_to ' изменить статус', change_status_bank_account_path(@bank_account), {class: "btn btn-secondary btn-outline btn-sm"}
         br
         div.col-sm-3.control-label Сумма на счету
         div= number_to_currency(@bank_account.amount_of_money, unit: '₽', separator: ".", delimiter: " ", format: "%n %u")
@@ -32,22 +33,6 @@ h3 Счет
         div
           p= @bank_account.comment
         br
-      .panel-body.bb.bt
-        | Изменения статуса счета
-        br
-        - @bank_account.bank_account_change_status_logs.each do |status_log|
-          .media
-            .media-body
-              div.col-sm-3.control-label Статус
-              div.col-sm-9
-                span.label.label-info= I18n.t("statuses.#{status_log.status}")
-              div.col-sm-3.control-label Дата изменения статуса
-              div.col-sm-9.control-label= status_log.change_date
-              div.col-sm-3.control-label Сумма на счету
-              div.col-sm-9.control-label= number_to_currency(status_log.amount_in_account, unit: '₽', separator: ".", delimiter: " ", format: "%n %u")
-              div.col-sm-3.control-label Сообщение
-              div.col-sm-9.control-label= status_log.message
-              br
       .panel-footer
         = link_to 'Редактировать ', edit_bank_account_path(@bank_account)
         '|

@@ -1,0 +1,44 @@
+-if notice
+  div.bg-success-light.text-center
+    p#notice= notice
+h3 Изменения статуса счета
+
+.row
+  .col-lg-12
+    .panel.panel-default
+      .panel-heading Изменить статус счета
+      .panel-body
+        = simple_form_for @bank_account, defaults: {input_html: {class: 'form-horizontal'}} do |f|
+          = f.error_notification
+
+          .form_group
+            .row
+              .col-md-4
+                label Статус счета
+                = f.select :status, BankAccount.i18n_statuses, {}, {class: 'select form-control'}
+              = f.simple_fields_for :bank_account_change_status_logs do |status_log|
+                = render 'status_log_fields', :f => status_log
+          .form_group.text-center
+            = f.submit 'Изменить статус', class: 'button btn btn-info'
+      .panel-body.bb.bt
+        .panel-heading
+          | Лог изменений статуса счета
+        br
+        .table-responsive
+          table.table.table-hover
+            thead
+              tr
+                th Статус
+                th Дата изменения статуса
+                th Сумма на счету
+                th Сообщение
+            tbody
+              - @bank_account.bank_account_change_status_logs.each do |status_log|
+                tr
+                  td
+                    span.label.label-info= I18n.t("statuses.#{status_log.status}") if status_log.status
+                  td= status_log.change_date
+                  td= number_to_currency(status_log.amount_in_account, unit: '₽', separator: ".", delimiter: " ", format: "%n %u")
+                  td= status_log.message
+      .panel-footer
+        = link_to 'Назад', bank_account_path(@bank_account)

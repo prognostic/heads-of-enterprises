@@ -3,6 +3,7 @@ ru:
     individual_entrepreneur: "ИП"
     ltd: "ТОО"
   statuses:
+    created: "создан"
     working: "рабочий"
     inactive: "не активный"
     transfer_certificate: "передать сертификат"

@@ -3,7 +3,14 @@ Rails.application.routes.draw do
 
   scope 'control' do
     root to: "dashboard#index"
-    resources :cities, :banks, :branches, :companies, :faces, :bank_accounts, :assignments
+
+    resources :cities, :banks, :branches, :companies, :faces, :assignments
+    resources :bank_accounts do
+      member do
+        get 'change_status'
+      end
+    end
+
     get 'dashboard', to: 'dashboard#index'
   end
 
