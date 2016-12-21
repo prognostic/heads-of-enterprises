@@ -2,6 +2,12 @@ ru:
   kinds:
     individual_entrepreneur: "ИП"
     ltd: "ТОО"
+  statuses:
+    working: "рабочий"
+    inactive: "не активный"
+    transfer_certificate: "передать сертификат"
+    no_money: "нет денег на счету"
+    locked: "заблокирован"
   helpers:
     page_entries_info:
       more_pages:
@@ -166,6 +172,13 @@ ru:
           ltd: "ТОО"
       face:
         full_name: "ФИО"
+      bank_account:
+        status:
+          working: "рабочий"
+          inactive: "не активный"
+          transfer_certificate: "передать сертификат"
+          no_money: "нет денег на счету"
+          locked: "заблокирован"
     errors:
       format: "%{message}"
       template:

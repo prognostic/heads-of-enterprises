@@ -10,7 +10,7 @@ h3 Счет
       .panel-body
         div.col-sm-3.control-label Текущий статус
         div
-          span.label.label-info= @bank_account.status
+          span.label.label-info= I18n.t("statuses.#{@bank_account.status}") if @bank_account.status
         br
         div.col-sm-3.control-label Сумма на счету
         div= number_to_currency(@bank_account.amount_of_money, unit: '₽', separator: ".", delimiter: " ", format: "%n %u")
@@ -40,7 +40,7 @@ h3 Счет
             .media-body
               div.col-sm-3.control-label Статус
               div.col-sm-9
-                span.label.label-info= status_log.status
+                span.label.label-info= I18n.t("statuses.#{status_log.status}")
               div.col-sm-3.control-label Дата изменения статуса
               div.col-sm-9.control-label= status_log.change_date
               div.col-sm-3.control-label Сумма на счету

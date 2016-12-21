@@ -34,8 +34,13 @@ class BankAccount < ApplicationRecord
   has_many :bank_account_change_status_logs
   accepts_nested_attributes_for :bank_account_change_status_logs, :reject_if => proc { |att| att[:status].blank? }, allow_destroy: true
 
-  enum status: [:opened, :closed, :locked]
+  enum status: [:working, :inactive, :transfer_certificate, :no_money, :locked]
 
   validates :branch_id, presence: true
   validates :company_id, presence: true
+
+  def self.i18n_statuses(hash = {})
+    statuses.keys.each { |key| hash[I18n.t("statuses.#{key}")] = key }
+    hash
+  end
 end
