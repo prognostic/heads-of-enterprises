@@ -15,10 +15,12 @@ class BankAccountsController < ApplicationController
   # GET /bank_accounts/new
   def new
     @bank_account = BankAccount.new
+    @bank_account.bank_account_change_status_logs.build
   end
 
   # GET /bank_accounts/1/edit
   def edit
+    @bank_account.bank_account_change_status_logs.build
   end
 
   # POST /bank_accounts
@@ -69,6 +71,6 @@ class BankAccountsController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def bank_account_params
-      params.fetch(:bank_account, {}).permit(:opening_date, :status, :amount_of_money, :comment, :branch_id, :company_id)
+      params.fetch(:bank_account, {}).permit(:opening_date, :status, :amount_of_money, :comment, :branch_id, :company_id, bank_account_change_status_logs_attributes: [:id, :change_date, :status, :amount_in_account, :message, :company_id, :_destroy])
     end
 end

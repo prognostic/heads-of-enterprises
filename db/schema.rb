@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20161220080438) do
+ActiveRecord::Schema.define(version: 20161220115535) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -40,6 +40,17 @@ ActiveRecord::Schema.define(version: 20161220080438) do
     t.integer  "company_id"
     t.index ["company_id"], name: "index_assignments_on_company_id", using: :btree
     t.index ["face_id"], name: "index_assignments_on_face_id", using: :btree
+  end
+
+  create_table "bank_account_change_status_logs", force: :cascade do |t|
+    t.integer  "bank_account_id"
+    t.string   "change_date",                                null: false
+    t.decimal  "amount_in_account", precision: 10, scale: 2
+    t.text     "message"
+    t.integer  "status",                                     null: false
+    t.datetime "created_at",                                 null: false
+    t.datetime "updated_at",                                 null: false
+    t.index ["bank_account_id"], name: "index_bank_account_change_status_logs_on_bank_account_id", using: :btree
   end
 
   create_table "bank_accounts", force: :cascade do |t|

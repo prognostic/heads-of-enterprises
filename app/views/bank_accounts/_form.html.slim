@@ -1,16 +1,16 @@
 = simple_form_for @bank_account, defaults: { input_html: { class: 'form-horizontal' } } do |f|
   = f.error_notification
 
-  .panel-body
+  .panel-bodybank_accou
     form role='form'
       .form_group
-        label Статус
+        label Статус счета
         = f.select :status, BankAccount.statuses.keys, {}, {class: 'select form-control'}
       .form_group
         label Сумма на счету
         = f.text_field :amount_of_money, class: 'form-control'
       .form_group
-        label Дата регистрации
+        label Дата регистрации счета
         = f.text_field :opening_date, class: 'datepicker form-control'
       .form_group
         label Отделение *
@@ -25,8 +25,10 @@
         - else
           = f.select :company_id, options_from_collection_for_select(Company.all, 'id', 'title'), {}, {class: 'select form-control'}
       .form_group
-        label Комментарий
+        label Комментарий к счету
         = f.input :comment, input_html: {class: 'form-control', rows: 3}, label: false
+      = f.simple_fields_for :bank_account_change_status_logs do |status_log|
+        = render 'status_log_fields', :f => status_log
       .required * Обязательные поля
       .form_group
         br

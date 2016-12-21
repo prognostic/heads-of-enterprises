@@ -41,3 +41,11 @@ jQuery(function ($) {
     };
     $.datepicker.setDefaults($.datepicker.regional['ru']);
 });
+
+$(function(){
+    $(document).on('change','#bank_account_status', function(){
+        const select_value = $(this).val();
+        $('#log_status').val(select_value);
+
+    });
+});

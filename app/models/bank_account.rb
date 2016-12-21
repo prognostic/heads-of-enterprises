@@ -31,6 +31,8 @@ class BankAccount < ApplicationRecord
 
   belongs_to :branch
   belongs_to :company
+  has_many :bank_account_change_status_logs
+  accepts_nested_attributes_for :bank_account_change_status_logs, :reject_if => proc { |att| att[:status].blank? }, allow_destroy: true
 
   enum status: [:opened, :closed, :locked]
 

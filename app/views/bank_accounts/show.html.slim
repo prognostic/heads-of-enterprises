@@ -8,30 +8,46 @@ h3 Счет
     .panel.panel-default
       .panel-heading Информация о счете
       .panel-body
-        div.col-sm-2.control-label Статус
+        div.col-sm-3.control-label Текущий статус
         div
           span.label.label-info= @bank_account.status
         br
-        div.col-sm-2.control-label Сумма на счету
+        div.col-sm-3.control-label Сумма на счету
         div= number_to_currency(@bank_account.amount_of_money, unit: '₽', separator: ".", delimiter: " ", format: "%n %u")
         br
-        div.col-sm-2.control-label
+        div.col-sm-3.control-label
           em.icon-calendar
           |  Дата открытия
         div= @bank_account.opening_date.strftime("%d.%m.%Y") if @bank_account.opening_date
         br
-        div.col-sm-2.control-label Отделение
+        div.col-sm-3.control-label Отделение
         div= link_to @bank_account.branch.address, branch_path(@bank_account.branch.id) if @bank_account.branch
         br
-        div.col-sm-2.control-label Компания
+        div.col-sm-3.control-label Компания
         div= link_to @bank_account.company.title, company_path(@bank_account.company.id) if @bank_account.company
         br
-        div.col-sm-2.control-label
+        div.col-sm-3.control-label
           em.icon-bubble
           |  Комментарий
         div
           p= @bank_account.comment
         br
+      .panel-body.bb.bt
+        | Изменения статуса счета
+        br
+        - @bank_account.bank_account_change_status_logs.each do |status_log|
+          .media
+            .media-body
+              div.col-sm-3.control-label Статус
+              div.col-sm-9
+                span.label.label-info= status_log.status
+              div.col-sm-3.control-label Дата изменения статуса
+              div.col-sm-9.control-label= status_log.change_date
+              div.col-sm-3.control-label Сумма на счету
+              div.col-sm-9.control-label= number_to_currency(status_log.amount_in_account, unit: '₽', separator: ".", delimiter: " ", format: "%n %u")
+              div.col-sm-3.control-label Сообщение
+              div.col-sm-9.control-label= status_log.message
+              br
       .panel-footer
         = link_to 'Редактировать ', edit_bank_account_path(@bank_account)
         '|
