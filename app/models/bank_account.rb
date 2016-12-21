@@ -27,8 +27,6 @@ class BankAccount < ApplicationRecord
 
   after_initialize :set_defaults, unless: :persisted?
 
-  paginates_per 25
-
   include PublicActivity::Model
   tracked
 
@@ -37,12 +35,12 @@ class BankAccount < ApplicationRecord
   has_many :bank_account_change_status_logs
   accepts_nested_attributes_for :bank_account_change_status_logs, :reject_if => proc { |att| att[:status].blank? }, allow_destroy: true
 
+  validates :branch_id, presence: true
+  validates :company_id, presence: true
+
   has_paper_trail
 
   enum status: [:created, :working, :inactive, :transfer_certificate, :no_money, :locked]
-
-  validates :branch_id, presence: true
-  validates :company_id, presence: true
 
   def self.i18n_statuses(hash = {})
     statuses.keys.each { |key| hash[I18n.t("statuses.#{key}")] = key }

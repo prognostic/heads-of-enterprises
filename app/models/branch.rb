@@ -18,8 +18,6 @@
 #
 
 class Branch < ApplicationRecord
-  paginates_per 25
-
   include PublicActivity::Model
   tracked
 

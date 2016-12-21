@@ -17,17 +17,15 @@
 #
 
 class Face < ApplicationRecord
-  paginates_per 25
-
   include PublicActivity::Model
   tracked
 
   has_many :assignments, inverse_of: :face
 
+  validates :full_name, presence: true
+
   has_paper_trail
 
   has_attached_file :passport, styles: {medium: "600x600>", thumb: "300x300>", small: "100x100>"}, default_url: "missing_avatar.png"
   validates_attachment_content_type :passport, content_type: /\Aimage\/.*\z/
-
-  validates :full_name, presence: true
 end

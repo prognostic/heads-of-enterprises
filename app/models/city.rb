@@ -9,11 +9,9 @@
 #
 
 class City < ApplicationRecord
-  paginates_per 25
-
   has_many :banks,  dependent: :destroy
 
-  has_paper_trail
-
   validates :name, presence: true
+
+  has_paper_trail
 end

@@ -22,15 +22,13 @@
 #
 
 class Assignment < ApplicationRecord
-  paginates_per 25
-
-  enum position: [:director, :founder]
-
   belongs_to :company
   belongs_to :face
 
-  has_paper_trail
-
   validates :company, length: { minimum: 1 }, allow_nil: true
   validates :face, length: { minimum: 1 }, allow_nil: true
+
+  has_paper_trail
+
+  enum position: [:director, :founder]
 end

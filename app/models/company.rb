@@ -17,21 +17,19 @@
 #
 
 class Company < ApplicationRecord
-  paginates_per 25
-
   include PublicActivity::Model
   tracked
-
-  enum kind: [:individual_entrepreneur, :ltd]
 
   has_many :bank_accounts
   has_many :assignments, inverse_of: :company
   accepts_nested_attributes_for :assignments, reject_if: :all_blank, allow_destroy: true
 
-  has_paper_trail
-
   validates :title, presence: true
   validates :inn, numericality: true
+
+  has_paper_trail
+
+  enum kind: [:individual_entrepreneur, :ltd]
 
   def self.i18n_kinds(hash = {})
     kinds.keys.each { |key| hash[I18n.t("kinds.#{key}")] = key }
