@@ -23,12 +23,10 @@ RSpec.describe AssignmentsController, :type => :controller do
   # This should return the minimal set of attributes required to create a valid
   # Assignment. As you add validations to Assignment, be sure to
   # adjust the attributes here as well.
-  let(:valid_attributes) {
-    skip("Add a hash of attributes valid for your model")
-  }
+  let(:valid_attributes) { {position: 0, face_id: 15, company_id: 10} }
 
   let(:invalid_attributes) {
-    skip("Add a hash of attributes invalid for your model")
+    skip('Add a hash of attributes invalid for your model')
   }
 
   # This should return the minimal set of values that should be in the session
@@ -36,122 +34,114 @@ RSpec.describe AssignmentsController, :type => :controller do
   # AssignmentsController. Be sure to keep this updated too.
   let(:valid_session) { {} }
 
-  describe "GET index" do
-    it "assigns all assignments as @assignments" do
+  describe 'GET show' do
+    it 'assigns the requested assignment as @assignment' do
       assignment = Assignment.create! valid_attributes
-      get :index, {}, valid_session
-      expect(assigns(:assignments)).to eq([assignment])
-    end
-  end
-
-  describe "GET show" do
-    it "assigns the requested assignment as @assignment" do
-      assignment = Assignment.create! valid_attributes
-      get :show, {:id => assignment.to_param}, valid_session
+      get :show, {id: assignment.to_param}, valid_session
       expect(assigns(:assignment)).to eq(assignment)
     end
   end
 
-  describe "GET new" do
-    it "assigns a new assignment as @assignment" do
+  describe 'GET new' do
+    it 'assigns a new assignment as @assignment' do
       get :new, {}, valid_session
       expect(assigns(:assignment)).to be_a_new(Assignment)
     end
   end
 
-  describe "GET edit" do
-    it "assigns the requested assignment as @assignment" do
+  describe 'GET edit' do
+    it 'assigns the requested assignment as @assignment' do
       assignment = Assignment.create! valid_attributes
-      get :edit, {:id => assignment.to_param}, valid_session
+      get :edit, {id: assignment.to_param}, valid_session
       expect(assigns(:assignment)).to eq(assignment)
     end
   end
 
-  describe "POST create" do
-    describe "with valid params" do
-      it "creates a new Assignment" do
+  describe 'POST create' do
+    describe 'with valid params' do
+      it 'creates a new Assignment' do
         expect {
-          post :create, {:assignment => valid_attributes}, valid_session
+          post :create, {assignment: valid_attributes}, valid_session
         }.to change(Assignment, :count).by(1)
       end
 
-      it "assigns a newly created assignment as @assignment" do
-        post :create, {:assignment => valid_attributes}, valid_session
+      it 'assigns a newly created assignment as @assignment' do
+        post :create, {assignment: valid_attributes}, valid_session
         expect(assigns(:assignment)).to be_a(Assignment)
         expect(assigns(:assignment)).to be_persisted
       end
 
-      it "redirects to the created assignment" do
-        post :create, {:assignment => valid_attributes}, valid_session
+      it 'redirects to the created assignment' do
+        post :create, {assignment: valid_attributes}, valid_session
         expect(response).to redirect_to(Assignment.last)
       end
     end
 
-    describe "with invalid params" do
-      it "assigns a newly created but unsaved assignment as @assignment" do
-        post :create, {:assignment => invalid_attributes}, valid_session
+    describe 'with invalid params' do
+      it 'assigns a newly created but unsaved assignment as @assignment' do
+        post :create, {assignment: invalid_attributes}, valid_session
         expect(assigns(:assignment)).to be_a_new(Assignment)
       end
 
-      it "re-renders the 'new' template" do
-        post :create, {:assignment => invalid_attributes}, valid_session
-        expect(response).to render_template("new")
+      it 're-renders the \'new\' template' do
+        post :create, {assignment: invalid_attributes}, valid_session
+        expect(response).to render_template('new')
       end
     end
   end
 
-  describe "PUT update" do
-    describe "with valid params" do
+  describe 'PUT update' do
+    describe 'with valid params' do
       let(:new_attributes) {
-        skip("Add a hash of attributes valid for your model")
+        skip('Add a hash of attributes valid for your model')
       }
 
-      it "updates the requested assignment" do
+      it 'updates the requested assignment' do
         assignment = Assignment.create! valid_attributes
-        put :update, {:id => assignment.to_param, :assignment => new_attributes}, valid_session
+        put :update, {id: assignment.to_param, assignment: new_attributes}, valid_session
         assignment.reload
-        skip("Add assertions for updated state")
+        skip('Add assertions for updated state')
       end
 
-      it "assigns the requested assignment as @assignment" do
+      it 'assigns the requested assignment as @assignment' do
         assignment = Assignment.create! valid_attributes
-        put :update, {:id => assignment.to_param, :assignment => valid_attributes}, valid_session
+        put :update, {id: assignment.to_param, assignment: valid_attributes}, valid_session
         expect(assigns(:assignment)).to eq(assignment)
       end
 
-      it "redirects to the assignment" do
+      it 'redirects to the assignment' do
         assignment = Assignment.create! valid_attributes
-        put :update, {:id => assignment.to_param, :assignment => valid_attributes}, valid_session
+        put :update, {id: assignment.to_param, assignment: valid_attributes}, valid_session
         expect(response).to redirect_to(assignment)
       end
     end
 
-    describe "with invalid params" do
-      it "assigns the assignment as @assignment" do
+    describe 'with invalid params' do
+      it 'assigns the assignment as @assignment' do
         assignment = Assignment.create! valid_attributes
-        put :update, {:id => assignment.to_param, :assignment => invalid_attributes}, valid_session
+        put :update, {id: assignment.to_param, assignment: invalid_attributes}, valid_session
         expect(assigns(:assignment)).to eq(assignment)
       end
 
-      it "re-renders the 'edit' template" do
+      it 're-renders the \'edit\' template' do
         assignment = Assignment.create! valid_attributes
-        put :update, {:id => assignment.to_param, :assignment => invalid_attributes}, valid_session
-        expect(response).to render_template("edit")
+        put :update, {id: assignment.to_param, assignment: invalid_attributes}, valid_session
+        expect(response).to render_template('edit')
       end
     end
   end
 
-  describe "DELETE destroy" do
-    it "destroys the requested assignment" do
+  describe 'DELETE destroy' do
+    it 'destroys the requested assignment' do
       assignment = Assignment.create! valid_attributes
       expect {
-        delete :destroy, {:id => assignment.to_param}, valid_session
+        delete :destroy, {id: assignment.to_param}, valid_session
       }.to change(Assignment, :count).by(-1)
     end
 
-    it "redirects to the assignments list" do
+    it 'redirects to the assignments list' do
       assignment = Assignment.create! valid_attributes
-      delete :destroy, {:id => assignment.to_param}, valid_session
+      delete :destroy, {id: assignment.to_param}, valid_session
       expect(response).to redirect_to(assignments_url)
     end
   end

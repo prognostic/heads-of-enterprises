@@ -1,12 +1,6 @@
 class AssignmentsController < ApplicationController
   before_action :set_assignment, only: [:show, :edit, :update, :destroy]
 
-  # GET /assignments
-  # GET /assignments.json
-  def index
-    @assignments = Assignment.page params[:page]
-  end
-
   # GET /assignments/1
   # GET /assignments/1.json
   def show
