@@ -13,9 +13,6 @@ h3 Счет
           span.label.label-info= I18n.t("statuses.#{@bank_account.status}") if @bank_account.status
           span= link_to ' изменить статус', change_status_bank_account_path(@bank_account), {class: "btn btn-secondary btn-outline btn-sm"}
         br
-        div.col-sm-3.control-label Сумма на счету
-        div= number_to_currency(@bank_account.amount_of_money, unit: '₽', separator: ".", delimiter: " ", format: "%n %u")
-        br
         div.col-sm-3.control-label
           em.icon-calendar
           |  Дата открытия

@@ -12,7 +12,6 @@ h3 Счета
             thead
               tr
                 th Статус
-                th Сумма на счету
                 th
                   em.icon-calendar
                   |  Дата открытия
@@ -26,7 +25,6 @@ h3 Счета
                 tr
                   td
                     span.label.label-info= bank_account.status
-                  td= number_to_currency(bank_account.amount_of_money, unit: '₽', separator: ".", delimiter: " ", format: "%n %u")
                   td= bank_account.opening_date.strftime("%d.%m.%Y") if bank_account.opening_date
                   td= link_to bank_account.branch.address, branch_path(bank_account.branch.id) if bank_account.branch
                   td= link_to bank_account.company.title, company_path(bank_account.company.id) if bank_account.company

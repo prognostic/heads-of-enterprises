@@ -2,15 +2,14 @@
 #
 # Table name: bank_accounts
 #
-#  id              :integer          not null, primary key
-#  opening_date    :date
-#  status          :integer
-#  amount_of_money :decimal(10, 2)
-#  comment         :text
-#  created_at      :datetime         not null
-#  updated_at      :datetime         not null
-#  branch_id       :integer
-#  company_id      :integer
+#  id           :integer          not null, primary key
+#  opening_date :date
+#  status       :integer
+#  comment      :text
+#  created_at   :datetime         not null
+#  updated_at   :datetime         not null
+#  branch_id    :integer
+#  company_id   :integer
 #
 # Indexes
 #

@@ -75,6 +75,6 @@ class BankAccountsController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def bank_account_params
-      params.fetch(:bank_account, {}).permit(:opening_date, :status, :amount_of_money, :comment, :branch_id, :company_id, bank_account_change_status_logs_attributes: [:id, :change_date, :status, :amount_in_account, :message, :company_id, :_destroy])
+      params.fetch(:bank_account, {}).permit(:opening_date, :status, :comment, :branch_id, :company_id, bank_account_change_status_logs_attributes: [:id, :change_date, :status, :amount_in_account, :message, :company_id, :_destroy])
     end
 end

@@ -4,12 +4,6 @@
   .panel-bodybank_accou
     form role='form'
       .form_group
-        /label Статус счета
-        /= f.select :status, BankAccount.i18n_statuses, {}, {class: 'select form-control'}
-      .form_group
-        label Сумма на счету
-        = f.text_field :amount_of_money, class: 'form-control'
-      .form_group
         label Дата регистрации счета
         = f.text_field :opening_date, class: 'datepicker form-control'
       .form_group
