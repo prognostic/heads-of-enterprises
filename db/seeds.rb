@@ -80,11 +80,11 @@ faces_list = [
 ]
 
 faces_list.each do |name|
-  Face.create(full_name: name, personal_phone: "9876543#{rand(10...99)}", work_phone: "9876#{rand(10...99)}543", role: rand(0...1), comment: "Комментарий")
+  Face.create(full_name: name, personal_phone: "9876543#{rand(10...99)}", work_phone: "9876#{rand(10...99)}543", comment: "Комментарий")
 end
 
 50.times do |i|
-  BankAccount.create(opening_date: DateTime.new(2015, 6, rand(1...30)), status: rand(1...7), amount_of_money: rand(0...10000000), comment: "Комментарий ##{i}", branch_id: rand(1...20), company_id: (1...30))
+  BankAccount.create(opening_date: DateTime.new(2015, 6, rand(1...30)), status: rand(1...5), amount_of_money: rand(0...10000000), comment: "Комментарий ##{i}", branch_id: rand(1...20), company_id: (1...30))
 end
 
 50.times do |i|
