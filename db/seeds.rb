@@ -1,3 +1,5 @@
+require 'factory_girl_rails'
+require 'faker'
 # This file should contain all the record creation needed to seed the database with its default values.
 # The data can then be loaded with the rails db:seed command (or created alongside the database with db:setup).
 #
@@ -20,7 +22,7 @@ cities_list.each do |name|
 end
 
 10.times do |i|
-  Bank.create(name: "Банк N#{i}", city_id: rand(1...6))
+  FactoryGirl.build(:bank)
 end
 
 20.times do |i|
@@ -80,7 +82,7 @@ faces_list = [
 ]
 
 faces_list.each do |name|
-  Face.create(full_name: name, personal_phone: "9876543#{rand(10...99)}", work_phone: "9876#{rand(10...99)}543", comment: 'Комментарий')
+  FactoryGirl.create(:face, full_name: name, personal_phone: "9876543#{rand(10...99)}", work_phone: "9876#{rand(10...99)}543")
 end
 
 50.times do |i|
@@ -91,4 +93,4 @@ end
   Assignment.create(date: DateTime.new(2015, 6, rand(1...30)), position: rand(0...1), face_id: rand(1...45), company_id: (1...30))
 end
 
-User.create(email: 'admin@example.com', password: '123123123')
+FactoryGirl.create(:user)
