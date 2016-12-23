@@ -3,6 +3,12 @@
  * Redefine background url with image-url(), this function is provided by sass-rails.
  */
 
+/* Body */
+body {
+  font-family: "Source Sans Pro", sans-serif;
+  color: #656565;
+}
+
 /* Chosen */
 
 .chosen-container-single .chosen-single abbr {

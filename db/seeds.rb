@@ -18,37 +18,34 @@ cities_list = [
     'Кострома',
     'Белгород',
     'Липецк',
-    'Краснодар'
+    'Краснодар',
+    'Тюмень'
 ]
 
 cities_list.each do |name|
   City.create(name: name)
 end
 
-10.times do |i|
-  FactoryGirl.create(:bank)
+10.times do
+  FactoryGirl.create(:bank, name: Faker::Bank.name, city_id: Random.rand(1...10))
 end
 
-10.times do |i|
-  Branch.create(address: "Лазурная ул #{i}", bank_id: rand(1...10))
+20.times do
+  FactoryGirl.create(:branch, address: Faker::Address.street_address, bank_id: Random.rand(1...10))
 end
 
-20.times do |i|
+20.times do
   FactoryGirl.create(:company,
-                     title: Faker::Company.name,
-                     inn:   Faker::Number.number(10),
-                     address: Faker::Address.street_address,
-                     registration_date: Faker::Date.between_except(1.year.ago, 1.year.from_now, Date.today),
-                     okved: Faker::Number.number(1),
-                     comment: Faker::Lorem.paragraph(2),
-                     phones: Faker::PhoneNumber.cell_phone,
-                     website: Faker::Internet.domain_name,
-                     kind:  Random.rand(0...1))
+                     title:              Faker::Company.name,
+                     inn:                Faker::Number.number(10),
+                     address:            Faker::Address.street_address,
+                     registration_date:  Faker::Date.between(10.year.ago, Date.today),
+                     okved:              Faker::Number.decimal(2),
+                     comment:            Faker::Lorem.sentence,
+                     phones:             Faker::PhoneNumber.cell_phone,
+                     website:            Faker::Internet.domain_name,
+                     kind:               Random.rand(0...1))
 end
-
-# 30.times do |i|
-#   Company.create(title: "СпецСтрой #{i}", inn: "141234421#{i}", address: "ул Строительная #{i}", registration_date: DateTime.new(2015, 6, rand(1...30)), okved: "#{i}", comment: "Комментарий ##{i}")
-# end
 
 faces_list = [
     'Лидин Вацлав Архипович',
@@ -99,15 +96,37 @@ faces_list = [
 ]
 
 faces_list.each do |name|
-  FactoryGirl.create(:face, full_name: name, personal_phone: "9876543#{rand(10...99)}", work_phone: "9876#{rand(10...99)}543")
-end
-
-50.times do |i|
-  BankAccount.create(opening_date: DateTime.new(2015, 6, rand(1...30)), status: rand(1...5), comment: "Комментарий ##{i}", branch_id: rand(1...20), company_id: (1...30))
+  FactoryGirl.create(:face,
+                     full_name:       name,
+                     personal_phone:  Faker::PhoneNumber.cell_phone,
+                     work_phone:      Faker::PhoneNumber.cell_phone,
+                     comment:         Faker::Lorem.sentence)
 end
 
 50.times do
-  Assignment.create(date: DateTime.new(2015, 6, rand(1...30)), position: rand(0...1), face_id: rand(1...45), company_id: (1...30))
+  FactoryGirl.create(:bank_account,
+                     opening_date:    Faker::Date.between(5.year.ago, Date.today),
+                     status:          Random.rand(0...5),
+                     comment:         Faker::Lorem.sentence,
+                     branch_id:       Random.rand(1...20),
+                     company_id:      Random.rand(1...20))
+end
+
+20.times do
+  FactoryGirl.create(:assignment,
+                     date:            Faker::Date.between(5.year.ago, Date.today),
+                     position:        Random.rand(0...1),
+                     face_id:         Random.rand(1...45),
+                     company_id:      Random.rand(1...20))
+end
+
+75.times do
+  FactoryGirl.create(:status_log,
+                     bank_account_id:    Random.rand(1...50),
+                     change_date:        Faker::Date.between(3.year.ago, Date.today),
+                     amount_in_account:  Faker::Number.decimal(7, 2),
+                     message:            Faker::Lorem.sentence,
+                     status:             Random.rand(0...5))
 end
 
 FactoryGirl.create(:user)

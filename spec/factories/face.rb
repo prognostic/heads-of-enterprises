@@ -1,8 +1,10 @@
+require 'faker'
+
 FactoryGirl.define do
   factory :face, class: 'Face' do
-    full_name 'some name'
-    personal_phone '98761412143'
-    work_phone '98761412543'
-    comment 'Комментарий'
+    full_name       { Faker::Name.name_with_middle }
+    personal_phone  { Faker::PhoneNumber.cell_phone }
+    work_phone      { Faker::PhoneNumber.cell_phone }
+    comment         { Faker::Lorem.sentence }
   end
 end
