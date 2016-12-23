@@ -14,7 +14,11 @@ cities_list = [
     'Москва',
     'Брянск',
     'Великий Новгород',
-    'Новосибирск'
+    'Новосибирск',
+    'Кострома',
+    'Белгород',
+    'Липецк',
+    'Краснодар'
 ]
 
 cities_list.each do |name|
@@ -22,16 +26,29 @@ cities_list.each do |name|
 end
 
 10.times do |i|
-  FactoryGirl.build(:bank)
+  FactoryGirl.create(:bank)
 end
 
-20.times do |i|
+10.times do |i|
   Branch.create(address: "Лазурная ул #{i}", bank_id: rand(1...10))
 end
 
-30.times do |i|
-  Company.create(title: "СпецСтрой #{i}", inn: "141234421#{i}", address: "ул Строительная #{i}", registration_date: DateTime.new(2015, 6, rand(1...30)), okved: "#{i}", comment: "Комментарий ##{i}")
+20.times do |i|
+  FactoryGirl.create(:company,
+                     title: Faker::Company.name,
+                     inn:   Faker::Number.number(10),
+                     address: Faker::Address.street_address,
+                     registration_date: Faker::Date.between_except(1.year.ago, 1.year.from_now, Date.today),
+                     okved: Faker::Number.number(1),
+                     comment: Faker::Lorem.paragraph(2),
+                     phones: Faker::PhoneNumber.cell_phone,
+                     website: Faker::Internet.domain_name,
+                     kind:  Random.rand(0...1))
 end
+
+# 30.times do |i|
+#   Company.create(title: "СпецСтрой #{i}", inn: "141234421#{i}", address: "ул Строительная #{i}", registration_date: DateTime.new(2015, 6, rand(1...30)), okved: "#{i}", comment: "Комментарий ##{i}")
+# end
 
 faces_list = [
     'Лидин Вацлав Архипович',
