@@ -36,7 +36,8 @@ h3 Изменения статуса счета
               - @bank_account.bank_account_change_status_logs.each do |status_log|
                 tr
                   td
-                    span.label.label-info= I18n.t("statuses.#{status_log.status}") if status_log.status
+                    span.label class="#{status_label(status_log.status)}"
+                      = I18n.t("statuses.#{status_log.status}") if status_log.status
                   td= status_log.change_date
                   td= number_to_currency(status_log.amount_in_account, unit: '₽', separator: ".", delimiter: " ", format: "%n %u")
                   td= status_log.message

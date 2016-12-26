@@ -10,7 +10,8 @@ h3 Счет
       .panel-body
         div.col-sm-3.control-label Текущий статус
         div
-          span.label.label-info= I18n.t("statuses.#{@bank_account.status}") if @bank_account.status
+          span.label class="#{status_label(@bank_account.status)}"
+            = I18n.t("statuses.#{@bank_account.status}") if @bank_account.status
           span= link_to ' изменить статус', change_status_bank_account_path(@bank_account), {class: "btn btn-secondary btn-outline btn-sm"}
         br
         div.col-sm-3.control-label

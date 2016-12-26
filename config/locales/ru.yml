@@ -163,6 +163,10 @@ ru:
       year: Год
   activerecord:
     errors:
+      template:
+        header:
+          one:   "Cохранение не удалось из-за %{count} ошибки"
+          other: "Cохранение не удалось из-за %{count} ошибок"
       messages:
         record_invalid: "Возникли ошибки: %{errors}"
         restrict_dependent_destroy:

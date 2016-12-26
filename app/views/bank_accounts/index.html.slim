@@ -23,8 +23,7 @@ h3 Счета
             tbody
               - @bank_accounts.each do |bank_account|
                 tr
-                  td
-                    span.label.label-info= bank_account.status
+                  td= content_tag(:span, I18n.t("statuses.#{bank_account.status}"), class: ['label', status_label(bank_account.status)])
                   td= bank_account.opening_date.strftime("%d.%m.%Y") if bank_account.opening_date
                   td= link_to bank_account.branch.address, branch_path(bank_account.branch.id) if bank_account.branch
                   td= link_to bank_account.company.title, company_path(bank_account.company.id) if bank_account.company
