@@ -71,3 +71,12 @@ table.dataTable thead .sorting_desc_disabled {
 p#notice {
   padding: 10px;
 }
+
+/* horizontal divider */
+.h-divider{
+  margin-top:4px;
+  margin-bottom:4px;
+  height:1px;
+  width:100%;
+  border-top:1px dashed lightgray;
+}

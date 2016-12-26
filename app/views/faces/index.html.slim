@@ -31,7 +31,7 @@ h3 Персоны
                       .media-left.media-middle
                         = image_tag face.passport.url(:small), class: 'img-responsive img-circle thumb32'
                       .media-right.pt-sm
-                        = face.full_name
+                        = link_to face.full_name, face_path(face.id)
                         br
                         - if face.assignments.exists?
                           label Назначения
@@ -45,10 +45,10 @@ h3 Персоны
                                     span.label.label-info Учредитель в:
                                   = link_to " #{assignment.company.title}", company_path(assignment.company_id) if assignment.company_id && assignment.company.title
                   td
-                    .label.bg-gray-lighter.ph-lg.mr.text-sm.visible-lg-inline Рабочий
+                    .label.bg-gray-lighter.ph-sm.mr.text-sm.visible-lg-inline Рабочий
                     = " #{face.work_phone}"
-                    br
-                    .label.bg-gray-lighter.ph-lg.mr.text-sm.visible-lg-inline Личный
+                    .h-divider
+                    .label.bg-gray-lighter.ph-sm.mr.text-sm.visible-lg-inline Личный
                     = " #{face.personal_phone}"
                   td= face.from_whom
                   td= face.comment

@@ -28,7 +28,7 @@ h3 Компании
             tbody
               - @companies.each do |company|
                 tr
-                  td= company.title
+                  td= link_to company.title, company_path(company.id)
                   td= company.phones
                   td= company.address
                   td= company.inn
