@@ -6,9 +6,9 @@
       .form-group
         label Адрес отделения банка
         = f.text_field :address, class: 'form-control'
-      .form_group
+      .form-group
         label Банк
         = f.select :bank_id, options_from_collection_for_select(Bank.all, 'id', 'name'), {}, {class: 'select form-control'}
-      .form_group
+      .form-group
         br
         = f.submit class: 'button btn btn-info'

@@ -1,7 +1,7 @@
 .clearfix
 .nested-fields
   fieldset
-    .form_group
+    .form-group
       - if f.object.face_id.present?
         = f.select :face_id, options_from_collection_for_select(Face.all, 'id', 'full_name', f.object.face_id), {}, {class: 'select form-control'}
       - else
@@ -9,5 +9,5 @@
       = f.hidden_field :date, value: Date.current
       = f.hidden_field :position, value: Assignment.positions.keys[0]
       = f.hidden_field :company_id
-    .form_group
+    .form-group
       = link_to_remove_association 'Удалить директора', f, class: 'text-danger'

@@ -11,9 +11,9 @@
       .form-group
         label Название банка
         = f.text_field :name, class: 'form-control'
-      .form_group
+      .form-group
         label Город
         = f.select :city_id, options_from_collection_for_select(City.all, 'id', 'name'), {}, {class: 'select form-control'}
-      .form_group
+      .form-group
         br
         = f.submit class: 'button btn btn-info'

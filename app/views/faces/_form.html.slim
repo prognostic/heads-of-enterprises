@@ -9,27 +9,27 @@
 
   .panel-body
     form role='form'
-      .form_group
+      .form-group
         label ФИО *
         = f.text_field :full_name, class: 'form-control'
-      .form_group
+      .form-group
         label Личный номер
         = f.text_field :personal_phone, class: 'form-control'
-      .form_group
+      .form-group
         label Рабочий номер
         = f.text_field :work_phone, class: 'form-control'
-      .form_group
+      .form-group
         label От кого
         = f.text_field :from_whom, class: 'form-control'
-      .form_group
+      .form-group
         label Комментарий
         = f.text_area :comment, class: 'form-control'
-      .form_group
+      .form-group
         label Паспорт
         br
         = image_tag @face.passport.url(:medium), class: 'img-responsive img-circle thumb64'
         = f.file_field :passport, class: 'form-control'
       .required * Обязательные поля
-      .form_group
+      .form-group
         br
         = f.submit class: 'button btn btn-info', id: 'add_new_face'

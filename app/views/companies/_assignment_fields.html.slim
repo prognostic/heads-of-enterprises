@@ -1,17 +1,17 @@
 .nested-fields
   fieldset
     = f.hidden_field :date, value: Date.current
-    .form_group
+    .form-group
       label ФИО
       = f.input :face_id, collection: Face.pluck(:full_name, :id), class: 'form-control', as: :select, include_blank: false
       br
-    .form_group
+    .form-group
       - if @company.assignments.detect { |a| a.position == 0 }
         label Должность
         = f.input :position, collection: Face.roles.drop(1), class: 'select_field form-control m-b', as: :select, include_blank: false
       - else
         label Должность
         = f.input :position, collection: Face.roles, class: 'form-control m-b', as: :select, include_blank: false
-    .form_group
+    .form-group
       = f.hidden_field :company_id
       = link_to_remove_association 'Удалить персону', f
