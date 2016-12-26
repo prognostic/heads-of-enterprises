@@ -2,16 +2,19 @@
   div.bg-success-light
     p#notice= notice
 
-h3= "Отделение #{@branch.address}"
+h3= @branch.name
 
 .row
   .col-lg-12
     .panel.panel-default
       .panel-body
+        div.col-sm-2.control-label Название
+        = @branch.name
+        br
         div.col-sm-2.control-label Адрес
         = @branch.address
         br
-        div.col-sm-2.control-label Название
+        div.col-sm-2.control-label Название банка
         = @branch.bank.name
         br
       .panel-body.bb.bt

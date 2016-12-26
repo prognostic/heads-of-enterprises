@@ -7,6 +7,7 @@
 #  created_at :datetime         not null
 #  updated_at :datetime         not null
 #  bank_id    :integer
+#  name       :string
 #
 # Indexes
 #

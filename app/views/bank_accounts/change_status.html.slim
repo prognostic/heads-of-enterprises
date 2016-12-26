@@ -18,7 +18,7 @@ h3 Изменения статуса счета
                 = f.select :status, BankAccount.i18n_statuses, {}, {class: 'select form-control'}
               = f.simple_fields_for :bank_account_change_status_logs do |status_log|
                 = render 'status_log_fields', :f => status_log
-          .form_group.text-center
+          .form_group
             = f.submit 'Изменить статус', class: 'button btn btn-info'
       .panel-body.bb.bt
         .panel-heading

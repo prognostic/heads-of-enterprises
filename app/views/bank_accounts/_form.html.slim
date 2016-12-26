@@ -9,9 +9,9 @@
       .form-group
         label Отделение *
         - if f.object.branch_id.present?
-          = f.select :branch_id, options_from_collection_for_select(Branch.all, 'id', 'address', f.object.branch_id), {}, {class: 'select form-control'}
+          = f.select :branch_id, options_from_collection_for_select(Branch.all, 'id', 'name', f.object.branch_id), {}, {class: 'select form-control'}
         - else
-          = f.select :branch_id, options_from_collection_for_select(Branch.all, 'id', 'address'), {}, {class: 'select form-control'}
+          = f.select :branch_id, options_from_collection_for_select(Branch.all, 'id', 'name'), {}, {class: 'select form-control'}
       .form-group
         label Компания *
         - if f.object.company_id.present?

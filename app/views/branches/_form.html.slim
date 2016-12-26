@@ -4,6 +4,9 @@
   .panel-body
     form role='form'
       .form-group
+        label Название отделения
+        = f.text_field :name, class: 'form-control'
+      .form-group
         label Адрес отделения банка
         = f.text_field :address, class: 'form-control'
       .form-group

@@ -30,8 +30,13 @@ end
   FactoryGirl.create(:bank, name: Faker::Bank.name, city_id: Random.rand(1...10))
 end
 
+names_of_branches_list = %w[Отдел Филиал]
+
 20.times do
-  FactoryGirl.create(:branch, address: Faker::Address.street_address, bank_id: Random.rand(1...10))
+  FactoryGirl.create(:branch,
+                     name: names_of_branches_list.sample + " № #{Faker::Number.number(1)}" ,
+                     address: Faker::Address.street_address,
+                     bank_id: Random.rand(1...10))
 end
 
 20.times do

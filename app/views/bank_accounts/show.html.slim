@@ -20,7 +20,7 @@ h3 Счет
         div= @bank_account.opening_date.strftime("%d.%m.%Y") if @bank_account.opening_date
         br
         div.col-sm-3.control-label Отделение
-        div= link_to @bank_account.branch.address, branch_path(@bank_account.branch.id) if @bank_account.branch
+        div= link_to @bank_account.branch.name, branch_path(@bank_account.branch.id) if @bank_account.branch
         br
         div.col-sm-3.control-label Компания
         div= link_to @bank_account.company.title, company_path(@bank_account.company.id) if @bank_account.company
