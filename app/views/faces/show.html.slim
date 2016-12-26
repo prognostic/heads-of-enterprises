@@ -20,18 +20,16 @@ h3= "Персона #{@face.full_name}"
           |  Рабочий номер
         div= @face.work_phone
 
-        - if @face.assignments.exists?
-          label Назначения
-          div
-            - @face.assignments.each do |assignment|
-              div
-                div
-                  - if assignment.director?
-                    span.label.label-info Директор в:
-                  - if assignment.founder?
-                    span.label.label-info Учредитель в:
-                  = link_to " #{assignment.company.title}", company_path(assignment.company_id) if assignment.company_id && assignment.company.title
-        -if @face.from_whom
+        - if @face.assignments.director_in.exists?
+          label Директор в:
+          = raw @face.assignments.director_in.collect { |director| link_to " #{director.company.title}", company_path(director.company_id) }.join(",")
+          br
+        - if @face.assignments.founder_in.exists?
+          label Учредитель в:
+          = raw @face.assignments.founder_in.collect { |founder| link_to " #{founder.company.title}", company_path(founder.company_id) }.join(",")
+          br
+
+        - if @face.from_whom
           label От кого
           div= @face.from_whom
         label Комментарий

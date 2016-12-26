@@ -28,6 +28,9 @@ class Assignment < ApplicationRecord
   validates :company, length: { minimum: 1 }, allow_nil: true
   validates :face, length: { minimum: 1 }, allow_nil: true
 
+  scope :director_in, -> { where(position: 0) }
+  scope :founder_in,  -> { where(position: 1) }
+
   has_paper_trail
 
   enum position: [:director, :founder]
