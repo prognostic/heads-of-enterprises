@@ -19,6 +19,9 @@
         label Рабочий номер
         = f.text_field :work_phone, class: 'form-control'
       .form-group
+        label Дата рождения
+        = f.text_field :date_of_birth, class: 'datepicker form-control', value: f.object.date_of_birth || Date.new(1985,2,3)
+      .form-group
         label От кого
         = f.text_field :from_whom, class: 'form-control'
       .form-group

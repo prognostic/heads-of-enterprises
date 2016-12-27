@@ -1,6 +1,8 @@
 class FacesController < ApplicationController
   before_action :set_face, only: [:show, :edit, :update, :destroy]
 
+  helper FacesHelper
+
   # GET /faces
   # GET /faces.json
   def index
@@ -69,6 +71,6 @@ class FacesController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def face_params
-      params.fetch(:face, {}).permit(:full_name, :personal_phone, :work_phone, :comment, :passport, :from_whom)
+      params.fetch(:face, {}).permit(:full_name, :personal_phone, :work_phone, :comment, :passport, :from_whom, :date_of_birth)
     end
 end

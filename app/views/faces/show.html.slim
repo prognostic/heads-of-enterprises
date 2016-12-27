@@ -20,6 +20,15 @@ h3= "Персона #{@face.full_name}"
           |  Рабочий номер
         div= @face.work_phone
 
+        label Дата рождения
+        div= @face.date_of_birth
+        label Полных лет
+        div= age(@face.date_of_birth)
+
+        - if @face.from_whom
+          label От кого
+          div= @face.from_whom
+
         - if @face.assignments.director_in.exists?
           label Директор в:
           = raw @face.assignments.director_in.collect { |director| link_to " #{director.company.title}", company_path(director.company_id) }.join(",")
@@ -29,9 +38,6 @@ h3= "Персона #{@face.full_name}"
           = raw @face.assignments.founder_in.collect { |founder| link_to " #{founder.company.title}", company_path(founder.company_id) }.join(",")
           br
 
-        - if @face.from_whom
-          label От кого
-          div= @face.from_whom
         label Комментарий
         div
           p.text-muted= @face.comment

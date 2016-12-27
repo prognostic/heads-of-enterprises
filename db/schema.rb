@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20161226132109) do
+ActiveRecord::Schema.define(version: 20161227082739) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -114,6 +114,7 @@ ActiveRecord::Schema.define(version: 20161226132109) do
     t.integer  "passport_file_size"
     t.datetime "passport_updated_at"
     t.string   "from_whom"
+    t.date     "date_of_birth"
   end
 
   create_table "users", force: :cascade do |t|
