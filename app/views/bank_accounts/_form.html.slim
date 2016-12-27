@@ -5,7 +5,7 @@
     form role='form'
       .form-group
         label Дата регистрации счета
-        = f.text_field :opening_date, class: 'datepicker form-control'
+        = f.text_field :opening_date, class: 'datepicker form-control', value: f.object.opening_date || Date.current
       .form-group
         label Отделение *
         - if f.object.branch_id.present?

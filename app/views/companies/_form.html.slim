@@ -30,7 +30,7 @@
         = f.text_field :okved, class: 'form-control'
       .form-group
         label Дата регистрации
-        = f.text_field :registration_date, class: 'datepicker form-control'
+        = f.text_field :registration_date, class: 'datepicker form-control', value: f.object.registration_date || Date.current
       .form-group
         label Сайт
         = f.text_field :website, class: 'form-control'

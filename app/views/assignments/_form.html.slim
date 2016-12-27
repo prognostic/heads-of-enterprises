@@ -15,6 +15,6 @@
       .form-group
         label.col-sm-2.control-label Дата назначения
         / TODO fix momentum
-        = f.text_field :date, class: 'col-sm-4 form-control-rounded', id: 'datetimepicker', as: :datepicker
+        = f.text_field :date, class: 'col-sm-4 form-control-rounded', id: 'datetimepicker', as: :datepicker, default: Date.current
       .form-group
         = f.submit
