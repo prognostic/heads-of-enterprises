@@ -1,0 +1,28 @@
+-if notice
+  div.bg-success-light
+    p#notice= notice
+h3 Роли
+
+.row
+  .col-lg-12
+    .panel.panel-default
+      .panel-body
+        .table-responsive
+          table.table.table-striped.table-bordered.table-hover
+            thead
+              tr
+                th Название
+            tbody
+              - @roles.each do |role|
+                tr
+                  td= role.name
+                  td
+                    .col-md-1
+                      = link_to '', role, class: 'fa fa-eye text-success'
+                    .col-md-1
+                      = link_to '', edit_role_path(role), class: 'fa fa-edit text-warning'
+                    .col-md-1
+                      = link_to '', role, method: :delete, data: {confirm: 'Вы уверены?'}, class: 'fa fa-remove text-danger'
+        = paginate @roles
+      .panel-footer
+        = link_to 'Добавить роль', new_role_path

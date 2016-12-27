@@ -41,6 +41,9 @@ ru:
       user:
         create: "Добавить пользователя"
         update: "Обновить пользователя"
+      role:
+        create: "Добавить роль"
+        update: "Обновить роль"
   date:
     abbr_day_names:
     - Вс

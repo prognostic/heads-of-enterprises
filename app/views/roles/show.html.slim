@@ -1,0 +1,16 @@
+-if notice
+  div.bg-success-light
+    p#notice= notice
+h3= "Роль #{@role.name}"
+
+.row
+  .col-lg-12
+    .panel.panel-default
+      .panel-body
+        div.col-sm-2.control-label
+          = "Название"
+        = @role.name
+      .panel-footer
+        = link_to 'Редактировать ', edit_role_path(@role)
+        '|
+        = link_to 'Назад', roles_path

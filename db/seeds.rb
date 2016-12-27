@@ -134,4 +134,14 @@ end
                      status:             Random.rand(0...5))
 end
 
+names_of_roles_list = [
+    'Директор (оформление)',
+    'Директор (поддержка)',
+    'Бухгалтер'
+]
+
+names_of_roles_list.each do |name|
+  Role.create(name: name)
+end
+
 FactoryGirl.create(:user)

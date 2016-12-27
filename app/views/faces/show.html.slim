@@ -8,7 +8,8 @@ h3= "Персона #{@face.full_name}"
     .panel.panel-default
       .panel-body.text-center
         .panel.widget
-          .panel-body.bg-info= image_tag @face.passport.url(:medium), class: 'img-circle thumb128'
+          .panel-body.bg-info
+            = image_tag @face.passport.url(:medium), class: 'img-circle thumb128'
         h3.m0.text-bold= @face.full_name
         br
         .label.bg-gray-lighter.ph-lg.mr.text-sm.visible-lg-inline
