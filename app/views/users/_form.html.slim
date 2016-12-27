@@ -1,0 +1,28 @@
+= simple_form_for(@user, html: { method: :post }) do |f|
+  - if @user.errors.any?
+    #error_explanation.bg-danger-light.text-center
+      div
+        = t('activerecord.errors.template.header',
+                :model => @user, :count => @user.errors.count)
+        - @user.errors.full_messages.each do |message|
+          div= message
+
+  .panel-body
+    form role='form'
+      .form-group
+        label Email *
+        = f.input :email, required: true, autofocus: true, label: false, input_html: {class: 'form-control'}
+      .form-group
+        label Пароль *
+        = f.input :password, required: true, label: false, hint: ("#{@minimum_password_length} characters minimum" if @minimum_password_length), input_html: {class: 'form-control'}
+      .form-group
+        label Подтверждение пароля *
+        = f.input :password_confirmation, required: true, label: false, input_html: {class: 'form-control'}
+      .form-group
+        = check_box_tag 'is_admin'
+        |  Администратор?
+      .clearfix
+      .required * Обязательные поля
+      .form-group
+        br
+        = f.submit class: 'button btn btn-info'

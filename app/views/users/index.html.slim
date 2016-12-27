@@ -1,0 +1,31 @@
+-if notice
+  div.bg-success-light
+    p#notice= notice
+h3 Пользователи
+
+.row
+  .col-lg-12
+    .panel.panel-default
+      .panel-body
+        .table-responsive
+          table.table.table-striped.table-bordered.table-hover
+            thead
+              tr
+                th.col-md-4
+                  em.fa.fa-envelope-o
+                  |  Email
+                th
+            tbody
+              - @users.each do |user|
+                tr
+                  td= link_to user.email, user_path(user.id)
+                  td
+                    .col-md-1
+                      = link_to '', user, class: 'fa fa-eye text-success'
+                    .col-md-1
+                      = link_to '', edit_user_path(user), class: 'fa fa-edit text-warning'
+                    .col-md-1
+                      = link_to '', user, data: { confirm: 'Вы уверены?' }, method: :delete, class: 'fa fa-remove text-danger'
+        = paginate @users
+      .panel-footer
+        = link_to 'Добавить пользователя', new_user_path

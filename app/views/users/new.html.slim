@@ -1,0 +1,12 @@
+-if notice
+  div.bg-success-light
+    p#notice= notice
+h3 Добавить пользователя
+
+.row
+  .col-lg-12
+    .panel.panel-default
+      .panel-body
+        == render 'form'
+  div.panel-footer.clearfix
+    = link_to 'Назад', users_path

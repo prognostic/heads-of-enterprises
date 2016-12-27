@@ -1,0 +1,14 @@
+-if notice
+  div.bg-success-light
+    p#notice= notice
+h3= "Пользователь #{@user.email}"
+
+.row
+  .col-lg-12
+    .panel.panel-default
+      .panel-body
+        h3.m0.text-bold= @user.email
+      .panel-footer
+        = link_to 'Редактировать ', edit_user_path(@user)
+        '|
+        = link_to 'Назад', users_path

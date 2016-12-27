@@ -4,7 +4,7 @@ Rails.application.routes.draw do
   scope 'control' do
     root to: "dashboard#index"
 
-    resources :cities, :banks, :branches, :companies, :faces, :assignments
+    resources :cities, :banks, :branches, :companies, :faces, :assignments, :users
     resources :bank_accounts do
       member do
         get 'change_status'

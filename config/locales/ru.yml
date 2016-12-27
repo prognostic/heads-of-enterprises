@@ -38,6 +38,9 @@ ru:
       bank_account:
         create: "Добавить счет"
         update: "Обновить счет"
+      user:
+        create: "Добавить пользователя"
+        update: "Обновить пользователя"
   date:
     abbr_day_names:
     - Вс
@@ -172,6 +175,13 @@ ru:
         restrict_dependent_destroy:
           has_one: "Невозможно удалить запись, так как существует зависимость: %{record}"
           has_many: "Невозможно удалить запись, так как существуют зависимости: %{record}"
+      models:
+        user:
+          attributes:
+            email:
+              blank: " не может быть пустым"
+            password:
+              blank: " не может быть пустым"
     attributes:
       city:
         name: "Название"
