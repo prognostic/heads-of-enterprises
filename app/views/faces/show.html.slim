@@ -21,10 +21,16 @@ h3= "Персона #{@face.full_name}"
           |  Рабочий номер
         div= @face.work_phone
 
-        label Дата рождения
-        div= @face.date_of_birth
-        label Полных лет
-        div= age(@face.date_of_birth)
+        - if @face.date_of_birth
+          label Дата рождения
+          div= @face.date_of_birth
+          label Полных лет
+          div= age(@face.date_of_birth)
+
+        - if @face.roles
+          label Роли
+          - @face.roles.each do |role|
+            div= role.name
 
         - if @face.from_whom
           label От кого

@@ -32,6 +32,10 @@
         br
         = image_tag @face.passport.url(:medium), class: 'img-responsive img-circle thumb64'
         = f.file_field :passport, class: 'form-control'
+      .form-group
+        label Роли
+        br
+        = f.collection_check_boxes(:role_ids, Role.all, :id, :name)
       .required * Обязательные поля
       .form-group
         br

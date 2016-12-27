@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20161227111952) do
+ActiveRecord::Schema.define(version: 20161227124321) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -115,6 +115,13 @@ ActiveRecord::Schema.define(version: 20161227111952) do
     t.datetime "passport_updated_at"
     t.string   "from_whom"
     t.date     "date_of_birth"
+  end
+
+  create_table "faces_roles", id: false, force: :cascade do |t|
+    t.integer "face_id", null: false
+    t.integer "role_id", null: false
+    t.index ["face_id", "role_id"], name: "index_faces_roles_on_face_id_and_role_id", using: :btree
+    t.index ["role_id", "face_id"], name: "index_faces_roles_on_role_id_and_face_id", using: :btree
   end
 
   create_table "roles", force: :cascade do |t|

@@ -9,4 +9,12 @@
 #
 
 class Role < ApplicationRecord
+  include PublicActivity::Model
+  tracked
+
+  has_and_belongs_to_many :faces
+
+  validates :name, presence: true
+
+  has_paper_trail
 end

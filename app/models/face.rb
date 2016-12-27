@@ -21,6 +21,7 @@ class Face < ApplicationRecord
   include PublicActivity::Model
   tracked
 
+  has_and_belongs_to_many :roles
   has_many :assignments, inverse_of: :face
 
   validates :full_name, presence: true
