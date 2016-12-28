@@ -13,17 +13,16 @@ h3 Компании
               tr
                 th.sorting Название
                 th.col-md-2
-                  em.icon-phone
+                  em.icon-phone.pull-right
                   |  Телефоны
                 th Адрес
                 th ИНН
                 th.col-md-2
-                  em.icon-calendar
+                  em.icon-calendar.pull-right
                   |  Зарегистрирована
-                th ОКВЭД
                 th Сайт
                 th
-                  em.icon-bubble
+                  em.icon-bubble.pull-right
                   |  Комментарий
             tbody
               - @companies.each do |company|
@@ -33,7 +32,6 @@ h3 Компании
                   td= company.address
                   td= company.inn
                   td= company.registration_date.strftime('%d.%m.%Y') if company.registration_date
-                  td= company.okved
                   td= link_to company.website, "http://#{company.website}" if company.website
                   td= company.comment
                   td

@@ -13,12 +13,12 @@ h3 Счета
               tr
                 th Статус
                 th.col-md-2
-                  em.icon-calendar
+                  em.icon-calendar.pull-right
                   |  Дата открытия
-                th Отделение
-                th Компания
+                th.col-md-2 Отделение
+                th.col-md-2 Компания
                 th
-                  em.icon-bubble
+                  em.icon-bubble.pull-right
                   |  Комментарий
             tbody
               - @bank_accounts.each do |bank_account|

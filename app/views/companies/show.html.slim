@@ -14,24 +14,24 @@
           span= "#{I18n.t("kinds.#{@company.kind}")} #{@company.title}" if @company.kind
       .panel-body
         strong.col-sm-2
+          | Телефоны
           em.icon-phone
-          |  Телефоны
-        .col-sm-10
+        .col-sm-9.col-md-offset-1
           = number_to_phone(@company.phones) if @company.phones
         strong.col-sm-2.control-label Адрес
-        .col-sm-10
+        .col-sm-9.col-md-offset-1
           = @company.address
         strong.col-sm-2 ИНН
-        .col-sm-10
+        .col-sm-9.col-md-offset-1
           = @company.inn
         strong.col-sm-2.control-label ОКВЭДы
-        .col-sm-10
+        .col-sm-9.col-md-offset-1
           = @company.okved
         strong.col-sm-2.control-label Дата регистрации
-        .col-sm-10
+        .col-sm-9.col-md-offset-1
           = @company.registration_date.strftime("%d.%m.%Y") if @company.registration_date
         strong.col-sm-2.control-label Сайт
-        .col-sm-10
+        .col-sm-9.col-md-offset-1
           = link_to @company.website, "http://#{@company.website}" if @company.website
       .panel-body.bb.bt
         h4.text-muted Комментарий

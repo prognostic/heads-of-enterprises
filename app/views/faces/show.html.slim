@@ -13,12 +13,12 @@ h3= "Персона #{@face.full_name}"
         h3.m0.text-bold= @face.full_name
         br
         .label.bg-gray-lighter.ph-lg.mr.text-sm.visible-lg-inline
+          = "Личный номер "
           em.icon-phone
-          |  Личный номер
         div= @face.personal_phone
         .label.bg-gray-lighter.ph-lg.mr.text-sm.visible-lg-inline
+          = "Рабочий номер "
           em.icon-phone
-          |  Рабочий номер
         div= @face.work_phone
 
         - if @face.date_of_birth
@@ -31,6 +31,7 @@ h3= "Персона #{@face.full_name}"
           label Роли
           - @face.roles.each do |role|
             div= role.name
+          br
 
         - if @face.from_whom
           label От кого
