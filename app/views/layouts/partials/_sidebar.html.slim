@@ -5,39 +5,39 @@
     ul.nav
       li.nav-heading
         span Навигация
-      li
+      li class="#{active_class(dashboard_path)}"
         a href='/control/dashboard' title='Панель управления'
           em.icon-speedometer
           span Панель управления
-      li
+      li class="#{active_class(companies_path)}"
         a href='/control/companies' title='Компании'
           em.fa.fa-briefcase
           span Компании
-      li
+      li class="#{active_class(faces_path)}"
         a href='/control/faces' title='Персоны'
           em.fa.fa-group
           span Персоны
-      li
+      li class="#{active_class(bank_accounts_path)}"
         a href='/control/bank_accounts' title='Счета'
           em.fa.fa-money
           span Счета
-      li
+      li class="#{active_class(banks_path)}"
         a href='/control/banks' title='Банки'
           em.fa.fa-bank
           span Банки
-      li
+      li class="#{active_class(branches_path)}"
         a href='/control/branches' title='Отделения'
           em.fa.fa-credit-card
           span Отделения
-      li
+      li class="#{active_class(cities_path)}"
         a href='/control/cities' title='Города'
           em.fa.fa-building
           span Города
-      li
+      li class="#{active_class(users_path)}"
         a href='/control/users' title='Пользователи'
           em.fa.fa-group
           span Пользователи
-      li
+      li class="#{active_class(roles_path)}"
         a href='/control/roles' title='Роли'
           em.fa.fa-group
           span Роли
