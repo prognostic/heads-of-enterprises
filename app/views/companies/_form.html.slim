@@ -52,7 +52,9 @@
             = link_to_add_association 'Добавить учредителя', f, :assignments, partial: 'companies/founder_assignment_fields'
         - else
           .links
-            = link_to_add_association 'Добавить директора', f, :assignments, partial: 'companies/director_assignment_fields'
+            #director
+              #director_from_list
+                = link_to_add_association 'Добавить директора', f, :assignments, partial: 'companies/director_assignment_fields', class: 'add_director_link'
             br
             = link_to_add_association 'Добавить учредителя', f, :assignments, partial: 'companies/founder_assignment_fields'
       .form-group

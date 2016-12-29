@@ -49,3 +49,19 @@ $(function(){
 
     });
 });
+
+$(document).ready(function() {
+    $('#director')
+        .on('cocoon:before-insert', function() {
+            $("#director_from_list").hide();
+        })
+        .on('cocoon:after-insert', function() {
+            /* ... do something ... */
+        })
+        .on("cocoon:before-remove", function() {
+            $("#director_from_list").show();
+        })
+        .on("cocoon:after-remove", function() {
+            /* e.g. recalculate order of child items */
+        });
+});

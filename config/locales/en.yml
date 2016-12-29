@@ -28,3 +28,5 @@ en:
     errors:
       template:
         header: ""
+      messages:
+        record_invalid: "There were errors: %{errors}"
