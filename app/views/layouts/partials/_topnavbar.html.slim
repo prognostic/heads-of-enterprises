@@ -1,10 +1,10 @@
 /! START Top Navbar
-nav.navbar.topnavbar role="navigation" 
+nav.navbar.topnavbar role='navigation'
   /! START navbar header
   .navbar-header
-    a.navbar-brand href="#/" 
+    a.navbar-brand href='/'
       .brand-logo
-        /img.img-responsive alt=("App Logo") src="/assets/angle/logo.png" /
+        = image_tag "logo", class: 'img img-responsive'
       .brand-logo-collapsed
   /! END navbar header
   /! START Nav wrapper
@@ -12,10 +12,10 @@ nav.navbar.topnavbar role="navigation"
     /! START Left navbar
     ul.nav.navbar-nav
       li
-        /! Button used to collapse the left sidebar. Only visible on tablet and desktops
-        /a.hidden-xs data-toggle-state="aside-collapsed" href="#"
+        //! Button used to collapse the left sidebar. Only visible on tablet and desktops
+        /a.hidden-xs data-toggle-state='aside-collapsed' href='#'
         /  em.fa.fa-navicon
-        /! Button to show/hide the sidebar on mobile. Visible on mobile only.
+        //! Button to show/hide the sidebar on mobile. Visible on mobile only.
         /a.visible-xs.sidebar-toggle data-no-persist="true" data-toggle-state="aside-toggled" href="#"
         /  em.fa.fa-navicon
     /! END Left navbar

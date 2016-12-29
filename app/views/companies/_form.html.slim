@@ -16,9 +16,10 @@
       .form-group
         label Тип (ИП, ТОО)
         = f.select :kind, Company.i18n_kinds, {}, {class: 'select form-control'}
-      .form-group
+      .form-group.has-feedback
         label Телефоны
         = f.text_field :phones, class: 'form-control'
+        span.fa.fa-phone.form-control-feedback.text-muted
       .form-group
         label Адрес
         = f.text_field :address, class: 'form-control'
@@ -28,9 +29,10 @@
       .form-group
         label ОКВЭД(ы)
         = f.text_field :okved, class: 'form-control'
-      .form-group
+      .form-group.has-feedback
         label Дата регистрации
         = f.text_field :registration_date, class: 'datepicker form-control', value: f.object.registration_date || Date.current
+        span.fa.fa-calendar.form-control-feedback.text-muted
       .form-group
         label Сайт
         = f.text_field :website, class: 'form-control'

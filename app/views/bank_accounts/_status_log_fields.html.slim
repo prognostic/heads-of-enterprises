@@ -1,8 +1,10 @@
 - if f.object.id.nil?
-  =f.hidden_field :status, id: 'log_status'
+  = f.hidden_field :status, id: 'log_status'
   .col-md-4
-    label Дата смены статуса *
-    = f.text_field :change_date, class: 'datepicker form-control'
+    .form_group.has-feedback
+      label Дата смены статуса *
+      = f.text_field :change_date, class: 'datepicker form-control'
+      span.fa.fa-calendar.form-control-feedback.text-muted
   .col-md-4
     label Сумма на счету на момент смены статуса
     = f.input :amount_in_account, input_html: {class: 'form-control'}, label: false

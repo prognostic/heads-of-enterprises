@@ -9,21 +9,26 @@
 
   .panel-body
     form role='form'
-      .form-group
+      .form-group.has-feedback
         label ФИО *
         = f.text_field :full_name, class: 'form-control'
-      .form-group
+        span.fa.fa-user.form-control-feedback.text-muted
+      .form-group.has-feedback
         label Личный номер
         = f.text_field :personal_phone, class: 'form-control'
-      .form-group
+        span.fa.fa-mobile.form-control-feedback.text-muted
+      .form-group.has-feedback
         label Рабочий номер
         = f.text_field :work_phone, class: 'form-control'
-      .form-group
+        span.fa.fa-mobile.form-control-feedback.text-muted
+      .form-group.has-feedback
         label Дата рождения
         = f.text_field :date_of_birth, class: 'datepicker form-control', value: f.object.date_of_birth || Date.new(1985,2,3)
-      .form-group
+        span.fa.fa-calendar.form-control-feedback.text-muted
+      .form-group.has-feedback
         label От кого
         = f.text_field :from_whom, class: 'form-control'
+        span.fa.fa-user.form-control-feedback.text-muted
       .form-group
         label Комментарий
         = f.text_area :comment, class: 'form-control'
@@ -35,7 +40,9 @@
       .form-group
         label Роли
         br
-        = f.collection_check_boxes(:role_ids, Role.all, :id, :name)
+        .checkbox.c-checkbox.pull-left.mt0
+          = f.collection_check_boxes(:role_ids, Role.all, :id, :name)
+      .clearfix
       .required * Обязательные поля
       .form-group
         br

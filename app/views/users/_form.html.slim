@@ -9,18 +9,21 @@
 
   .panel-body
     form role='form'
-      .form-group
+      .form-group.has-feedback
         label Email *
         = f.input :email, required: true, autofocus: true, label: false, input_html: {class: 'form-control'}
-      .form-group
+        span.fa.fa-envelope-o.form-control-feedback.text-muted
+      .form-group.has-feedback
         label Пароль *
         = f.input :password, required: true, label: false, hint: ("#{@minimum_password_length} characters minimum" if @minimum_password_length), input_html: {class: 'form-control'}
-      .form-group
+        span.fa.fa-lock.form-control-feedback.text-muted
+      .form-group.has-feedback
         label Подтверждение пароля *
         = f.input :password_confirmation, required: true, label: false, input_html: {class: 'form-control'}
+        span.fa.fa-lock.form-control-feedback.text-muted
       .form-group
         = check_box_tag 'is_admin'
-        |  Администратор?
+        = ' Администратор?'
       .clearfix
       .required * Обязательные поля
       .form-group

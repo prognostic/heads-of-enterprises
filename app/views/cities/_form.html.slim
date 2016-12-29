@@ -9,9 +9,10 @@
 
   .panel-body
     form role='form'
-      .form-group
+      .form-group.has-feedback
         label Название *
         = f.text_field :name, class: 'form-control'
+        span.fa.fa-building.form-control-feedback.text-muted
       .required * Обязательные поля
       .form-group
         br

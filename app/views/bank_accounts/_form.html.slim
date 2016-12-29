@@ -3,9 +3,10 @@
 
   .panel-body
     form role='form'
-      .form-group
+      .form-group.has-feedback
         label Дата регистрации счета
         = f.text_field :opening_date, class: 'datepicker form-control', value: f.object.opening_date || Date.current
+        span.fa.fa-calendar.form-control-feedback.text-muted
       .form-group
         label Отделение *
         - if f.object.branch_id.present?

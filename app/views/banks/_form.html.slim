@@ -8,9 +8,10 @@
 
   .panel-body
     form role='form'
-      .form-group
+      .form-group.has-feedback
         label Название банка
         = f.text_field :name, class: 'form-control'
+        span.fa.fa-bank.form-control-feedback.text-muted
       .form-group
         label Город
         = f.select :city_id, options_from_collection_for_select(City.all, 'id', 'name'), {}, {class: 'select form-control'}
