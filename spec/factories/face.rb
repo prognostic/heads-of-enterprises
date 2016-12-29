@@ -6,5 +6,6 @@ FactoryGirl.define do
     personal_phone  { Faker::PhoneNumber.cell_phone }
     work_phone      { Faker::PhoneNumber.cell_phone }
     comment         { Faker::Lorem.sentence }
+    from_whom       { Faker::Name.name_with_middle }
   end
 end

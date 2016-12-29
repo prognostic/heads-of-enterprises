@@ -100,12 +100,20 @@ faces_list = [
     'Завразина Дарья Виталиевна'
 ]
 
+from_whom_list [
+    'от меня',
+    'от него',
+    'от Семена Аароновича',
+    ''
+]
+
 faces_list.each do |name|
   FactoryGirl.create(:face,
                      full_name:       name,
                      personal_phone:  Faker::PhoneNumber.cell_phone,
                      work_phone:      Faker::PhoneNumber.cell_phone,
-                     comment:         Faker::Lorem.sentence)
+                     comment:         Faker::Lorem.sentence,
+                     from_whom:       from_whom_list.sample )
 end
 
 50.times do
