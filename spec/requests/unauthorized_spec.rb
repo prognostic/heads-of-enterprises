@@ -8,7 +8,7 @@ RSpec.describe FacesController, type: :controller do
 
     it 'should be redirected to signin' do
       get :index
-      expect( response ).to redirect_to( new_user_session_path )
+      expect(response).to redirect_to(new_user_session_path)
     end
   end
 end

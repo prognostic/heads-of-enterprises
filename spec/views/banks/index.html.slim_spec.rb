@@ -1,14 +1,11 @@
 require 'rails_helper'
 
-RSpec.describe "banks/index", :type => :view do
+RSpec.describe 'banks/index', type: :view do
   before(:each) do
-    assign(:banks, [
-      Bank.create!(),
-      Bank.create!()
-    ])
+    assign(:banks, [Bank.create!, Bank.create!])
   end
 
-  it "renders a list of banks" do
+  it 'renders a list of banks' do
     render
   end
 end

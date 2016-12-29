@@ -16,7 +16,8 @@ RSpec.describe CompaniesController, type: :routing do
     end
 
     it 'routes to #edit' do
-      expect(get: '/control/companies/1/edit').to route_to('companies#edit', id: '1')
+      expect(get: '/control/companies/1/edit')
+        .to route_to('companies#edit', id: '1')
     end
 
     it 'routes to #create' do
@@ -24,11 +25,13 @@ RSpec.describe CompaniesController, type: :routing do
     end
 
     it 'routes to #update' do
-      expect(put: '/control/companies/1').to route_to('companies#update', id: '1')
+      expect(put: '/control/companies/1')
+        .to route_to('companies#update', id: '1')
     end
 
     it 'routes to #destroy' do
-      expect(delete: '/control/companies/1').to route_to('companies#destroy', id: '1')
+      expect(delete: '/control/companies/1')
+        .to route_to('companies#destroy', id: '1')
     end
 
   end

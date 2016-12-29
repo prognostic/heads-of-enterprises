@@ -2,7 +2,6 @@ require 'rails_helper'
 
 RSpec.describe RolesController, type: :routing do
   describe 'routing' do
-
     it 'routes to #index' do
       expect(get: '/control/roles').to route_to('roles#index')
     end
@@ -34,6 +33,5 @@ RSpec.describe RolesController, type: :routing do
     it 'routes to #destroy' do
       expect(delete: '/control/roles/1').to route_to('roles#destroy', id: '1')
     end
-
   end
 end

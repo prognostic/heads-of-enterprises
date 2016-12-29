@@ -1,14 +1,14 @@
 require 'rails_helper'
 
-RSpec.describe "branches/new", :type => :view do
+RSpec.describe 'branches/new', type: :view do
   before(:each) do
-    assign(:branch, Branch.new())
+    assign(:branch, Branch.new)
   end
 
-  it "renders new branch form" do
+  it 'renders new branch form' do
     render
 
-    assert_select "form[action=?][method=?]", branches_path, "post" do
+    assert_select 'form[action=?][method=?]', branches_path, 'post' do
     end
   end
 end
