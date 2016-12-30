@@ -1,0 +1,16 @@
+-if notice
+  div.bg-success-light
+    p#notice= notice
+h3= "Вопрос - #{@question.name}"
+
+.row
+  .col-lg-12
+    .panel.panel-default
+      .panel-body
+        div.col-sm-2.control-label
+          = "Вопрос"
+        = @question.name
+      .panel-footer
+        = link_to 'Редактировать ', edit_question_path(@question)
+        '|
+        = link_to 'Назад', questions_path

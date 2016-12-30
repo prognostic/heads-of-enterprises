@@ -1,0 +1,14 @@
+-if notice
+  div.bg-success-light
+    p#notice= notice
+h3 Редактировать вопрос
+
+.row
+  .col-lg-12
+    .panel.panel-default
+      .panel-body
+        = render 'form'
+      .panel-footer
+        = link_to 'Просмотр ', @question
+        '|
+        = link_to 'Назад', questions_path

@@ -1,0 +1,11 @@
+= simple_form_for(@question, defaults: { input_html: { class: 'form-horizontal' } }) do |f|
+  = f.error_notification
+
+  .panel-body
+    form role='form'
+      .form-group
+        label Вопрос
+        = f.text_field :name, class: 'form-control'
+      .form-group
+        br
+        = f.submit class: 'button btn btn-info'

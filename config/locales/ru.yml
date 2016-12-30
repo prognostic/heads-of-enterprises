@@ -122,6 +122,9 @@ ru:
       role:
         create: "Добавить роль"
         update: "Обновить роль"
+      question:
+        create: "Добавить вопрос"
+        update: "Обновить вопрос"
   date:
     abbr_day_names:
     - Вс
