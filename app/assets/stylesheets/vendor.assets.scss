@@ -3,23 +3,15 @@
  * Redefine background url with image-url(), this function is provided by sass-rails.
  */
 
-/* Body */
-body {
-  font-family: "Source Sans Pro", sans-serif;
-  color: #656565;
-}
-
 /* Chosen */
-
 .chosen-container-single .chosen-single abbr {
   background: image-url('chosen_v1.2.0/chosen-sprite.png') -42px 1px no-repeat;
 }
 .chosen-container-single .chosen-single div b {
-  background: image-url('chosen_v1.2.0/chosen-sprite.png') no-repeat 0px 2px;
+  background: image-url('chosen_v1.2.0/chosen-sprite.png') no-repeat 0 2px;
 }
 .chosen-container-single .chosen-search input[type="text"] {
   background: white image-url('chosen_v1.2.0/chosen-sprite.png') no-repeat 100% -20px;
-  background: image-url('chosen_v1.2.0/chosen-sprite.png') no-repeat 100% -20px;
 }
 .chosen-container-multi .chosen-choices li.search-choice .search-choice-close {
   background: image-url('chosen_v1.2.0/chosen-sprite.png') -42px 1px no-repeat;
@@ -43,7 +35,6 @@ body {
 }
 
 /* Datatables */
-
 table.dataTable thead .sorting {
   background: image-url("datatable-bootstrap/images/sort_both.png") no-repeat center right;
 }

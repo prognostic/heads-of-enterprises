@@ -1,29 +1,27 @@
 doctype html
-html lang="en" 
+html
   head
-    meta content=("text/html; charset=UTF-8") http-equiv="Content-Type" /
-    meta charset="utf-8" /
-    meta content="width=device-width, initial-scale=1, maximum-scale=1" name="viewport" /
-    meta content="" name="description" /
-    meta content="" name="keywords" /
+    meta content=('text/html; charset=UTF-8') http-equiv='Content-Type' /
+    meta charset='utf-8' /
+    meta content='width=device-width, initial-scale=1, maximum-scale=1' name='viewport' /
     title
     /! =============== VENDOR STYLES ===============
     = stylesheet_link_tag 'base'
     /! =============== VIEW VENDOR STYLES ===============
     /! =============== APP STYLES ===============
-    = stylesheet_link_tag 'application', media: 'all', id: "maincss"
+    = stylesheet_link_tag 'application', media: 'all', id: 'maincss'
     = csrf_meta_tags
   body
     .wrapper
       /! top navbar
       header.topnavbar-wrapper
-        = render partial: "layouts/partials/topnavbar"
+        = render partial: 'layouts/partials/topnavbar'
       /! sidebar
       aside.aside
-        = render partial: "layouts/partials/sidebar"
+        = render partial: 'layouts/partials/sidebar'
       /! offsidebar
       aside.offsidebar.hide
-        = render partial: "layouts/partials/offsidebar"
+        = render partial: 'layouts/partials/offsidebar'
       /! Main section
       section
         /! Page content
@@ -31,7 +29,7 @@ html lang="en"
           = yield
       /! Page footer
       footer
-        = render partial: "layouts/partials/footer"
+        = render partial: 'layouts/partials/footer'
     /! =============== VIEW VENDOR SCRIPTS ===============
     /! =============== APP SCRIPTS ===============
     = javascript_include_tag 'application'

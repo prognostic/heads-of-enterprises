@@ -10,36 +10,36 @@
  */
 
 // Override bootstrap variables
-@import "app/variables";
+@import 'app/variables';
 
 // Bootstrap
-@import "bootstrap/bootstrap";
+@import 'bootstrap/bootstrap';
 
 // Global definition of media queries
-@import "app/media-queries";
+@import 'app/media-queries';
 // Utilities 
-@import "app/utils-definitions";
+@import 'app/utils-definitions';
 
 // Bootstrap reset
-@import "app/bootstrap-reset";
+@import 'app/bootstrap-reset';
 
 // Typography
-@import "app/typo";
+@import 'app/typo';
 
 // Layout
-@import "app/layout";
-@import "app/layout-extra";
-@import "app/layout-animation";
-@import "app/top-navbar";
-@import "app/sidebar";
-@import "app/offsidebar";
+@import 'app/layout';
+@import 'app/layout-extra';
+@import 'app/layout-animation';
+@import 'app/top-navbar';
+@import 'app/sidebar';
+@import 'app/offsidebar';
 
 // Components
-@import "app/breadcrumbs";
-@import "app/animate";
+@import 'app/breadcrumbs';
+@import 'app/animate';
 
 // Utilities 
-@import "app/utils";
+@import 'app/utils';
 
 // Print CSS
-@import "app/print";
+@import 'app/print';
