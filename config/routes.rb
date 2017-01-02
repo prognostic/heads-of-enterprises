@@ -13,6 +13,7 @@ Rails.application.routes.draw do
     resources :companies do
       member do
         get 'faq'
+        get 'edit_faq'
       end
     end
 

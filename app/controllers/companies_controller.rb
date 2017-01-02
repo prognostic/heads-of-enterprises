@@ -1,5 +1,5 @@
 class CompaniesController < ApplicationController
-  before_action :set_company, only: [:show, :edit, :update, :destroy, :faq]
+  before_action :set_company, only: [:show, :edit, :update, :destroy, :faq, :edit_faq]
 
   # GET /companies
   # GET /companies.json
@@ -62,8 +62,12 @@ class CompaniesController < ApplicationController
     end
   end
 
-  def faq
+  def edit_faq
     @company.answers.build
+    @questions = Question.all
+  end
+
+  def faq
     @questions = Question.all
   end
 

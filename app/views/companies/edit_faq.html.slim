@@ -1,0 +1,28 @@
+-if notice
+  div.bg-success-light
+    p#notice= notice
+h3= "Часто задаваемые вопросы (FAQ)"
+
+.row
+  .col-lg-12
+    .panel.panel-default
+      .panel-heading Заполните часто задаваемые вопросы
+      .panel-body
+
+        = simple_form_for @company, defaults: { input_html: { class: 'form-horizontal' } } do |f|
+          - counter = 0
+          - @questions.each do |question|
+            .form-group
+              label = question.name
+              - answer = Answer.where(company_id: @company.id, question_id: question.id).last
+              input.form-control name="company[answers_attributes][#{counter}][text]" type="text" value="#{answer.try(:text)}"
+              input name="company[answers_attributes][#{counter}][question_id]" type="hidden" value="#{question.id}"
+              input name="company[answers_attributes][#{counter}][company_id]" type="hidden" value="#{@company.id}"
+              - counter+=1
+
+          .form-group
+            br
+            = f.submit class: 'button btn btn-info'
+
+      .panel-footer
+        = link_to 'Назад', company_path(@company)
