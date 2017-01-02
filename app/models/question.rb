@@ -9,4 +9,5 @@
 #
 
 class Question < ApplicationRecord
+  has_one :answers
 end

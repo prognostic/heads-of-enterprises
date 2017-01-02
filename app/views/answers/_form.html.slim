@@ -1,0 +1,10 @@
+= simple_form_for(@answer) do |f|
+  = f.error_notification
+
+  .form-inputs
+    = f.input :text
+    = f.association :question
+    = f.association :company
+
+  .form-actions
+    = f.button :submit

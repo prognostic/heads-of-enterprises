@@ -12,6 +12,8 @@
       .panel-heading
         h4.mv.text-muted
           span= "#{I18n.t("kinds.#{@company.kind}")} #{@company.title}" if @company.kind
+          .pull-right
+            = link_to 'FAQ', faq_company_path(@company), class: 'btn btn-default'
       .panel-body
         strong.col-sm-2
           | Телефоны

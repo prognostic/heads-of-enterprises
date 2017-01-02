@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20161230054322) do
+ActiveRecord::Schema.define(version: 20161230073119) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -29,6 +29,16 @@ ActiveRecord::Schema.define(version: 20161230054322) do
     t.index ["owner_id", "owner_type"], name: "index_activities_on_owner_id_and_owner_type", using: :btree
     t.index ["recipient_id", "recipient_type"], name: "index_activities_on_recipient_id_and_recipient_type", using: :btree
     t.index ["trackable_id", "trackable_type"], name: "index_activities_on_trackable_id_and_trackable_type", using: :btree
+  end
+
+  create_table "answers", force: :cascade do |t|
+    t.text     "text"
+    t.integer  "question_id"
+    t.integer  "company_id"
+    t.datetime "created_at",  null: false
+    t.datetime "updated_at",  null: false
+    t.index ["company_id"], name: "index_answers_on_company_id", using: :btree
+    t.index ["question_id"], name: "index_answers_on_question_id", using: :btree
   end
 
   create_table "assignments", force: :cascade do |t|
@@ -163,6 +173,8 @@ ActiveRecord::Schema.define(version: 20161230054322) do
     t.index ["item_type", "item_id"], name: "index_versions_on_item_type_and_item_id", using: :btree
   end
 
+  add_foreign_key "answers", "companies"
+  add_foreign_key "answers", "questions"
   add_foreign_key "assignments", "companies"
   add_foreign_key "assignments", "faces"
   add_foreign_key "bank_accounts", "branches"

@@ -1,5 +1,5 @@
 class CompaniesController < ApplicationController
-  before_action :set_company, only: [:show, :edit, :update, :destroy]
+  before_action :set_company, only: [:show, :edit, :update, :destroy, :faq]
 
   # GET /companies
   # GET /companies.json
@@ -62,6 +62,11 @@ class CompaniesController < ApplicationController
     end
   end
 
+  def faq
+    @company.answers.build
+    @questions = Question.all
+  end
+
   private
     # Use callbacks to share common setup or constraints between actions.
     def set_company
@@ -70,6 +75,9 @@ class CompaniesController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def company_params
-      params.fetch(:company, {}).permit(:title, :inn, :address, :registration_date, :phones, :website, :kind, :okved, :comment, assignments_attributes: [:id, :date, :position, :face_id, :company_id, :_destroy])
+      params.fetch(:company, {})
+          .permit(:title, :inn, :address, :registration_date, :phones, :website, :kind, :okved, :comment,
+          assignments_attributes: [:id, :date, :position, :face_id, :company_id, :_destroy],
+          answers_attributes: [:id, :text, :question_id, :company_id, :_destroy])
     end
 end
