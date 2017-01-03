@@ -175,8 +175,8 @@ questions_list = [
     'Как оформить заказ?'
 ]
 
-questions_list.each do |name|
-  Question.create(name: name)
+questions_list.each_with_index do |name, index|
+  Question.create(name: name, position: index + 1)
 end
 
 FactoryGirl.create(:user)
