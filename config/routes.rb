@@ -4,7 +4,7 @@ Rails.application.routes.draw do
   scope 'control' do
     root to: "dashboard#index"
 
-    resources :cities, :banks, :branches, :faces, :assignments, :users, :roles, :questions, :answers
+    resources :cities, :banks, :branches, :faces, :assignments, :users, :roles, :answers
     resources :bank_accounts do
       member do
         get 'change_status'
@@ -15,6 +15,9 @@ Rails.application.routes.draw do
         get 'faq'
         get 'edit_faq'
       end
+    end
+    resources :questions do
+      collection { post :sort }
     end
 
     get 'dashboard', to: 'dashboard#index'

@@ -21,7 +21,7 @@ h3= "Часто задаваемые вопросы (FAQ)"
                     span= question.name
               .panel-collapse.collapse aria-expanded='true' style=("height: 0px;") id="collapse#{index}"
                 .panel-body
-                  p= answer.text
+                  p= answer.try(:text)
 
       .panel-footer
         = link_to 'Назад', :back

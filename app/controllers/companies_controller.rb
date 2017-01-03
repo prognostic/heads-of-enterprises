@@ -64,11 +64,11 @@ class CompaniesController < ApplicationController
 
   def edit_faq
     @company.answers.build
-    @questions = Question.all
+    @questions = Question.order(:position)
   end
 
   def faq
-    @questions = Question.all
+    @questions = Question.order(:position)
   end
 
   private

@@ -11,10 +11,14 @@ h3 Вопросы
           table.table.table-striped.table-bordered.table-hover
             thead
               tr
+                th
                 th Вопрос
-            tbody
+            tbody#questions data-update-url="#{sort_questions_url}"
               - @questions.each do |question|
-                tr
+                tr id="question_#{question.id}"
+                  td.handle
+                    | Переместить
+                    em.icon-cursor-move.pull-right
                   td= question.name
                   td
                     .col-md-1
@@ -24,5 +28,6 @@ h3 Вопросы
                     .col-md-1
                       = link_to '', question, method: :delete, data: {confirm: 'Вы уверены?'}, class: 'fa fa-remove text-danger'
         = paginate @questions
+
       .panel-footer
         = link_to 'Добавить вопрос', new_question_path
