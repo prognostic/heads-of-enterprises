@@ -43,8 +43,7 @@ class CompaniesController < ApplicationController
   def update
     respond_to do |format|
       if @company.update(company_params)
-        if request.referer && URI(request.referer).path.include?('edit_path')
-
+        if request.referer && URI(request.referer).path.include?('edit_faq')
           format.html { redirect_to faq_company_path(@company), notice: 'FAQ успешно обновлен.' }
           format.json { render :show, status: :ok, location: @company }
         else
@@ -85,7 +84,7 @@ class CompaniesController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def company_params
-      params.fetch(:company, {})
+      params.require(:company)
           .permit(:title, :inn, :address, :registration_date, :phones, :website, :kind, :okved, :comment,
           assignments_attributes: [:id, :date, :position, :face_id, :company_id, :_destroy],
           answers_attributes: [:id, :text, :question_id, :company_id, :_destroy])

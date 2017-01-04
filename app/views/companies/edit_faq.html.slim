@@ -12,7 +12,7 @@ h3 Часто задаваемые вопросы (FAQ)
         = simple_form_for @company, defaults: { input_html: { class: 'form-horizontal' } } do |f|
           - @questions.each_with_index do |question, index|
             .form-group
-              label = question.name
+              label= question.name
               - answer = Answer.where(company_id: @company.id, question_id: question.id).last
               input.form-control name="company[answers_attributes][#{index + 1}][text]" type='text' value="#{answer.try(:text)}"
               input name="company[answers_attributes][#{index + 1}][question_id]" type='hidden' value="#{question.id}"
