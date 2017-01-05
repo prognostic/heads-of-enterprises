@@ -33,6 +33,15 @@ class Company < ApplicationRecord
 
   enum kind: [:individual_entrepreneur, :ltd]
 
+  def answers_attributes=(hash)
+    hash.each do |sequence, answer_values|
+      answer = Answer.where(company_id: answer_values[:company_id], question_id: answer_values[:question_id])
+          .first_or_create(answer_values)
+      answer.update(answer_values)
+      answers << answer
+    end
+  end
+
   def self.i18n_kinds(hash = {})
     kinds.keys.each { |key| hash[I18n.t("kinds.#{key}")] = key }
     hash
